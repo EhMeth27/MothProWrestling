@@ -1,0 +1,10 @@
+MatchType: Singles | John Steel def. Rick Rage | Finish: Pinfall
+MatchType: Singles | Mike Blaze def. Sam Storm | Finish: Submission
+MatchType: Singles | Alex Titan def. John Steel | Finish: Pinfall
+MatchType: TripleThreat | Rick Rage def. Mike Blaze, Sam Storm | Finish: Pinfall
+MatchType: Singles | John Steel def. Alex Titan | Finish: Pinfall
+MatchType: Singles | Chris Viper def. Jake Thunder | Finish: Pinfall
+MatchType: Singles | Blade Hunter def. Victor Shadow | Finish: Submission
+MatchType: TripleThreat | Jake Thunder def. Chris Viper, Derek Storm | Finish: Pinfall
+MatchType: Singles | Chris Viper def. Blade Hunter | Finish: Pinfall
+MatchType: Singles | Victor Shadow def. Derek Storm | Finish: Pinfall

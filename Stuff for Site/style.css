@@ -1,0 +1,192 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: #eee;
+  margin: 0;
+  padding-top: 80px;
+}
+
+.navbar {
+  background: #ff3c3c;
+  padding: 1rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+.banner {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: none;
+}
+
+
+.banner img.active {
+  opacity: 1;
+  display: block;
+}
+
+h1, h2 {
+  color: #ff3c3c;
+  margin: 1rem;
+}
+
+section {
+  margin: 1rem;
+  background: #222;
+  padding: 1rem;
+  border-radius: 8px;
+}
+.wrestler-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.wrestler-card {
+  background: #222;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 8px #000;
+}
+
+.wrestler-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+table {
+  width: 90%;
+  margin: 1rem auto;
+  border-collapse: collapse;
+  background: #222;
+  color: #eee;
+  box-shadow: 0 0 10px #000;
+}
+
+th, td {
+  border: 1px solid #333;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+th {
+  background: #ff3c3c;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+tr:nth-child(even) {
+  background: #2a2a2a;
+}
+
+tr:hover {
+  background: #444;
+}
+.champion-card {
+  border: 2px solid gold;
+  box-shadow: 0 0 12px gold;
+}
+.wrestler-profile-page {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.wrestler-header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.wrestler-photo-wrap {
+  width: 120px;
+  height: 120px;
+  padding: 8px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f4c542, #8a6b00);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#wrestler-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+.wrestler-main-info h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2.2rem;
+}
+
+.wrestler-subline {
+  margin: 0.2rem 0;
+  color: #ccc;
+}
+
+.wrestler-record,
+.wrestler-elo,
+.wrestler-titles {
+  margin: 0.2rem 0;
+}
+
+.wrestler-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.detail-card {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  border: 1px solid #333;
+}
+
+.detail-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  border-bottom: 1px solid #444;
+  padding-bottom: 0.3rem;
+}
+
+.detail-card ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin: 0.5rem 0 0;
+}
+
+.detail-card li {
+  margin-bottom: 0.3rem;
+}
+
+#wrestler-titles {
+  margin-top: 0.4rem;
+}

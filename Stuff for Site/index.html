@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MothProWrestling</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation Bar python -m http.server 8000 -->
+  <nav class="navbar">
+    <a href="index.html">🏠 Home</a>
+    <a href="rankings.html">🏆 Rankings</a>
+    <a href="wrestlers.html">👥 Wrestlers</a>
+    <a href="news.html">📰 News</a>
+  </nav>
+
+  <!-- Rotating Banner -->
+  <div class="banner">
+    <img src="images/banner1.jpg" class="active">
+    <img src="images/banner2.jpg">
+    <img src="images/banner3.jpg">
+  </div>
+
+  <h1>Welcome to Moth Pro Wrestling</h1>
+
+  <!-- Last Week's Matches -->
+  <section>
+    <h2>Last Week's Matches</h2>
+    <ul id="last-week"></ul>
+  </section>
+
+  <!-- Upcoming Matches -->
+  <section>
+    <h2>Upcoming Matches</h2>
+    <ul id="upcoming"></ul>
+  </section>
+
+  <!-- News Tab -->
+  <section>
+    <h2>Latest News</h2>
+    <ul id="news"></ul>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

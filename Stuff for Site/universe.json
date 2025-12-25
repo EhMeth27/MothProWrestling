@@ -1,0 +1,51 @@
+{
+  "players": [
+    { "id": 1, "name": "RagGhee", "rank": 1, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/ragghee.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": [] },
+    { "id": 2, "name": "Ginauz", "rank": 2, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/gina.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []},
+    { "id": 3, "name": "PottiePots", "rank": 3, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/pottie.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": [] },
+    { "id": 4, "name": "CrowBird", "rank": 4, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/crow.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+    { "id": 5, "name": "RawrImHere", "rank": 5, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/rawr.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+    { "id": 6, "name": "Shartstarion", "rank": 6, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/shart.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+    { "id": 7, "name": "Narky", "rank": 7, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/narky.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+    { "id": 8, "name": "Madeline", "rank": 8, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/madeline.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+    { "id": 9, "name": "Offron", "rank": 9, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/offron.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+    { "id": 10, "name": "CannibalJeebus", "rank": 10, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/cannibal.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+    { "id": 11, "name": "RebelMime", "rank": 11, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/rebel.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+    { "id": 12, "name": "TaysTales", "rank": 12, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/tay.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+    { "id": 13, "name": "Jimmytvf", "rank": 13, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/jimmy.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+    { "id": 14, "name": "TollerTornado", "rank": 14, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/toller.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+    { "id": 15, "name": "HeyyaNito", "rank": 15, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/nito.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+    { "id": 16, "name": "MuddyB3", "rank": 16, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/muddy.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+	{ "id": 16, "name": "Pigmanman", "rank": 17, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/pigman.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+	{ "id": 16, "name": "WilliamIsTed", "rank": 18, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/william.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+	{ "id": 16, "name": "Cardraul", "rank": 19, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/card.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+	{ "id": 16, "name": "HerrKrokodile", "rank": 20, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/krok.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+	{ "id": 16, "name": "TheBobbyV", "rank": 21, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/bobby.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+	{ "id": 16, "name": "Ravroid", "rank": 22, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/ravroid.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+	{ "id": 17, "name": "Vacant", "rank": 23, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/default.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  }
+  ],
+  "championships": [
+    {
+      "name": "POG Championship",
+      "division": "Div 1",
+      "holder": "Vacant",
+      "contenders": []
+    },
+    {
+      "name": "Rising Star Championship",
+      "division": "Div 2",
+      "holder": "Vacant",
+      "contenders": []
+    }
+  ],
+  "lastWeekMatches": [
+    "John Doe def. John Doe Jr. (Pinfall)"
+  ],
+  "weeklyCard": [
+    "MatchType: Singles | Vacant vs Vacant | Finish: TBD",
+    "MatchType: TripleThreat | Vacant vs Vacant, Vacant | Finish: TBD"
+  ],
+  "news": [
+    "Wrestling Begins 2026!!!!"
+  ]
+}

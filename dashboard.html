@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WWE 2K25 Universe Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🏆 WWE 2K25 Universe Rankings</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Elo</th>
+        <th>Division</th>
+        <th>W-L</th>
+        <th>Last Match</th>
+      </tr>
+    </thead>
+    <tbody id="rankings"></tbody>
+  </table>
+
+  <h2>📅 Weekly Card</h2>
+  <ul id="weeklyCard"></ul>
+
+  <h2>🔥 Promos</h2>
+  <ul id="promos"></ul>
+
+  <h2>⚔️ Top Rivalries</h2>
+  <ul id="rivalries"></ul>
+
+  <h2>🧬 Faction Stats</h2>
+  <ul id="factions"></ul>
+
+  <script>
+    fetch('universe.json')
+      .then(res => res.json())
+      .then(data => {
+        const rankings = document.getElementById('

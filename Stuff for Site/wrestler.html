@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wrestler Profile</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="index.html">🏠 Home</a>
+    <a href="rankings.html">🏆 Rankings</a>
+    <a href="wrestlers.html">👥 Wrestlers</a>
+    <a href="news.html">📰 News</a>
+  </nav>
+
+  <main class="wrestler-profile-page">
+    <section class="wrestler-header">
+      <div class="wrestler-photo-wrap">
+        <img id="wrestler-photo" src="images/default.png" alt="Wrestler photo">
+      </div>
+      <div class="wrestler-main-info">
+        <h1 id="wrestler-name">Wrestler Name</h1>
+        <p id="wrestler-division-rank" class="wrestler-subline"></p>
+        <p id="wrestler-record" class="wrestler-record"></p>
+        <p id="wrestler-elo" class="wrestler-elo"></p>
+        <p id="wrestler-titles" class="wrestler-titles"></p>
+      </div>
+    </section>
+
+    <section class="wrestler-details">
+      <div class="detail-card">
+        <h2>Overview</h2>
+        <p id="wrestler-overview">
+          This competitor is ready to make their mark in the division. Stay tuned for their first big moment.
+        </p>
+      </div>
+
+      <div class="detail-card">
+        <h2>Recent Matches</h2>
+        <ul id="wrestler-matches">
+          <li>No recorded matches yet. The story is just beginning.</li>
+        </ul>
+      </div>
+
+      <div class="detail-card">
+        <h2>Career Highlights</h2>
+        <ul id="wrestler-highlights">
+          <li>Awaiting the first big highlight.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
