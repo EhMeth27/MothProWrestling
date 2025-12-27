@@ -16,13 +16,14 @@
     { "id": 14, "name": "TollerTornado", "rank": 14, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/toller.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
     { "id": 15, "name": "HeyyaNito", "rank": 15, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/nito.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
     { "id": 16, "name": "MuddyB3", "rank": 16, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/muddy.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
-	{ "id": 16, "name": "Pigmanman", "rank": 17, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/pigman.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
-	{ "id": 16, "name": "WilliamIsTed", "rank": 18, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/william.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
-	{ "id": 16, "name": "Cardraul", "rank": 19, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/card.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
-	{ "id": 16, "name": "HerrKrokodile", "rank": 20, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/krok.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
-	{ "id": 16, "name": "TheBobbyV", "rank": 21, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/bobby.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
-	{ "id": 16, "name": "Ravroid", "rank": 22, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/ravroid.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
-	{ "id": 17, "name": "Vacant", "rank": 23, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/default.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  }
+	{ "id": 17, "name": "Pigmanman", "rank": 17, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/pigman.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+	{ "id": 18, "name": "WilliamIsTed", "rank": 18, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/william.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+	{ "id": 19, "name": "Cardraul", "rank": 19, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/card.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+	{ "id": 20, "name": "HerrKrokodil", "rank": 20, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/krok.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+	{ "id": 21, "name": "TheBobbyV", "rank": 21, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/bobby.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+	{ "id": 22, "name": "Ravroid", "rank": 22, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/ravroid.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+	{ "id": 23, "name": "MininumWageWorker", "rank": 23, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/mininum.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  },
+	{ "id": 24, "name": "Vacant", "rank": 24, "wins": 0, "losses": 0, "elo": 1500, "division": "Div 1", "photo": "images/default.jpg", "bio": "Bio coming soon.", "signatureMoves": [],"highlights": ["Career highlights coming soon."], "championshipHistory": []  }
   ],
   "championships": [
     {
@@ -49,3 +50,4 @@
     "Wrestling Begins 2026!!!!"
   ]
 }
+
