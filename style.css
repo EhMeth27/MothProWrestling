@@ -327,3 +327,32 @@ body {
   box-sizing: border-box;
 }
 
+/* Default link color */
+a {
+  color: #ff3c3c; /* bright red to match your theme */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Hover color */
+a:hover {
+  color: #ff8080; /* lighter red */
+  text-decoration: underline;
+}
+
+/* Visited link color */
+a:visited {
+  color: #ff3c3c; /* SAME as normal so it never turns purple */
+}
+
+.navbar a {
+  color: #fff !important;
+}
+
+.navbar a:visited {
+  color: #fff !important;
+}
+
+.navbar a:hover {
+  color: #ffe6e6 !important;
+}

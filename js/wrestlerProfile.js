@@ -40,12 +40,30 @@ if (wrestler.matchHistory && wrestler.matchHistory.length > 0) {
       // Color result
       const resultColor = m.result === "WIN" ? "green" : "red";
 
-      // Extract opponent name from "Singles: A vs B"
-      let opponent = "Unknown";
-      const parts = m.match.split(" vs ");
-      if (parts.length === 2) {
-        opponent = parts[0].includes(wrestler.name) ? parts[1] : parts[0];
-      }
+      // Extract opponent name from ANY match format
+		let opponent = "Unknown";
+		let names = [];
+
+		// FORMAT B: "MatchType: Singles | A vs B | Finish: TBD"
+		if (m.match.includes("|")) {
+		  const parts = m.match.split("|").map(p => p.trim());
+		  const vsPart = parts.find(p => p.includes("vs"));
+		  if (vsPart) {
+			names = vsPart.split("vs").map(n => n.trim());
+		  }
+		}
+
+		// FORMAT A: "Singles: A vs B"
+		else if (m.match.includes(":") && m.match.includes("vs")) {
+		  const afterColon = m.match.split(":")[1];
+		  names = afterColon.split("vs").map(n => n.trim());
+		}
+
+		// Determine opponent based on THIS wrestler
+		if (names.length === 2) {
+		  opponent = names[0] === wrestler.name ? names[1] : names[0];
+		}
+
 
       const date = new Date(m.timestamp).toLocaleDateString();
 
@@ -61,6 +79,60 @@ if (wrestler.matchHistory && wrestler.matchHistory.length > 0) {
   matchesEl.innerHTML = `<li>No matches recorded yet.</li>`;
 }
 
+// Career stats
+const statsEl = document.getElementById('wrestler-career-stats');
+
+if (wrestler.matchHistory && wrestler.matchHistory.length > 0) {
+  const matches = wrestler.matchHistory.sort((a, b) => a.timestamp - b.timestamp);
+
+  let total = matches.length;
+  let wins = matches.filter(m => m.result === "WIN").length;
+  let losses = total - wins;
+
+  // Streaks
+  let currentStreak = 0;
+  let longestWinStreak = 0;
+  let longestLossStreak = 0;
+  let tempWin = 0;
+  let tempLoss = 0;
+
+  matches.forEach(m => {
+    if (m.result === "WIN") {
+      tempWin++;
+      tempLoss = 0;
+      if (tempWin > longestWinStreak) longestWinStreak = tempWin;
+    } else {
+      tempLoss++;
+      tempWin = 0;
+      if (tempLoss > longestLossStreak) longestLossStreak = tempLoss;
+    }
+  });
+
+  // Current streak (based on last match)
+  const last = matches[matches.length - 1];
+  if (last.result === "WIN") {
+    currentStreak = tempWin;
+  } else {
+    currentStreak = -tempLoss; // negative means losing streak
+  }
+
+  const streakText =
+    currentStreak > 0 ? `W${currentStreak}` :
+    currentStreak < 0 ? `L${Math.abs(currentStreak)}` :
+    "None";
+
+  statsEl.innerHTML = `
+    <strong>Career Stats:</strong><br>
+    Total Matches: ${total}<br>
+    Wins: ${wins}<br>
+    Losses: ${losses}<br>
+    Current Streak: ${streakText}<br>
+    Longest Win Streak: ${longestWinStreak}<br>
+    Longest Losing Streak: ${longestLossStreak}
+  `;
+} else {
+  statsEl.textContent = "Career Stats: No matches yet.";
+}
 
 
   // Highlights placeholder
