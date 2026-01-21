@@ -1,33 +1,28 @@
 function createMatchCard(matchString, data, glowWinners = false) {
-  let names = [];
 
-  // FORMAT B: "MatchType: Singles | A vs B | Finish: TBD"
-  if (matchString.includes("|")) {
-    const parts = matchString.split("|").map(p => p.trim());
-    const vsPart = parts.find(p => p.includes("vs"));
-    names = vsPart.split("vs").map(n => n.trim());
+  function extractNames(matchString) {
+    // Grab the part before the date or finish tag
+    const beforeMeta = matchString.split("|")[1] && matchString.includes("MatchType")
+      ? matchString.split("|")[1].trim() // MatchType format
+      : matchString.split("|")[0].trim(); // Standard format
+
+    // Extract all names separated by "vs"
+    return beforeMeta.split("vs").map(n => n.trim()).filter(n => n.length > 0);
   }
 
-  // FORMAT A: "Singles: A vs B"
-  else {
-    names = matchString
-      .replace("(PPV)", "")
-      .split(":")[1]
-      .split("vs")
-      .map(n => n.trim());
-  }
+  const names = extractNames(matchString);
 
+  // Winner is always the first name
   const winnerName = names[0];
 
-  // Randomize order
-  if (Math.random() < 0.5) {
-    names.reverse();
-  }
+  // Randomize display order
+  const shuffled = [...names];
+  if (Math.random() < 0.5) shuffled.reverse();
 
   const container = document.createElement("div");
   container.className = "match-card";
 
-  names.forEach((name, index) => {
+  shuffled.forEach((name, index) => {
     const wrestler = data.players.find(p => p.name === name);
 
     const img = document.createElement("img");
@@ -44,7 +39,7 @@ function createMatchCard(matchString, data, glowWinners = false) {
 
     container.appendChild(link);
 
-    if (index < names.length - 1) {
+    if (index < shuffled.length - 1) {
       const vs = document.createElement("span");
       vs.className = "vs-text";
       vs.textContent = "VS";
@@ -54,6 +49,7 @@ function createMatchCard(matchString, data, glowWinners = false) {
 
   return container;
 }
+
 
 loadUniverse(data => {
   const lastWeek = document.getElementById("last-week");
@@ -69,5 +65,3 @@ loadUniverse(data => {
     upcoming.appendChild(createMatchCard(m, data, false));
   });
 });
-
-
