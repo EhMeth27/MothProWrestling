@@ -46,7 +46,6 @@ function updateEloMultiman(players, winnerName, matchType, isPPV = false) {
   const winnerMult = baseWinnerMult + ppvBoost;
   const loserMult  = baseLoserMult + ppvBoost;
 
-  // Mild chaos: -2 to +2
   const chaos = (Math.random() - 0.5) * 4;
 
   const winner = players.find(p => p.name === winnerName);
@@ -55,51 +54,41 @@ function updateEloMultiman(players, winnerName, matchType, isPPV = false) {
     return players;
   }
 
-  // Average opponent ELO (all but winner)
   const avgOppElo = players
     .filter(p => p.name !== winnerName)
     .reduce((sum, p) => sum + p.elo, 0) / (numPlayers - 1);
 
   const expectedWinner = 1 / (1 + Math.pow(10, (avgOppElo - winner.elo) / 400));
 
-  // Save last week's ELO before updating 
   winner.lastElo = winner.elo;
-  // Update winner ELO
   winner.elo = Math.round(
     winner.elo + (k * (1 - expectedWinner) * winnerMult) + chaos
   );
 
-  // Update losers ELO
   players.forEach(p => {
     if (p.name === winnerName) return;
-	// Save last week's ELO before updating
-	p.lastElo = p.elo;
+
+    p.lastElo = p.elo;
     const expectedLoser = 1 / (1 + Math.pow(10, (winner.elo - p.elo) / 400));
 
     p.elo = Math.round(
       p.elo + (k * (0 - expectedLoser) * loserMult) - chaos
     );
   });
-  players.forEach(p => {
-	player.elo = newElo;
-  }
+
   return players;
 }
 
 // ==============================================
 // 3. MATCH STRING PARSING
 // ==============================================
-// Accepted formats:
-// "Singles: A vs B"
-// "TripleThreat: A vs B vs C"
-// "FourWay: A vs B vs C vs D"
-// "SixWay(PPV): A vs B vs C vs D vs E vs F"
-// Winner is always the FIRST name in the list.
+// Format required:
+// "Singles: A vs B | YYYY-MM-DD"
+// Winner is always the FIRST name.
 
 function parseMatchString(str) {
   const isPPV = str.includes("(PPV)");
 
-  // Split off the date if provided
   let datePart = null;
   if (str.includes("|")) {
     const parts = str.split("|");
@@ -121,7 +110,6 @@ function parseMatchString(str) {
   return { matchType, names, isPPV, datePart };
 }
 
-
 // ==============================================
 // 4. PROCESS A SINGLE MATCH STRING
 // ==============================================
@@ -130,7 +118,9 @@ function processMatchString(matchString, universe) {
   const parsed = parseMatchString(matchString);
   if (!parsed) return universe;
 
-  const { matchType, names, isPPV } = parsed;
+  const { matchType, names, isPPV, datePart } = parsed;
+	// Build clean universal match string
+	const cleanMatch = `${names[0]} vs ${names[1]} | ${datePart}`;
 
   const players = names.map(n => getPlayer(universe, n)).filter(Boolean);
 
@@ -139,15 +129,14 @@ function processMatchString(matchString, universe) {
     return universe;
   }
 
-  const winnerName = names[0]; // first listed = winner
-
+  const winnerName = names[0];
   const winner = players.find(p => p.name === winnerName);
+
   if (!winner) {
     console.warn("⚠ Winner not found among loaded players:", winnerName);
     return universe;
   }
 
-  // Wins / losses
   winner.wins = (winner.wins || 0) + 1;
   players.forEach(p => {
     if (p.name !== winnerName) {
@@ -155,8 +144,11 @@ function processMatchString(matchString, universe) {
     }
   });
 
-  // ELO update (handles singles + multi-man)
   updateEloMultiman(players, winnerName, matchType, isPPV);
+
+  // Timestamp (REQUIRED because you chose Option A)
+  const dateString = `${datePart}T11:00:00-06:00`;
+  const timestamp = new Date(dateString).getTime();
 
   // Per-wrestler match history
   players.forEach(p => {
@@ -164,68 +156,45 @@ function processMatchString(matchString, universe) {
     p.matchHistory.unshift({
       result: p.name === winnerName ? "WIN" : "LOSS",
       match: matchString,
-	  let timestamp;
-
-	  if (parsed.datePart) {
-		  // Force 11 AM Central Time
-		  const dateString = `${parsed.datePart}T11:00:00-06:00`;
-		  timestamp = new Date(dateString).getTime();
-	  } else {
-		  timestamp = Date.now();
-	  }
-
+      timestamp: timestamp
     });
-    // Keep only last 20 matches per wrestler
     p.matchHistory = p.matchHistory.slice(0, 20);
   });
 
-  // Weekly match list (for site display)
+  // Weekly match list
   universe.lastWeekMatches = universe.lastWeekMatches || [];
   universe.lastWeekMatches.push(matchString);
 
-  // Global universe match history
+  // Global match history
   universe.matchHistory = universe.matchHistory || [];
   universe.matchHistory.unshift({
     match: matchString,
-	  if (parsed.datePart) {
-		  // Force 11 AM Central Time
-		  const dateString = `${parsed.datePart}T11:00:00-06:00`;
-		  timestamp = new Date(dateString).getTime();
-	  } else {
-		  timestamp = Date.now();
-	  }
+    timestamp: timestamp
   });
-  // Keep last 500 matches globally
   universe.matchHistory = universe.matchHistory.slice(0, 500);
 
   return universe;
 }
 
 // ==============================================
-// 5. RUN A FULL SHOW (ARRAY OF MATCH STRINGS)
+// 5. RUN A FULL SHOW
 // ==============================================
 
 function runShow(matchStrings, universe) {
-  // Clear last week's matches each run
   universe.lastWeekMatches = [];
   matchStrings.forEach(m => processMatchString(m, universe));
   return universe;
 }
 
 // ==============================================
-/* 6. RANKINGS + DIVISIONS
-   Div 1: elo >= 1500
-   Div 2: elo < 1500
-*/
+// 6. RANKINGS + DIVISIONS
 // ==============================================
 
 function updateRankingsAndDivisions(universe) {
-  // Assign divisions based on ELO
   universe.players.forEach(player => {
     player.division = player.elo >= 1500 ? "Div 1" : "Div 2";
   });
 
-  // Sort each division separately
   const div1 = universe.players
     .filter(p => p.division === "Div 1")
     .sort((a, b) => b.elo - a.elo);
@@ -234,7 +203,6 @@ function updateRankingsAndDivisions(universe) {
     .filter(p => p.division === "Div 2")
     .sort((a, b) => b.elo - a.elo);
 
-  // Assign division ranks (start at 1 for each division)
   div1.forEach((player, index) => {
     player.divisionRank = index + 1;
   });
@@ -243,7 +211,6 @@ function updateRankingsAndDivisions(universe) {
     player.divisionRank = index + 1;
   });
 
-  // Optional: keep global rank too
   universe.players.sort((a, b) => b.elo - a.elo);
   universe.players.forEach((player, index) => {
     player.rank = index + 1;
@@ -252,16 +219,14 @@ function updateRankingsAndDivisions(universe) {
   console.log("✔ Divisions and division rankings updated.");
 }
 
-
 // ==============================================
-// 7. DIVISION-BASED MATCHMAKING
+// 7. MATCHMAKING HELPERS
 // ==============================================
 
 function getPlayersByDivision(universe, division) {
   return universe.players.filter(p => p.division === division);
 }
 
-// Generate N random singles matches within a division
 function generateSinglesMatches(universe, division, count = 3) {
   const pool = [...getPlayersByDivision(universe, division)];
   const matches = [];
@@ -276,7 +241,6 @@ function generateSinglesMatches(universe, division, count = 3) {
   return matches;
 }
 
-// Generate a single multi-man match from a division
 function generateMultimanMatch(universe, division, size = 3) {
   const pool = [...getPlayersByDivision(universe, division)];
 
@@ -319,45 +283,21 @@ function saveUniverse(universe) {
 
 let universe = require("./universe.json");
 
-// Ensure history structures exist
 universe.lastWeekMatches = universe.lastWeekMatches || [];
 universe.matchHistory = universe.matchHistory || [];
 
-// Example: manually booked matches (edit or replace these)
-const manualMatches = [
-  "Singles: RagGhee vs Shartstarion",
-  "TripleThreat: Narky vs Ravroid vs Offron",
-  "FourWay(PPV): CrowBird vs PottiePots vs TaysTales vs MininumWageWorker"
-];
-
-// Example: auto-generate some division-based matches
-const div1Singles = generateSinglesMatches(universe, "Div 1", 2);
-const div2Singles = generateSinglesMatches(universe, "Div 2", 2);
-const div1Triple  = generateMultimanMatch(universe, "Div 1", 3);
-const div2Four    = generateMultimanMatch(universe, "Div 2", 4);
-
-const autoMatches = [
-  ...div1Singles,
-  ...div2Singles,
-  div1Triple,
-  div2Four
-].filter(Boolean);
-
-// Choose what to run:
-//  - just manualMatches
-//  - just autoMatches
-//  - or combine them
+// Your matches MUST include dates now (Option A)
 const matchesToRun = [
-	"Singles: RagGhee vs Shartstarion",
-	"Singles: Narky vs Ravroid",
-	"Singles: Cardraul vs WilliamIsTed",
-	"Singles: HerrKrokodil vs Madeline",
-	"Singles: Offron vs PottiePots",
-	"Singles: TollerTornado vs TheBobbyV",
-	"Singles: CrowBird vs HeyyaNito",
-	"Singles: TaysTales vs CannibalJeebus",
-	"Singles: MininumWageWorker vs RebelMime",
-	"Singles: Shartstarion vs Jimmytvf"
+	"Singles: Kaden vs TollerTornado | 2026-01-19",
+	"Singles: Ginauz vs HerrKrokodil | 2026-01-19",
+	"Singles: MuddyB3 vs Jimmytvf | 2026-01-20",
+	"Singles: RawrImHere vs Balderoni | 2026-01-20",
+	"Singles: TheBobbyV vs Paulg8 | 2026-01-21",
+	"Singles: Cardraul vs PottiePots | 2026-01-21",
+	"Singles: Narky vs RagGhee | 2026-01-22",
+	"Singles: Ravroid vs Deadlee | 2026-01-22",
+	"Singles: MininumWageWorker vs Offron | 2026-01-23",
+	"TripleThreat: RebelMime vs WilliamIsTed vs CannibalJeebus | 2026-01-23"
 ];
 
 universe = runShow(matchesToRun, universe);
