@@ -35,74 +35,71 @@
         }
       ]
     },
-    {
-      "id": 2,
-      "name": "Ginauz",
-      "rank": 2,
-      "wins": 1,
-      "losses": 1,
-      "elo": 1501,
-      "lastElo": 1515,
+	 {
+      "id": 29,
+      "name": "Lilith",
       "division": "Div 1",
-      "photo": "images/gina.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "divisionRank": 14,
-      "matchHistory": [
-        {
-          "result": "LOSS",
-          "match": "HerrKrokodil vs Ginauz | 2026-01-19",
-          "timestamp": 1768842000000
-        },
-        {
-          "result": "WIN",
-          "match": "Ginauz vs Pigmanman | 2026-01-12",
-          "timestamp": 1768237200000
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "name": "RawrImHere",
-      "rank": 3,
-      "wins": 2,
+      "divisionRank": 16,
+      "rank": 16,
+      "wins": 0,
       "losses": 0,
-      "elo": 1531,
-      "lastElo": 1515,
-      "division": "Div 1",
-      "photo": "images/rawr.jpg",
+      "elo": 1500,
+      "lastElo": 1500,
+      "photo": "images/lilith.jpg",
       "bio": "Bio coming soon.",
       "signatureMoves": [],
       "highlights": [
         "Career highlights coming soon."
       ],
       "championshipHistory": [],
-      "divisionRank": 3,
-      "matchHistory": [
-        {
-          "result": "WIN",
-          "match": "RawrImHere vs Balderoni | 2026-01-20",
-          "timestamp": 1768928400000
-        },
-        {
-          "result": "WIN",
-          "match": "RawrImHere vs MuddyB3 | 2026-01-13",
-          "timestamp": 1768323600000
-        }
-      ]
+      "matchHistory": []
+    },
+	{
+      "id": 30,
+      "name": "BloodiestCorpse",
+      "division": "Div 1",
+      "divisionRank": 17,
+      "rank": 17,
+      "wins": 0,
+      "losses": 0,
+      "elo": 1500,
+      "lastElo": 1500,
+      "photo": "images/bloodiest.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": []
+    },
+	{
+      "id": 31,
+      "name": "ManulTheCat",
+      "division": "Div 1",
+      "divisionRank": 18,
+      "rank": 18,
+      "wins": 0,
+      "losses": 0,
+      "elo": 1500,
+      "lastElo": 1500,
+      "photo": "images/manul.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": []
     },
     {
       "id": 12,
       "name": "TaysTales",
-      "rank": 4,
-      "wins": 2,
+      "rank": 2,
+      "wins": 3,
       "losses": 0,
-      "elo": 1529,
-      "lastElo": 1515,
+      "elo": 1546,
+      "lastElo": 1529,
       "division": "Div 1",
       "photo": "images/tay.jpg",
       "bio": "Bio coming soon.",
@@ -114,6 +111,11 @@
       "matchHistory": [
         {
           "result": "WIN",
+          "match": "TaysTales vs Cardraul| 2026-01-29",
+          "timestamp": 1769706000000
+        },
+        {
+          "result": "WIN",
           "match": "TaysTales vs CrowBird | 2026-01-16",
           "timestamp": 1768582800000
         },
@@ -123,142 +125,12 @@
           "timestamp": 1767891600000
         }
       ],
-      "divisionRank": 4
-    },
-    {
-      "id": 1,
-      "name": "RagGhee",
-      "rank": 5,
-      "wins": 2,
-      "losses": 1,
-      "elo": 1519,
-      "lastElo": 1534,
-      "division": "Div 1",
-      "photo": "images/ragghee.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "LOSS",
-          "match": "Narky vs RagGhee | 2026-01-22",
-          "timestamp": 1769101200000
-        },
-        {
-          "result": "WIN",
-          "match": "RagGhee vs Cardraul | 2026-01-13",
-          "timestamp": 1768323600000
-        },
-        {
-          "result": "WIN",
-          "match": "RagGhee vs Shartstarion | 2026-01-05",
-          "timestamp": 1767632400000
-        }
-      ],
-      "divisionRank": 5
-    },
-    {
-      "id": 19,
-      "name": "Cardraul",
-      "rank": 6,
-      "wins": 2,
-      "losses": 1,
-      "elo": 1518,
-      "lastElo": 1500,
-      "division": "Div 1",
-      "photo": "images/card.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "WIN",
-          "match": "Cardraul vs PottiePots | 2026-01-21",
-          "timestamp": 1769014800000
-        },
-        {
-          "result": "LOSS",
-          "match": "RagGhee vs Cardraul | 2026-01-13",
-          "timestamp": 1768323600000
-        },
-        {
-          "result": "WIN",
-          "match": "Cardraul vs WilliamIsTed | 2026-01-06",
-          "timestamp": 1767718800000
-        }
-      ],
-      "divisionRank": 6
-    },
-    {
-      "id": 25,
-      "name": "Kaden",
-      "rank": 7,
-      "wins": 1,
-      "losses": 0,
-      "elo": 1518,
-      "lastElo": 1500,
-      "division": "Div 1",
-      "photo": "images/kaden.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "WIN",
-          "match": "Kaden vs TollerTornado | 2026-01-19",
-          "timestamp": 1768842000000
-        }
-      ],
-      "divisionRank": 7
-    },
-    {
-      "id": 23,
-      "name": "MininumWageWorker",
-      "rank": 8,
-      "wins": 2,
-      "losses": 1,
-      "elo": 1516,
-      "lastElo": 1501,
-      "division": "Div 1",
-      "photo": "images/mininum.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "WIN",
-          "match": "MininumWageWorker vs Offron | 2026-01-23",
-          "timestamp": 1769187600000
-        },
-        {
-          "result": "LOSS",
-          "match": "Narky vs MininumWageWorker | 2026-01-12",
-          "timestamp": 1768237200000
-        },
-        {
-          "result": "WIN",
-          "match": "MininumWageWorker vs RebelMime | 2026-01-08",
-          "timestamp": 1767978000000
-        }
-      ],
-      "divisionRank": 8
+      "divisionRank": 2
     },
     {
       "id": 20,
       "name": "HerrKrokodil",
-      "rank": 9,
+      "rank": 3,
       "wins": 3,
       "losses": 0,
       "elo": 1544,
@@ -288,12 +160,257 @@
           "timestamp": 1767718800000
         }
       ],
-      "divisionRank": 2
+      "divisionRank": 3
+    },
+    {
+      "id": 25,
+      "name": "Kaden",
+      "rank": 4,
+      "wins": 2,
+      "losses": 0,
+      "elo": 1536,
+      "lastElo": 1518,
+      "division": "Div 1",
+      "photo": "images/kaden.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "Kaden vs RawrImHere | 2026-01-26",
+          "timestamp": 1769446800000
+        },
+        {
+          "result": "WIN",
+          "match": "Kaden vs TollerTornado | 2026-01-19",
+          "timestamp": 1768842000000
+        }
+      ],
+      "divisionRank": 4
+    },
+    {
+      "id": 1,
+      "name": "RagGhee",
+      "rank": 5,
+      "wins": 3,
+      "losses": 1,
+      "elo": 1534,
+      "lastElo": 1519,
+      "division": "Div 1",
+      "photo": "images/ragghee.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "RagGhee vs Shartstarion | 2026-01-26",
+          "timestamp": 1769446800000
+        },
+        {
+          "result": "LOSS",
+          "match": "Narky vs RagGhee | 2026-01-22",
+          "timestamp": 1769101200000
+        },
+        {
+          "result": "WIN",
+          "match": "RagGhee vs Cardraul | 2026-01-13",
+          "timestamp": 1768323600000
+        },
+        {
+          "result": "WIN",
+          "match": "RagGhee vs Shartstarion | 2026-01-05",
+          "timestamp": 1767632400000
+        }
+      ],
+      "divisionRank": 5
+    },
+    {
+      "id": 21,
+      "name": "TheBobbyV",
+      "division": "Div 1",
+      "divisionRank": 6,
+      "rank": 6,
+      "wins": 2,
+      "losses": 1,
+      "elo": 1518,
+      "lastElo": 1501,
+      "photo": "images/bobby.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "TheBobbyV vs MuddyB3 | 2026-01-25",
+          "timestamp": 1769360400000
+        },
+        {
+          "result": "WIN",
+          "match": "TheBobbyV vs Paulg8 | 2026-01-21",
+          "timestamp": 1769014800000
+        },
+        {
+          "result": "LOSS",
+          "match": "TollerTornado vs TheBobbyV | 2026-01-07",
+          "timestamp": 1767805200000
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "name": "MininumWageWorker",
+      "rank": 7,
+      "wins": 2,
+      "losses": 1,
+      "elo": 1516,
+      "lastElo": 1501,
+      "division": "Div 1",
+      "photo": "images/mininum.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "MininumWageWorker vs Offron | 2026-01-23",
+          "timestamp": 1769187600000
+        },
+        {
+          "result": "LOSS",
+          "match": "Narky vs MininumWageWorker | 2026-01-12",
+          "timestamp": 1768237200000
+        },
+        {
+          "result": "WIN",
+          "match": "MininumWageWorker vs RebelMime | 2026-01-08",
+          "timestamp": 1767978000000
+        }
+      ],
+      "divisionRank": 7
+    },
+    {
+      "id": 2,
+      "name": "Ginauz",
+      "rank": 8,
+      "wins": 2,
+      "losses": 1,
+      "elo": 1515,
+      "lastElo": 1501,
+      "division": "Div 1",
+      "photo": "images/gina.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "divisionRank": 8,
+      "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "Ginauz vs RebelMime | 2026-01-28",
+          "timestamp": 1769619600000
+        },
+        {
+          "result": "LOSS",
+          "match": "HerrKrokodil vs Ginauz | 2026-01-19",
+          "timestamp": 1768842000000
+        },
+        {
+          "result": "WIN",
+          "match": "Ginauz vs Pigmanman | 2026-01-12",
+          "timestamp": 1768237200000
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "RawrImHere",
+      "rank": 9,
+      "wins": 2,
+      "losses": 1,
+      "elo": 1514,
+      "lastElo": 1531,
+      "division": "Div 1",
+      "photo": "images/rawr.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "divisionRank": 9,
+      "matchHistory": [
+        {
+          "result": "LOSS",
+          "match": "Kaden vs RawrImHere | 2026-01-26",
+          "timestamp": 1769446800000
+        },
+        {
+          "result": "WIN",
+          "match": "RawrImHere vs Balderoni | 2026-01-20",
+          "timestamp": 1768928400000
+        },
+        {
+          "result": "WIN",
+          "match": "RawrImHere vs MuddyB3 | 2026-01-13",
+          "timestamp": 1768323600000
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "name": "HeyyaNito",
+      "division": "Div 1",
+      "divisionRank": 10,
+      "rank": 10,
+      "wins": 2,
+      "losses": 1,
+      "elo": 1514,
+      "lastElo": 1500,
+      "photo": "images/nito.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "HeyyaNito vs CrowBird | 2026-01-25",
+          "timestamp": 1769360400000
+        },
+        {
+          "result": "WIN",
+          "match": "HeyyaNito vs CannibalJeebus | 2026-01-16",
+          "timestamp": 1768582800000
+        },
+        {
+          "result": "LOSS",
+          "match": "CrowBird vs HeyyaNito | 2026-01-09",
+          "timestamp": 1767891600000
+        }
+      ]
     },
     {
       "id": 22,
       "name": "Ravroid",
-      "rank": 10,
+      "rank": 11,
       "wins": 2,
       "losses": 1,
       "elo": 1513,
@@ -323,227 +440,17 @@
           "timestamp": 1767806014016
         }
       ],
-      "divisionRank": 9
-    },
-    {
-      "id": 4,
-      "name": "CrowBird",
-      "rank": 11,
-      "wins": 1,
-      "losses": 1,
-      "elo": 1502,
-      "lastElo": 1515,
-      "division": "Div 1",
-      "photo": "images/crow.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "LOSS",
-          "match": "TaysTales vs CrowBird | 2026-01-16",
-          "timestamp": 1768582800000
-        },
-        {
-          "result": "WIN",
-          "match": "CrowBird vs HeyyaNito | 2026-01-09",
-          "timestamp": 1767891600000
-        }
-      ],
       "divisionRank": 11
-    },
-    {
-      "id": 17,
-      "name": "Pigmanman",
-      "rank": 12,
-      "wins": 1,
-      "losses": 1,
-      "elo": 1502,
-      "lastElo": 1485,
-      "division": "Div 1",
-      "photo": "images/pigman.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "divisionRank": 10,
-      "matchHistory": [
-        {
-          "result": "WIN",
-          "match": "Pigmanman vs Shartstarion | 2026-01-15",
-          "timestamp": 1768496400000
-        },
-        {
-          "result": "LOSS",
-          "match": "Ginauz vs Pigmanman | 2026-01-12",
-          "timestamp": 1768237200000
-        }
-      ]
-    },
-    {
-      "id": 16,
-      "name": "MuddyB3",
-      "rank": 13,
-      "wins": 1,
-      "losses": 1,
-      "elo": 1501,
-      "lastElo": 1486,
-      "division": "Div 1",
-      "photo": "images/muddy.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "divisionRank": 12,
-      "matchHistory": [
-        {
-          "result": "WIN",
-          "match": "MuddyB3 vs Jimmytvf | 2026-01-20",
-          "timestamp": 1768928400000
-        },
-        {
-          "result": "LOSS",
-          "match": "RawrImHere vs MuddyB3 | 2026-01-13",
-          "timestamp": 1768323600000
-        }
-      ]
-    },
-    {
-      "id": 21,
-      "name": "TheBobbyV",
-      "division": "Div 1",
-      "divisionRank": 13,
-      "rank": 14,
-      "wins": 1,
-      "losses": 1,
-      "elo": 1501,
-      "lastElo": 1485,
-      "photo": "images/bobby.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "WIN",
-          "match": "TheBobbyV vs Paulg8 | 2026-01-21",
-          "timestamp": 1769014800000
-        },
-        {
-          "result": "LOSS",
-          "match": "TollerTornado vs TheBobbyV | 2026-01-07",
-          "timestamp": 1767805200000
-        }
-      ]
-    },
-    {
-      "id": 15,
-      "name": "HeyyaNito",
-      "division": "Div 1",
-      "divisionRank": 15,
-      "rank": 15,
-      "wins": 1,
-      "losses": 1,
-      "elo": 1500,
-      "lastElo": 1485,
-      "photo": "images/nito.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "WIN",
-          "match": "HeyyaNito vs CannibalJeebus | 2026-01-16",
-          "timestamp": 1768582800000
-        },
-        {
-          "result": "LOSS",
-          "match": "CrowBird vs HeyyaNito | 2026-01-09",
-          "timestamp": 1767891600000
-        }
-      ]
-    },
-    {
-      "id": 11,
-      "name": "RebelMime",
-      "rank": 16,
-      "wins": 1,
-      "losses": 1,
-      "elo": 1500,
-      "lastElo": 1483,
-      "division": "Div 1",
-      "photo": "images/rebel.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "WIN",
-          "match": "TripleThreat: RebelMime vs WilliamIsTed vs CannibalJeebus | 2026-01-23",
-          "timestamp": 1769187600000
-        },
-        {
-          "result": "LOSS",
-          "match": "MininumWageWorker vs RebelMime | 2026-01-08",
-          "timestamp": 1767978000000
-        }
-      ],
-      "divisionRank": 16
-    },
-    {
-      "id": 14,
-      "name": "TollerTornado",
-      "rank": 17,
-      "wins": 1,
-      "losses": 1,
-      "elo": 1498,
-      "lastElo": 1515,
-      "division": "Div 2",
-      "photo": "images/toller.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "LOSS",
-          "match": "Kaden vs TollerTornado | 2026-01-19",
-          "timestamp": 1768842000000
-        },
-        {
-          "result": "WIN",
-          "match": "TollerTornado vs TheBobbyV | 2026-01-07",
-          "timestamp": 1767805200000
-        }
-      ],
-      "divisionRank": 1
     },
     {
       "id": 3,
       "name": "PottiePots",
-      "rank": 18,
-      "wins": 1,
+      "rank": 12,
+      "wins": 2,
       "losses": 2,
-      "elo": 1486,
-      "lastElo": 1503,
-      "division": "Div 2",
+      "elo": 1503,
+      "lastElo": 1486,
+      "division": "Div 1",
       "photo": "images/pottie.jpg",
       "bio": "Bio coming soon.",
       "signatureMoves": [],
@@ -552,6 +459,11 @@
       ],
       "championshipHistory": [],
       "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "PottiePots vs TollerTornado | 2026-01-27",
+          "timestamp": 1769533200000
+        },
         {
           "result": "LOSS",
           "match": "Cardraul vs PottiePots | 2026-01-21",
@@ -568,16 +480,356 @@
           "timestamp": 1767805200000
         }
       ],
+      "divisionRank": 12
+    },
+    {
+      "id": 17,
+      "name": "Pigmanman",
+      "rank": 13,
+      "wins": 1,
+      "losses": 1,
+      "elo": 1502,
+      "lastElo": 1485,
+      "division": "Div 1",
+      "photo": "images/pigman.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "divisionRank": 13,
+      "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "Pigmanman vs Shartstarion | 2026-01-15",
+          "timestamp": 1768496400000
+        },
+        {
+          "result": "LOSS",
+          "match": "Ginauz vs Pigmanman | 2026-01-12",
+          "timestamp": 1768237200000
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "name": "Cardraul",
+      "rank": 14,
+      "wins": 2,
+      "losses": 2,
+      "elo": 1501,
+      "lastElo": 1518,
+      "division": "Div 1",
+      "photo": "images/card.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "LOSS",
+          "match": "TaysTales vs Cardraul| 2026-01-29",
+          "timestamp": 1769706000000
+        },
+        {
+          "result": "WIN",
+          "match": "Cardraul vs PottiePots | 2026-01-21",
+          "timestamp": 1769014800000
+        },
+        {
+          "result": "LOSS",
+          "match": "RagGhee vs Cardraul | 2026-01-13",
+          "timestamp": 1768323600000
+        },
+        {
+          "result": "WIN",
+          "match": "Cardraul vs WilliamIsTed | 2026-01-06",
+          "timestamp": 1767718800000
+        }
+      ],
+      "divisionRank": 14
+    },
+    {
+      "id": 26,
+      "name": "Balderoni",
+      "rank": 15,
+      "wins": 1,
+      "losses": 1,
+      "elo": 1500,
+      "lastElo": 1485,
+      "division": "Div 1",
+      "photo": "images/balderoni.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "Balderoni vs Deadlee | 2026-01-29",
+          "timestamp": 1769706000000
+        },
+        {
+          "result": "LOSS",
+          "match": "RawrImHere vs Balderoni | 2026-01-20",
+          "timestamp": 1768928400000
+        }
+      ],
+      "divisionRank": 15
+    },
+    {
+      "id": 27,
+      "name": "Paulg8",
+      "rank": 16,
+      "wins": 1,
+      "losses": 1,
+      "elo": 1499,
+      "lastElo": 1485,
+      "division": "Div 2",
+      "photo": "images/paul.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "Paulg8 vs Jimmytvf | 2026-01-28",
+          "timestamp": 1769619600000
+        },
+        {
+          "result": "LOSS",
+          "match": "TheBobbyV vs Paulg8 | 2026-01-21",
+          "timestamp": 1769014800000
+        }
+      ],
+      "divisionRank": 1
+    },
+    {
+      "id": 4,
+      "name": "CrowBird",
+      "rank": 17,
+      "wins": 1,
+      "losses": 2,
+      "elo": 1488,
+      "lastElo": 1502,
+      "division": "Div 2",
+      "photo": "images/crow.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "LOSS",
+          "match": "HeyyaNito vs CrowBird | 2026-01-25",
+          "timestamp": 1769360400000
+        },
+        {
+          "result": "LOSS",
+          "match": "TaysTales vs CrowBird | 2026-01-16",
+          "timestamp": 1768582800000
+        },
+        {
+          "result": "WIN",
+          "match": "CrowBird vs HeyyaNito | 2026-01-09",
+          "timestamp": 1767891600000
+        }
+      ],
       "divisionRank": 2
+    },
+    {
+      "id": 11,
+      "name": "RebelMime",
+      "rank": 18,
+      "wins": 1,
+      "losses": 2,
+      "elo": 1487,
+      "lastElo": 1500,
+      "division": "Div 2",
+      "photo": "images/rebel.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "LOSS",
+          "match": "Ginauz vs RebelMime | 2026-01-28",
+          "timestamp": 1769619600000
+        },
+        {
+          "result": "WIN",
+          "match": "RebelMime vs WilliamIsTed vs CannibalJeebus | 2026-01-23",
+          "timestamp": 1769187600000
+        },
+        {
+          "result": "LOSS",
+          "match": "MininumWageWorker vs RebelMime | 2026-01-08",
+          "timestamp": 1767978000000
+        }
+      ],
+      "divisionRank": 3
+    },
+    {
+      "id": 16,
+      "name": "MuddyB3",
+      "rank": 19,
+      "wins": 1,
+      "losses": 2,
+      "elo": 1485,
+      "lastElo": 1501,
+      "division": "Div 2",
+      "photo": "images/muddy.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "divisionRank": 4,
+      "matchHistory": [
+        {
+          "result": "LOSS",
+          "match": "TheBobbyV vs MuddyB3 | 2026-01-25",
+          "timestamp": 1769360400000
+        },
+        {
+          "result": "WIN",
+          "match": "MuddyB3 vs Jimmytvf | 2026-01-20",
+          "timestamp": 1768928400000
+        },
+        {
+          "result": "LOSS",
+          "match": "RawrImHere vs MuddyB3 | 2026-01-13",
+          "timestamp": 1768323600000
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "name": "TollerTornado",
+      "rank": 20,
+      "wins": 1,
+      "losses": 2,
+      "elo": 1482,
+      "lastElo": 1498,
+      "division": "Div 2",
+      "photo": "images/toller.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "LOSS",
+          "match": "PottiePots vs TollerTornado | 2026-01-27",
+          "timestamp": 1769533200000
+        },
+        {
+          "result": "LOSS",
+          "match": "Kaden vs TollerTornado | 2026-01-19",
+          "timestamp": 1768842000000
+        },
+        {
+          "result": "WIN",
+          "match": "TollerTornado vs TheBobbyV | 2026-01-07",
+          "timestamp": 1767805200000
+        }
+      ],
+      "divisionRank": 5
+    },
+    {
+      "id": 10,
+      "name": "CannibalJeebus",
+      "rank": 21,
+      "wins": 1,
+      "losses": 3,
+      "elo": 1481,
+      "lastElo": 1465,
+      "division": "Div 2",
+      "photo": "images/cannibal.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "CannibalJeebus vs Offron | 2026-01-27",
+          "timestamp": 1769533200000
+        },
+        {
+          "result": "LOSS",
+          "match": "RebelMime vs WilliamIsTed vs CannibalJeebus | 2026-01-23",
+          "timestamp": 1769187600000
+        },
+        {
+          "result": "LOSS",
+          "match": "HeyyaNito vs CannibalJeebus | 2026-01-16",
+          "timestamp": 1768582800000
+        },
+        {
+          "result": "LOSS",
+          "match": "TaysTales vs CannibalJeebus | 2026-01-08",
+          "timestamp": 1767891600000
+        }
+      ],
+      "divisionRank": 6
+    },
+    {
+      "id": 28,
+      "name": "Deadlee",
+      "rank": 22,
+      "wins": 0,
+      "losses": 2,
+      "elo": 1472,
+      "lastElo": 1486,
+      "division": "Div 2",
+      "photo": "images/deadlee.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "LOSS",
+          "match": "Balderoni vs Deadlee | 2026-01-29",
+          "timestamp": 1769706000000
+        },
+        {
+          "result": "LOSS",
+          "match": "Ravroid vs Deadlee | 2026-01-22",
+          "timestamp": 1769101200000
+        }
+      ],
+      "divisionRank": 7
     },
     {
       "id": 9,
       "name": "Offron",
-      "rank": 19,
+      "rank": 23,
       "wins": 1,
-      "losses": 2,
-      "elo": 1486,
-      "lastElo": 1501,
+      "losses": 3,
+      "elo": 1471,
+      "lastElo": 1486,
       "division": "Div 2",
       "photo": "images/offron.jpg",
       "bio": "Bio coming soon.",
@@ -587,6 +839,11 @@
       ],
       "championshipHistory": [],
       "matchHistory": [
+        {
+          "result": "LOSS",
+          "match": "CannibalJeebus vs Offron | 2026-01-27",
+          "timestamp": 1769533200000
+        },
         {
           "result": "LOSS",
           "match": "MininumWageWorker vs Offron | 2026-01-23",
@@ -603,152 +860,12 @@
           "timestamp": 1767805200000
         }
       ],
-      "divisionRank": 3
-    },
-    {
-      "id": 28,
-      "name": "Deadlee",
-      "rank": 20,
-      "wins": 0,
-      "losses": 1,
-      "elo": 1486,
-      "lastElo": 1500,
-      "division": "Div 2",
-      "photo": "images/deadlee.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "LOSS",
-          "match": "Ravroid vs Deadlee | 2026-01-22",
-          "timestamp": 1769101200000
-        }
-      ],
-      "divisionRank": 4
-    },
-    {
-      "id": 26,
-      "name": "Balderoni",
-      "rank": 21,
-      "wins": 0,
-      "losses": 1,
-      "elo": 1485,
-      "lastElo": 1500,
-      "division": "Div 2",
-      "photo": "images/balderoni.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "LOSS",
-          "match": "RawrImHere vs Balderoni | 2026-01-20",
-          "timestamp": 1768928400000
-        }
-      ],
-      "divisionRank": 5
-    },
-    {
-      "id": 27,
-      "name": "Paulg8",
-      "rank": 22,
-      "wins": 0,
-      "losses": 1,
-      "elo": 1485,
-      "lastElo": 1500,
-      "division": "Div 2",
-      "photo": "images/paul.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "LOSS",
-          "match": "TheBobbyV vs Paulg8 | 2026-01-21",
-          "timestamp": 1769014800000
-        }
-      ],
-      "divisionRank": 6
-    },
-    {
-      "id": 6,
-      "name": "Shartstarion",
-      "rank": 23,
-      "wins": 1,
-      "losses": 2,
-      "elo": 1483,
-      "lastElo": 1499,
-      "division": "Div 2",
-      "photo": "images/shart.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "LOSS",
-          "match": "Pigmanman vs Shartstarion | 2026-01-15",
-          "timestamp": 1768496400000
-        },
-        {
-          "result": "WIN",
-          "match": "Shartstarion vs Jimmytvf | 2026-01-09",
-          "timestamp": 1767978000000
-        },
-        {
-          "result": "LOSS",
-          "match": "RagGhee vs Shartstarion | 2026-01-05",
-          "timestamp": 1767632400000
-        }
-      ],
-      "divisionRank": 7
-    },
-    {
-      "id": 13,
-      "name": "Jimmytvf",
-      "rank": 24,
-      "wins": 0,
-      "losses": 2,
-      "elo": 1472,
-      "lastElo": 1486,
-      "division": "Div 2",
-      "photo": "images/jimmy.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "LOSS",
-          "match": "MuddyB3 vs Jimmytvf | 2026-01-20",
-          "timestamp": 1768928400000
-        },
-        {
-          "result": "LOSS",
-          "match": "Shartstarion vs Jimmytvf | 2026-01-09",
-          "timestamp": 1767978000000
-        }
-      ],
       "divisionRank": 8
     },
     {
       "id": 8,
       "name": "Madeline",
-      "rank": 25,
+      "rank": 24,
       "wins": 0,
       "losses": 2,
       "elo": 1470,
@@ -776,15 +893,15 @@
       "divisionRank": 9
     },
     {
-      "id": 10,
-      "name": "CannibalJeebus",
-      "rank": 26,
-      "wins": 0,
+      "id": 6,
+      "name": "Shartstarion",
+      "rank": 25,
+      "wins": 1,
       "losses": 3,
-      "elo": 1465,
-      "lastElo": 1472,
+      "elo": 1468,
+      "lastElo": 1483,
       "division": "Div 2",
-      "photo": "images/cannibal.jpg",
+      "photo": "images/shart.jpg",
       "bio": "Bio coming soon.",
       "signatureMoves": [],
       "highlights": [
@@ -794,18 +911,23 @@
       "matchHistory": [
         {
           "result": "LOSS",
-          "match": "TripleThreat: RebelMime vs WilliamIsTed vs CannibalJeebus | 2026-01-23",
-          "timestamp": 1769187600000
+          "match": "RagGhee vs Shartstarion | 2026-01-26",
+          "timestamp": 1769446800000
         },
         {
           "result": "LOSS",
-          "match": "HeyyaNito vs CannibalJeebus | 2026-01-16",
-          "timestamp": 1768582800000
+          "match": "Pigmanman vs Shartstarion | 2026-01-15",
+          "timestamp": 1768496400000
+        },
+        {
+          "result": "WIN",
+          "match": "Shartstarion vs Jimmytvf | 2026-01-09",
+          "timestamp": 1767978000000
         },
         {
           "result": "LOSS",
-          "match": "TaysTales vs CannibalJeebus | 2026-01-08",
-          "timestamp": 1767891600000
+          "match": "RagGhee vs Shartstarion | 2026-01-05",
+          "timestamp": 1767632400000
         }
       ],
       "divisionRank": 10
@@ -813,7 +935,7 @@
     {
       "id": 18,
       "name": "WilliamIsTed",
-      "rank": 27,
+      "rank": 26,
       "wins": 0,
       "losses": 3,
       "elo": 1462,
@@ -829,7 +951,7 @@
       "matchHistory": [
         {
           "result": "LOSS",
-          "match": "TripleThreat: RebelMime vs WilliamIsTed vs CannibalJeebus | 2026-01-23",
+          "match": "RebelMime vs WilliamIsTed vs CannibalJeebus | 2026-01-23",
           "timestamp": 1769187600000
         },
         {
@@ -844,6 +966,41 @@
         }
       ],
       "divisionRank": 11
+    },
+    {
+      "id": 13,
+      "name": "Jimmytvf",
+      "rank": 27,
+      "wins": 0,
+      "losses": 3,
+      "elo": 1459,
+      "lastElo": 1472,
+      "division": "Div 2",
+      "photo": "images/jimmy.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "LOSS",
+          "match": "Paulg8 vs Jimmytvf | 2026-01-28",
+          "timestamp": 1769619600000
+        },
+        {
+          "result": "LOSS",
+          "match": "MuddyB3 vs Jimmytvf | 2026-01-20",
+          "timestamp": 1768928400000
+        },
+        {
+          "result": "LOSS",
+          "match": "Shartstarion vs Jimmytvf | 2026-01-09",
+          "timestamp": 1767978000000
+        }
+      ],
+      "divisionRank": 12
     }
   ],
   "championships": [
@@ -861,20 +1018,60 @@
     }
   ],
   "lastWeekMatches": [
-    "Kaden vs TollerTornado | 2026-01-19",
-    "HerrKrokodil vs Ginauz | 2026-01-19",
-    "MuddyB3 vs Jimmytvf | 2026-01-20",
-    "RawrImHere vs Balderoni | 2026-01-20",
-    "TheBobbyV vs Paulg8 | 2026-01-21",
-    "Cardraul vs PottiePots | 2026-01-21",
-    "Narky vs RagGhee | 2026-01-22",
-    "Ravroid vs Deadlee | 2026-01-22",
-    "MininumWageWorker vs Offron | 2026-01-23",
-    "RebelMime vs WilliamIsTed vs CannibalJeebus | 2026-01-23"
+    "HeyyaNito vs CrowBird | 2026-01-25",
+    "TheBobbyV vs MuddyB3 | 2026-01-25",
+    "Kaden vs RawrImHere | 2026-01-26",
+    "RagGhee vs Shartstarion | 2026-01-26",
+    "PottiePots vs TollerTornado | 2026-01-27",
+    "CannibalJeebus vs Offron | 2026-01-27",
+    "Paulg8 vs Jimmytvf | 2026-01-28",
+    "Ginauz vs RebelMime | 2026-01-28",
+    "Balderoni vs Deadlee | 2026-01-29",
+    "TaysTales vs Cardraul| 2026-01-29"
   ],
   "matchHistory": [
     {
-      "match": "TripleThreat: RebelMime vs WilliamIsTed vs CannibalJeebus | 2026-01-23",
+      "match": "TaysTales vs Cardraul| 2026-01-29",
+      "timestamp": 1769706000000
+    },
+    {
+      "match": "Balderoni vs Deadlee | 2026-01-29",
+      "timestamp": 1769706000000
+    },
+    {
+      "match": "Ginauz vs RebelMime | 2026-01-28",
+      "timestamp": 1769619600000
+    },
+    {
+      "match": "Paulg8 vs Jimmytvf | 2026-01-28",
+      "timestamp": 1769619600000
+    },
+    {
+      "match": "CannibalJeebus vs Offron | 2026-01-27",
+      "timestamp": 1769533200000
+    },
+    {
+      "match": "PottiePots vs TollerTornado | 2026-01-27",
+      "timestamp": 1769533200000
+    },
+    {
+      "match": "RagGhee vs Shartstarion | 2026-01-26",
+      "timestamp": 1769446800000
+    },
+    {
+      "match": "Kaden vs RawrImHere | 2026-01-26",
+      "timestamp": 1769446800000
+    },
+    {
+      "match": "TheBobbyV vs MuddyB3 | 2026-01-25",
+      "timestamp": 1769360400000
+    },
+    {
+      "match": "HeyyaNito vs CrowBird | 2026-01-25",
+      "timestamp": 1769360400000
+    },
+    {
+      "match": "RebelMime vs WilliamIsTed vs CannibalJeebus | 2026-01-23",
       "timestamp": 1769187600000
     },
     {
@@ -995,16 +1192,16 @@
     }
   ],
   "weeklyCard": [
-    "RagGhee vs Shartstarion | Finish: TBD",
-    "HeyyaNito vs CrowBird | Finish: TBD",
-    "MuddyB3 vs TheBobbyV | Finish: TBD",
-    "Kaden vs RawrImHere | Finish: TBD",
-    "Paulg8 vs Jimmytvf | Finish: TBD",
-    "Deadlee vs Balderoni | Finish: TBD",
-    "PottiePots vs TollerTornado | Finish: TBD",
-    "CannibalJeebus vs Offron | Finish: TBD",
-    "Ginauz vs RebelMime | Finish: TBD",
-    "TaysTales vs Cardraul | Finish: TBD"
+    "Lilith vs Balderoni | Finish: TBD",
+    "BloodiestCorpse vs Pigmanman | Finish: TBD",
+    "ManulTheCat vs Paulg8 | Finish: TBD",
+    "CrowBird vs MuddyB3 | Finish: TBD",
+    "Deadlee vs Madeline | Finish: TBD",
+    "Ginauz vs MininumWageWorker | Finish: TBD",
+    "RebelMime vs TollerTornado | Finish: TBD",
+    "HerrKrokodil vs Kaden | Finish: TBD",
+    "Jimmytvf vs WilliamIsTed | Finish: TBD",
+    "TaysTales vs Narky | Finish: TBD"
   ],
   "news": [
     "William Suffers Injury During Match"
