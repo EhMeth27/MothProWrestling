@@ -873,6 +873,27 @@
         }
       ]
     },
+	 {
+      "id": 37,
+      "name": "RoofDog",
+      "division": "Div 1",
+      "divisionRank": 18,
+      "rank": 18,
+      "wins": 0,
+      "losses": 0,
+      "elo": 1500,
+      "lastElo": 1500,
+      "photo": "images/roof.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+
+      ]
+    },
     {
       "id": 14,
       "name": "TollerTornado",
@@ -2820,16 +2841,15 @@
     }
   ],
   "weeklyCard": [
-    "Hro79 vs Jimmytvf | Finish: TBD",
-    "ManulTheCat vs RawrImHere | Finish: TBD",
-    "Slug vs Offron | Finish: TBD",
-    "PilleVipp vs Dinsdale | Finish: TBD",
-    "MuraWisteria vs Balderoni | Finish: TBD",
-    "MuddyB3 vs Deadlee | Finish: TBD",
-    "RebelMime vs CannibalJeebus | Finish: TBD",
-    "JJ vs TaysTales| Finish: TBD",
-    "Paulg8 vs Lilith | Finish: TBD",
-    "Kaden vs Ravroid | Finish: TBD"
+    "JJ vs Cardraul | Finish: TBD",
+    "RawrImHere vs Deadlee | Finish: TBD",
+    "RoofDog vs Dinsdale | Finish: TBD",
+    "Hro79 vs PottiePots | Finish: TBD",
+    "Shartstarion vs CrowBird | Finish: TBD",
+    "BloodiestCorpse vs RagGhee | Finish: TBD",
+    "TNT vs Rogue Hog| Finish: TBD",
+    "TheBobbyV vs MininumWageWorker | Finish: TBD",
+    "Kaden vs Lilith | Finish: TBD"
   ],
   "news": [
     "William Suffers Injury During Match"
