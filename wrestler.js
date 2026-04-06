@@ -26,6 +26,23 @@ function renderWrestler(player, universe) {
 document.getElementById("wrestler-division-rank").textContent =
   `${player.division} • Div Rank #${player.divisionRank} • Global Rank #${player.rank}`;
 
+	// Tag Teams Section
+	const teams = data.tagTeams.filter(t => t.members.includes(wrestler.name));
+
+	const teamList = document.getElementById("wrestler-teams");
+
+	if (teams.length === 0) {
+	  teamList.innerHTML = "<li>No tag teams.</li>";
+	} else {
+	  teamList.innerHTML = teams
+		.map(t => `
+		  <li>
+			<a href="tagteam.html?id=${t.id}">${t.name}</a>
+			— ELO: ${t.elo}
+		  </li>
+		`)
+		.join("");
+	}
 
   // Record
   document.getElementById("wrestler-record").textContent =
@@ -55,7 +72,7 @@ document.getElementById("wrestler-division-rank").textContent =
 }
 
 // Render match history
-function renderMatchHistory(player) {
+	function renderMatchHistory(player) {
   const container = document.getElementById("wrestler-matches");
   container.innerHTML = "";
 
@@ -66,11 +83,37 @@ function renderMatchHistory(player) {
 
   player.matchHistory.slice(0, 20).forEach(entry => {
     const li = document.createElement("li");
-    li.textContent = `${entry.result}: ${entry.match}`;
+
+    // Extract the part before the date
+    const beforeDate = entry.match.split("|")[0].trim();
+
+    // Extract all names in the match
+    const names = beforeDate.split("vs").map(n => n.trim());
+
+    // Remove the current wrestler to get all opponents
+    const opponents = names.filter(n => n !== player.name);
+
+    // Format opponents list
+    const opponentText = opponents.join(", ");
+
+    // Extract date
+    const date = entry.match.includes("|")
+      ? entry.match.split("|")[1].trim()
+      : "";
+
+    // Display
+    li.textContent = `${entry.result}: vs ${opponentText} (${date})`;
     li.style.color = entry.result === "WIN" ? "limegreen" : "crimson";
+
     container.appendChild(li);
   });
 }
+
+	<li>
+    <a href="tagteam.html?id=${t.id}">${t.name}</a>
+    <span style="color:#0af; font-weight:bold;">(${t.elo})</span>
+	</li>
+
 
 // Render highlights
 function renderHighlights(player) {
