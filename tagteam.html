@@ -7,22 +7,64 @@
 </head>
 <body>
 
-<div class="tagteam-profile-page">
+  <nav class="navbar">
+    <a href="index.html">🏠 Home</a>
+    <a href="rankings.html">🏆 Rankings</a>
+    <a href="tagteam_rankings.html">🤝 Tag Team Rankings</a>
+    <a href="wrestlers.html">👥 Wrestlers</a>
+    <a href="news.html">📰 News</a>
+  </nav>
 
-  <h1 id="team-name"></h1>
+  <main class="wrestler-profile-page">
 
-  <div class="team-info">
-    <div id="team-members"></div>
-    <div id="team-elo"></div>
-    <div id="team-record"></div>
-    <div id="team-titles"></div>
-  </div>
+    <section class="wrestler-header">
+      <div id="team-photos" style="display:flex; gap:10px;"></div>
 
-  <h2>Match History</h2>
-  <ul id="team-matches"></ul>
+      <div class="wrestler-main-info">
+        <h1 id="team-name">Team Name</h1>
+        <p id="team-members" class="wrestler-subline"></p>
+        <p id="team-record" class="wrestler-record"></p>
+        <p id="team-elo" class="wrestler-elo"></p>
+        <p id="team-titles" class="wrestler-titles"></p>
+        <p id="team-career-stats"></p>
+      </div>
+    </section>
 
-</div>
-<script src="js/universe.js"></script>
-<script src="js/tagteam_rankings.js"></script>
+    <section class="wrestler-details">
+      <div class="detail-card">
+        <h2>Overview</h2>
+        <p id="team-overview">This tag team is ready to make their mark. Stay tuned.</p>
+      </div>
+
+      <div class="detail-card">
+        <h2>Match History</h2>
+        <ul id="team-matches">
+          <li>No recorded matches yet.</li>
+        </ul>
+      </div>
+
+      <div class="detail-card">
+        <h2>Team Highlights</h2>
+        <ul id="team-highlights">
+          <li>Debut season – poised to make an impact.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="social-footer">
+    <div class="social-links">
+      <a href="https://www.twitch.tv/eh_moth" target="_blank" class="social twitch">
+        <span>🎮 Twitch</span>
+      </a>
+      <a href="https://www.youtube.com/@Eh_Moth" target="_blank" class="social youtube">
+        <span>▶️ YouTube</span>
+      </a>
+    </div>
+  </footer>
+
+  <script src="js/core.js"></script>
+  <script src="js/tagteam.js"></script>
+
 </body>
 </html>

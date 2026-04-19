@@ -7,11 +7,10 @@
 </head>
 
 <body>
-  <!-- Navigation Bar -->
   <nav class="navbar">
     <a href="index.html">🏠 Home</a>
     <a href="rankings.html">🏆 Rankings</a>
-	<a href="tagteam_rankings.html">🤝 Tag Team Rankings</a>
+    <a href="tagteam_rankings.html">🤝 Tag Team Rankings</a>
     <a href="wrestlers.html">👥 Wrestlers</a>
     <a href="news.html">📰 News</a>
   </nav>
@@ -27,11 +26,22 @@
         <p id="wrestler-record" class="wrestler-record"></p>
         <p id="wrestler-elo" class="wrestler-elo"></p>
         <p id="wrestler-titles" class="wrestler-titles"></p>
-		<p id="wrestler-career-stats"></p>
+        <p id="wrestler-career-stats"></p>
       </div>
-	  <h2>Tag Teams</h2>
-	  <ul id="wrestler-teams"></ul>
-	</section>
+
+      <!-- Tag Teams: hidden by default, shown by JS only if they have teams -->
+      <div id="tag-team-section" style="display:none; width:100%;">
+        <h2>Tag Teams</h2>
+        <ul id="wrestler-teams"></ul>
+      </div>
+
+      <!-- Faction: hidden by default, shown by JS only if they're in one -->
+      <div id="faction-section" style="display:none; width:100%;">
+        <h2>Faction</h2>
+        <p id="wrestler-faction"></p>
+      </div>
+
+    </section>
 
     <section class="wrestler-details">
       <div class="detail-card">
@@ -57,7 +67,6 @@
     </section>
   </main>
 
-<!-- FOOTER MUST BE HERE -->
   <footer class="social-footer">
     <div class="social-links">
       <a href="https://www.twitch.tv/eh_moth" target="_blank" class="social twitch">
@@ -68,9 +77,8 @@
       </a>
     </div>
   </footer>
-  
+
   <script src="js/core.js"></script>
   <script src="js/wrestlerProfile.js"></script>
-
 </body>
 </html>

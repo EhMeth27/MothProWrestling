@@ -5,271 +5,285 @@ const fs = require("fs");
 // ==============================================
 
 function getPlayer(universe, name) {
-  const p = universe.players.find(pl => pl.name === name);
-  if (!p) {
-    console.warn(`⚠ WARNING: Wrestler "${name}" not found in universe.json`);
-  }
-  return p;
+  return universe.players.find(p => p.name === name);
+}
+
+function safeMatchHistoryEntry(result, match, timestamp) {
+  return { result, match, timestamp };
 }
 
 // ==============================================
-// 2. ELO CALCULATION (SINGLES + MULTI-MAN)
+// 2. MATCH TYPE DETECTION
 // ==============================================
 
-function updateEloMultiman(players, winnerName, matchType, isPPV = false) {
+function detectMatchType(names) {
+  const size = names.length;
+  if (size === 2) return "Singles";
+  if (size === 3) return "TripleThreat";
+  if (size === 4) return "FourWay";
+  if (size === 5) return "FiveWay";
+  if (size === 6) return "SixWay";
+  if (size === 8) return "EightWay";
+  return "Singles";
+}
+
+// ==============================================
+// 3. ELO CALCULATION HELPERS
+// ==============================================
+
+function expectedScore(rA, rB) {
+  return 1 / (1 + Math.pow(10, (rB - rA) / 400));
+}
+
+function updateSinglesElo(A, B, winnerName) {
   const k = 32;
-  const numPlayers = players.length;
+  const resultA = A.name === winnerName ? 1 : 0;
+  const resultB = 1 - resultA;
 
-  const winnerMultTable = {
-    Singles: 1.0,
-    TripleThreat: 1.2,
-    FourWay: 1.3,
-    FiveWay: 1.4,
-    SixWay: 1.5,
-    EightWay: 1.7
-  };
+  const expA = expectedScore(A.elo, B.elo);
+  const expB = 1 - expA;
 
-  const loserMultTable = {
-    Singles: 1.0,
-    TripleThreat: 0.6,
-    FourWay: 0.5,
-    FiveWay: 0.45,
-    SixWay: 0.4,
-    EightWay: 0.35
-  };
+  A.lastElo = A.elo;
+  B.lastElo = B.elo;
 
-  const baseWinnerMult = winnerMultTable[matchType] || 1.0;
-  const baseLoserMult  = loserMultTable[matchType] || 1.0;
+  A.elo = Math.round(A.elo + k * (resultA - expA));
+  B.elo = Math.round(B.elo + k * (resultB - expB));
+}
 
-  const ppvBoost = isPPV ? 0.2 : 0;
-
-  const winnerMult = baseWinnerMult + ppvBoost;
-  const loserMult  = baseLoserMult + ppvBoost;
-
-  const chaos = (Math.random() - 0.5) * 4;
+function updateMultimanElo(universe, names, winnerName) {
+  const players = names.map(n => getPlayer(universe, n)).filter(Boolean);
+  const k = 32;
 
   const winner = players.find(p => p.name === winnerName);
-  if (!winner) {
-    console.warn(`⚠ Winner "${winnerName}" not found in players for matchType ${matchType}`);
-    return players;
-  }
+  if (!winner) return;
 
-  const avgOppElo = players
-    .filter(p => p.name !== winnerName)
-    .reduce((sum, p) => sum + p.elo, 0) / (numPlayers - 1);
+  const avgOppElo =
+    players.filter(p => p.name !== winnerName).reduce((s, p) => s + p.elo, 0) /
+    (players.length - 1);
 
-  const expectedWinner = 1 / (1 + Math.pow(10, (avgOppElo - winner.elo) / 400));
+  const expWinner = expectedScore(winner.elo, avgOppElo);
 
   winner.lastElo = winner.elo;
-  winner.elo = Math.round(
-    winner.elo + (k * (1 - expectedWinner) * winnerMult) + chaos
-  );
+  winner.elo = Math.round(winner.elo + k * (1 - expWinner));
 
   players.forEach(p => {
     if (p.name === winnerName) return;
 
+    const expLoser = expectedScore(p.elo, winner.elo);
     p.lastElo = p.elo;
-    const expectedLoser = 1 / (1 + Math.pow(10, (winner.elo - p.elo) / 400));
-
-    p.elo = Math.round(
-      p.elo + (k * (0 - expectedLoser) * loserMult) - chaos
-    );
+    p.elo = Math.round(p.elo + k * (0 - expLoser));
   });
+}
 
-  return players;
+function updateTagTeamElo(teamA, teamB, winnerName) {
+  const k = 28;
+
+  const resultA = teamA.name === winnerName ? 1 : 0;
+  const resultB = 1 - resultA;
+
+  const expA = expectedScore(teamA.elo, teamB.elo);
+  const expB = 1 - expA;
+
+  teamA.lastElo = teamA.elo;
+  teamB.lastElo = teamB.elo;
+
+  // Normal ELO change
+  let newA = teamA.elo + k * (resultA - expA);
+  let newB = teamB.elo + k * (resultB - expB);
+
+  // ⭐ Add slight random variance (between -3 and +3)
+  const randomA = (Math.random() - 0.5) * 6; // -3 to +3
+  const randomB = (Math.random() - 0.5) * 6; // -3 to +3
+
+  newA += randomA;
+  newB += randomB;
+
+  teamA.elo = Math.round(newA);
+  teamB.elo = Math.round(newB);
 }
 
 // ==============================================
-// 3. MATCH STRING PARSING
+// 4. PARSE MATCH STRING (SAFE)
 // ==============================================
-// Format required:
-// "Singles: A vs B | YYYY-MM-DD"
-// Winner is always the FIRST name.
 
 function parseMatchString(str) {
-  const isPPV = str.includes("(PPV)");
+  if (!str || typeof str !== "string") return null;
 
-  let datePart = null;
-  if (str.includes("|")) {
-    const parts = str.split("|");
-    str = parts[0].trim();
-    datePart = parts[1].trim();
+  const parts = str.split("|");
+  if (parts.length < 2) return null;
+
+  const matchPart = parts[0].trim();
+  const datePart = parts[1].trim();
+
+  // TAG TEAM MATCH
+  if (matchPart.includes("&")) {
+    const [left, right] = matchPart.split("vs").map(s => s.trim());
+    const teamA = left.split("&").map(n => n.trim());
+    const teamB = right.split("&").map(n => n.trim());
+
+    return {
+      matchType: "TagTeam",
+      teamA,
+      teamB,
+      datePart
+    };
   }
 
-  str = str.replace("(PPV)", "").trim();
+  // MULTIMAN OR SINGLES
+  const names = matchPart.split("vs").map(n => n.trim());
 
-  const [typePart, wrestlersPart] = str.split(":");
-  if (!typePart || !wrestlersPart) {
-    console.warn("⚠ Invalid match string format:", str);
-    return null;
-  }
-
-  const matchType = typePart.trim();
-  const names = wrestlersPart.split("vs").map(n => n.trim()).filter(Boolean);
-
-  return { matchType, names, isPPV, datePart };
+  return {
+    matchType: names.length > 2 ? "Multiman" : "Singles",
+    names,
+    datePart
+  };
 }
 
 // ==============================================
-// 4. PROCESS A SINGLE MATCH STRING
+// 5. PROCESS MATCH
 // ==============================================
 
-function processMatchString(matchString, universe) {
-  const parsed = parseMatchString(matchString);
-  if (!parsed) return universe;
-
-  const { matchType, names, isPPV, datePart } = parsed;
-	// Build clean universal match string
-	const cleanMatch = `${names[0]} vs ${names[1]} | ${datePart}`;
-
-  const players = names.map(n => getPlayer(universe, n)).filter(Boolean);
-
-  if (players.length < 2) {
-    console.warn("⚠ Not enough valid players for match:", matchString);
+function processMatchString(universe, matchStr) {
+  const parsed = parseMatchString(matchStr);
+  if (!parsed) {
+    console.warn("Skipping invalid match:", matchStr);
     return universe;
   }
 
-  const winnerName = names[0];
-  const winner = players.find(p => p.name === winnerName);
+  const timestamp = new Date(`${parsed.datePart}T12:00:00`).getTime();
 
-  if (!winner) {
-    console.warn("⚠ Winner not found among loaded players:", winnerName);
-    return universe;
-  }
+  // -------------------------
+  // TAG TEAM MATCH
+  // -------------------------
+  if (parsed.matchType === "TagTeam") {
+    const { teamA, teamB } = parsed;
 
-  winner.wins = (winner.wins || 0) + 1;
-  players.forEach(p => {
-    if (p.name !== winnerName) {
-      p.losses = (p.losses || 0) + 1;
+    const tagA = universe.tagTeams.find(
+      t => t.members.length === teamA.length && teamA.every(m => t.members.includes(m))
+    );
+
+    const tagB = universe.tagTeams.find(
+      t => t.members.length === teamB.length && teamB.every(m => t.members.includes(m))
+    );
+
+    if (!tagA || !tagB) {
+      console.warn("Tag team not found:", teamA, teamB);
+      return universe;
     }
-  });
 
-  updateEloMultiman(players, winnerName, matchType, isPPV);
+    const winnerTeam = tagA;
+    const loserTeam = tagB;
 
-  // Timestamp (REQUIRED because you chose Option A)
-  const dateString = `${datePart}T11:00:00-06:00`;
-  const timestamp = new Date(dateString).getTime();
+    updateTagTeamElo(tagA, tagB, winnerTeam.name);
 
-  // Per-wrestler match history
-  players.forEach(p => {
-    p.matchHistory = p.matchHistory || [];
-    p.matchHistory.unshift({
-      result: p.name === winnerName ? "WIN" : "LOSS",
-      match: matchString,
-      timestamp: timestamp
+    tagA.wins++;
+    tagB.losses++;
+
+    const cleanMatch = `${teamA.join(" & ")} vs ${teamB.join(" & ")} | ${parsed.datePart}`;
+
+    tagA.matchHistory.unshift(safeMatchHistoryEntry("WIN", cleanMatch, timestamp));
+    tagB.matchHistory.unshift(safeMatchHistoryEntry("LOSS", cleanMatch, timestamp));
+
+    // Add to lastWeekMatches so the homepage displays it
+    universe.lastWeekMatches.push(cleanMatch);
+
+    [...teamA, ...teamB].forEach(name => {
+      const p = getPlayer(universe, name);
+      if (!p) return;
+
+      const result = teamA.includes(name) ? "WIN" : "LOSS";
+      p.matchHistory.unshift(safeMatchHistoryEntry(result, cleanMatch, timestamp));
     });
-    p.matchHistory = p.matchHistory.slice(0, 20);
-  });
 
-  // Weekly match list
-  universe.lastWeekMatches = universe.lastWeekMatches || [];
-  universe.lastWeekMatches.push(matchString);
+    return universe;
+  }
 
-  // Global match history
-  universe.matchHistory = universe.matchHistory || [];
-  universe.matchHistory.unshift({
-    match: matchString,
-    timestamp: timestamp
-  });
-  universe.matchHistory = universe.matchHistory.slice(0, 500);
+  // -------------------------
+  // MULTIMAN MATCH
+  // -------------------------
+  if (parsed.matchType === "Multiman") {
+    const names = parsed.names;
+    const winner = names[0];
+
+    names.forEach(name => {
+      const p = getPlayer(universe, name);
+      if (!p) return;
+
+      const result = name === winner ? "WIN" : "LOSS";
+      p.matchHistory.unshift(safeMatchHistoryEntry(result, matchStr, timestamp));
+
+      if (result === "WIN") p.wins++;
+      else p.losses++;
+    });
+
+    updateMultimanElo(universe, names, winner);
+    return universe;
+  }
+
+  // -------------------------
+  // SINGLES MATCH
+  // -------------------------
+  if (parsed.matchType === "Singles") {
+    const [p1, p2] = parsed.names;
+
+    const A = getPlayer(universe, p1);
+    const B = getPlayer(universe, p2);
+
+    if (!A || !B) return universe;
+
+    const winner = p1;
+
+    updateSinglesElo(A, B, winner);
+
+    A.wins++;
+    B.losses++;
+
+    A.matchHistory.unshift(safeMatchHistoryEntry("WIN", matchStr, timestamp));
+    B.matchHistory.unshift(safeMatchHistoryEntry("LOSS", matchStr, timestamp));
+
+    return universe;
+  }
 
   return universe;
 }
 
 // ==============================================
-// 5. RUN A FULL SHOW
+// 6. RUN SHOW
 // ==============================================
 
 function runShow(matchStrings, universe) {
   universe.lastWeekMatches = [];
-  matchStrings.forEach(m => processMatchString(m, universe));
+  matchStrings.forEach(m => processMatchString(universe, m)); // FIXED ORDER
   return universe;
 }
 
 // ==============================================
-// 6. RANKINGS + DIVISIONS
+// 7. DIVISIONS + RANKINGS
 // ==============================================
 
 function updateRankingsAndDivisions(universe) {
+  // 1. Assign divisions
   universe.players.forEach(player => {
     player.division = player.elo >= 1500 ? "Div 1" : "Div 2";
   });
 
-  const div1 = universe.players
-    .filter(p => p.division === "Div 1")
-    .sort((a, b) => b.elo - a.elo);
-
-  const div2 = universe.players
-    .filter(p => p.division === "Div 2")
-    .sort((a, b) => b.elo - a.elo);
-
-  div1.forEach((player, index) => {
-    player.divisionRank = index + 1;
-  });
-
-  div2.forEach((player, index) => {
-    player.divisionRank = index + 1;
-  });
-
+  // 2. Global sort + global rank
   universe.players.sort((a, b) => b.elo - a.elo);
-  universe.players.forEach((player, index) => {
-    player.rank = index + 1;
-  });
+  universe.players.forEach((p, i) => (p.rank = i + 1));
 
-  console.log("✔ Divisions and division rankings updated.");
+  // 3. Division rank — sort within each division and assign
+  const div1 = universe.players.filter(p => p.division === "Div 1");
+  const div2 = universe.players.filter(p => p.division === "Div 2");
+
+  // Already sorted by elo from step 2, so assign in order
+  div1.forEach((p, i) => (p.divisionRank = i + 1));
+  div2.forEach((p, i) => (p.divisionRank = i + 1));
+
+  console.log(`✔ Rankings updated: ${div1.length} in Div 1, ${div2.length} in Div 2`);
 }
 
 // ==============================================
-// 7. MATCHMAKING HELPERS
-// ==============================================
-
-function getPlayersByDivision(universe, division) {
-  return universe.players.filter(p => p.division === division);
-}
-
-function generateSinglesMatches(universe, division, count = 3) {
-  const pool = [...getPlayersByDivision(universe, division)];
-  const matches = [];
-
-  while (pool.length >= 2 && matches.length < count) {
-    const a = pool.splice(Math.floor(Math.random() * pool.length), 1)[0];
-    const b = pool.splice(Math.floor(Math.random() * pool.length), 1)[0];
-
-    matches.push(`Singles: ${a.name} vs ${b.name}`);
-  }
-
-  return matches;
-}
-
-function generateMultimanMatch(universe, division, size = 3) {
-  const pool = [...getPlayersByDivision(universe, division)];
-
-  if (pool.length < size) return null;
-
-  const chosen = [];
-  for (let i = 0; i < size; i++) {
-    chosen.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0].name);
-  }
-
-  const typeNames = {
-    3: "TripleThreat",
-    4: "FourWay",
-    5: "FiveWay",
-    6: "SixWay",
-    8: "EightWay"
-  };
-
-  const typeName = typeNames[size];
-  if (!typeName) {
-    console.warn("⚠ Unsupported multi-man size:", size);
-    return null;
-  }
-
-  return `${typeName}: ${chosen.join(" vs ")}`;
-}
-
-// ==============================================
-// 8. SAVE UNIVERSE
+// 8. SAVE
 // ==============================================
 
 function saveUniverse(universe) {
@@ -278,31 +292,28 @@ function saveUniverse(universe) {
 }
 
 // ==============================================
-// 9. MAIN EXECUTION
+// 9. MAIN
 // ==============================================
 
 let universe = require("./universe.json");
 
-universe.lastWeekMatches = universe.lastWeekMatches || [];
-universe.matchHistory = universe.matchHistory || [];
-
-// Your matches MUST include dates now (Option A)
 const matchesToRun = [
-	"Singles: HeyyaNito vs CrowBird | 2026-01-25",
-	"Singles: TheBobbyV vs MuddyB3 | 2026-01-25",
-	"Singles: Kaden vs RawrImHere | 2026-01-26",
-	"Singles: RagGhee vs Shartstarion | 2026-01-26",
-	"Singles: PottiePots vs TollerTornado | 2026-01-27",
-	"Singles: CannibalJeebus vs Offron | 2026-01-27",
-	"Singles: Paulg8 vs Jimmytvf | 2026-01-28",
-	"Singles: Ginauz vs RebelMime | 2026-01-28",
-	"Singles: Balderoni vs Deadlee | 2026-01-29",
-	"Singles: TaysTales vs Cardraul| 2026-01-29"
+  "Ginauz & Kaden vs Lilith & CrowBird  | 2026-04-16",
+  "ManulTheCat vs Madeline | 2026-04-13",
+  "Ginauz vs BloodiestCorpse | 2026-04-13",
+  "Balderoni vs JJ | 2026-04-14",
+  "TaysTales vs Nans | 2026-04-14",
+  "MuraWisteria vs WilliamIsTed | 2026-04-15",
+  "PilleVipp vs CannibalJeebus | 2026-04-15",
+  "TollerTornado vs Slug | 2026-04-16",
+  "Pigmanman vs HeyyaNito vs Dinsdale| 2026-04-17",
+  "Ravroid vs Narky| 2026-04-17"
 ];
 
 universe = runShow(matchesToRun, universe);
 updateRankingsAndDivisions(universe);
 saveUniverse(universe);
+
 
 /*
 TaysTales vs Cardraul
@@ -315,4 +326,38 @@ HeyyaNito
 CrowBird
 RawrImHere
 Kaden
+Pigmanman
+BloodiestCorpse
+Lilith
+Madeline
+MininumWageWorker
+TollerTornado
+WilliamIsTed
+Narky
+Dinsdale
+Shartstarion
+Slug
+RagGhee
+Offron
+Paulg8
+CannibalJeebus
+Ravroid
+PilleVipp
+Hro79
+PottiePots
+TheBobbyV
+MuraWisteria
+JJ
+Nans
+RoofDog
+ManulTheCat
+  "TollerTornado vs HeyyaNito | 2026-03-30",
+  "Slug vs PottiePots | 2026-03-30",
+  "RebelMime vs Jimmytvf | 2026-03-31",
+  "Pigmanman vs MuraWisteria | 2026-04-01",
+  "TheBobbyV vs Dinsdale | 2026-04-01",
+  "PilleVipp vs Balderoni | 2026-04-02",
+  "Paulg8 vs Offron | 2026-04-02",
+  "Narky vs BloodiestCorpse | 2026-04-02"
+  
 **/
