@@ -139,11 +139,96 @@
       ]
     },
     {
-      "id": 7,
-      "name": "Narky",
+      "id": 30,
+      "name": "BloodiestCorpse",
       "division": "Div 1",
       "divisionRank": 3,
       "rank": 3,
+      "wins": 9,
+      "losses": 4,
+      "elo": 1587,
+      "lastElo": 1571,
+      "photo": "images/bloodiest.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "BloodiestCorpse vs Kaden| 2026-06-12",
+          "timestamp": 1781283600000
+        },
+        {
+          "result": "WIN",
+          "match": "BloodiestCorpse vs Lilith |  2026-05-29",
+          "timestamp": 1780074000000
+        },
+        {
+          "result": "WIN",
+          "match": "BloodiestCorpse vs MininumWageWorker | 2026-05-05",
+          "timestamp": 1778000400000
+        },
+        {
+          "result": "WIN",
+          "match": "BloodiestCorpse vs TollerTornado | 2026-04-29",
+          "timestamp": 1777482000000
+        },
+        {
+          "result": "LOSS",
+          "match": "Ginauz vs BloodiestCorpse | 2026-04-13",
+          "timestamp": 1776099600000
+        },
+        {
+          "result": "WIN",
+          "match": "BloodiestCorpse vs RagGhee | 2026-04-09",
+          "timestamp": 1775754000000
+        },
+        {
+          "result": "LOSS",
+          "match": "Narky vs BloodiestCorpse | 2026-04-02",
+          "timestamp": 1775149200000
+        },
+        {
+          "result": "LOSS",
+          "match": "HerrKrokodil vs Kaden vs Narky vs Ravroid vs MininumWageWorker vs BloodiestCorpse | 2026-03-28",
+          "timestamp": 1774717200000
+        },
+        {
+          "result": "WIN",
+          "match": "BloodiestCorpse vs CrowBird | 2026-03-20",
+          "timestamp": 1774026000000
+        },
+        {
+          "result": "LOSS",
+          "match": "HerrKrokodil vs BloodiestCorpse | 2026-03-06",
+          "timestamp": 1772816400000
+        },
+        {
+          "result": "WIN",
+          "match": "BloodiestCorpse vs TaysTales | 2026-02-26",
+          "timestamp": 1772125200000
+        },
+        {
+          "result": "WIN",
+          "match": "BloodiestCorpse vs RawrImHere | 2026-02-17",
+          "timestamp": 1771347600000
+        },
+        {
+          "result": "WIN",
+          "match": "BloodiestCorpse vs Pigmanman | 2026-02-02",
+          "timestamp": 1770051600000
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Narky",
+      "division": "Div 1",
+      "divisionRank": 4,
+      "rank": 4,
       "wins": 8,
       "losses": 4,
       "elo": 1581,
@@ -222,8 +307,8 @@
       "id": 21,
       "name": "TheBobbyV",
       "division": "Div 1",
-      "divisionRank": 4,
-      "rank": 4,
+      "divisionRank": 5,
+      "rank": 5,
       "wins": 8,
       "losses": 5,
       "elo": 1575,
@@ -326,11 +411,11 @@
     {
       "id": 25,
       "name": "Kaden",
-      "rank": 5,
+      "rank": 6,
       "wins": 8,
-      "losses": 4,
-      "elo": 1574,
-      "lastElo": 1559,
+      "losses": 5,
+      "elo": 1558,
+      "lastElo": 1574,
       "division": "Div 1",
       "photo": "images/kaden.jpg",
       "bio": "Bio coming soon.",
@@ -340,6 +425,11 @@
       ],
       "championshipHistory": [],
       "matchHistory": [
+        {
+          "result": "LOSS",
+          "match": "BloodiestCorpse vs Kaden| 2026-06-12",
+          "timestamp": 1781283600000
+        },
         {
           "result": "WIN",
           "match": "Kaden vs JeromeySchweemey |  2026-06-05",
@@ -421,87 +511,7 @@
           "timestamp": 1768842000000
         }
       ],
-      "divisionRank": 5
-    },
-    {
-      "id": 30,
-      "name": "BloodiestCorpse",
-      "division": "Div 1",
-      "divisionRank": 6,
-      "rank": 6,
-      "wins": 8,
-      "losses": 4,
-      "elo": 1571,
-      "lastElo": 1555,
-      "photo": "images/bloodiest.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "WIN",
-          "match": "BloodiestCorpse vs Lilith |  2026-05-29",
-          "timestamp": 1780074000000
-        },
-        {
-          "result": "WIN",
-          "match": "BloodiestCorpse vs MininumWageWorker | 2026-05-05",
-          "timestamp": 1778000400000
-        },
-        {
-          "result": "WIN",
-          "match": "BloodiestCorpse vs TollerTornado | 2026-04-29",
-          "timestamp": 1777482000000
-        },
-        {
-          "result": "LOSS",
-          "match": "Ginauz vs BloodiestCorpse | 2026-04-13",
-          "timestamp": 1776099600000
-        },
-        {
-          "result": "WIN",
-          "match": "BloodiestCorpse vs RagGhee | 2026-04-09",
-          "timestamp": 1775754000000
-        },
-        {
-          "result": "LOSS",
-          "match": "Narky vs BloodiestCorpse | 2026-04-02",
-          "timestamp": 1775149200000
-        },
-        {
-          "result": "LOSS",
-          "match": "HerrKrokodil vs Kaden vs Narky vs Ravroid vs MininumWageWorker vs BloodiestCorpse | 2026-03-28",
-          "timestamp": 1774717200000
-        },
-        {
-          "result": "WIN",
-          "match": "BloodiestCorpse vs CrowBird | 2026-03-20",
-          "timestamp": 1774026000000
-        },
-        {
-          "result": "LOSS",
-          "match": "HerrKrokodil vs BloodiestCorpse | 2026-03-06",
-          "timestamp": 1772816400000
-        },
-        {
-          "result": "WIN",
-          "match": "BloodiestCorpse vs TaysTales | 2026-02-26",
-          "timestamp": 1772125200000
-        },
-        {
-          "result": "WIN",
-          "match": "BloodiestCorpse vs RawrImHere | 2026-02-17",
-          "timestamp": 1771347600000
-        },
-        {
-          "result": "WIN",
-          "match": "BloodiestCorpse vs Pigmanman | 2026-02-02",
-          "timestamp": 1770051600000
-        }
-      ]
+      "divisionRank": 6
     },
     {
       "id": 22,
@@ -584,9 +594,64 @@
       "divisionRank": 7
     },
     {
+      "id": 42,
+      "name": "MiniMoth10",
+      "division": "Div 1",
+      "divisionRank": 8,
+      "rank": 8,
+      "wins": 3,
+      "losses": 0,
+      "elo": 1549,
+      "lastElo": 1533,
+      "photo": "images/minimoth.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "MiniMoth10 vs TaysTales | 2026-06-09",
+          "timestamp": 1781024400000
+        },
+        {
+          "result": "WIN",
+          "match": "MiniMoth10 vs Ginauz | 2026-06-02",
+          "timestamp": 1780419600000
+        },
+        {
+          "result": "WIN",
+          "match": "MiniMoth10 vs TollerTornado | 2026-05-26",
+          "timestamp": 1779814800000
+        }
+      ]
+    },
+	{
+      "id": 43,
+      "name": "Gamerat60",
+      "division": "Div 1",
+      "divisionRank": 20,
+      "rank": 20,
+      "wins": 0,
+      "losses": 0,
+      "elo": 1500,
+      "lastElo": 1500,
+      "photo": "images/gamer.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+      ]
+    },
+    {
       "id": 27,
       "name": "Paulg8",
-      "rank": 8,
+      "rank": 9,
       "wins": 7,
       "losses": 6,
       "elo": 1543,
@@ -666,14 +731,111 @@
           "timestamp": 1769014800000
         }
       ],
-      "divisionRank": 8
+      "divisionRank": 9
+    },
+    {
+      "id": 36,
+      "name": "JJ",
+      "division": "Div 1",
+      "divisionRank": 10,
+      "rank": 10,
+      "wins": 7,
+      "losses": 5,
+      "elo": 1543,
+      "lastElo": 1527,
+      "photo": "images/JJ.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "JJ vs JeromeySchweemey | 2026-06-10",
+          "timestamp": 1781110800000
+        },
+        {
+          "result": "WIN",
+          "match": "JJ vs RoofDog | 2026-06-01",
+          "timestamp": 1780333200000
+        },
+        {
+          "result": "WIN",
+          "match": "JJ vs MuraWisteria | 2026-05-20",
+          "timestamp": 1779296400000
+        },
+        {
+          "result": "WIN",
+          "match": "JJ & Slug vs Ginauz & Kaden | 2026-05-14",
+          "timestamp": 1778778000000
+        },
+        {
+          "result": "WIN",
+          "match": "JJ & Slug vs TaysTales & TollerTornado | 2026-05-07",
+          "timestamp": 1778173200000
+        },
+        {
+          "result": "WIN",
+          "match": "JJ vs PottiePots | 2026-04-28",
+          "timestamp": 1777395600000
+        },
+        {
+          "result": "LOSS",
+          "match": "Balderoni vs JJ | 2026-04-14",
+          "timestamp": 1776186000000
+        },
+        {
+          "result": "WIN",
+          "match": "JJ & Slug vs TaysTales & TollerTornado | 2026-04-09",
+          "timestamp": 1775754000000
+        },
+        {
+          "result": "WIN",
+          "match": "JJ vs Cardraul | 2026-04-06",
+          "timestamp": 1775494800000
+        },
+        {
+          "result": "LOSS",
+          "match": "Slug vs Offron vs JJ vs PottiePots | 2026-03-28",
+          "timestamp": 1774717200000
+        },
+        {
+          "result": "LOSS",
+          "match": "TaysTales vs JJ | 2026-03-26",
+          "timestamp": 1774544400000
+        },
+        {
+          "result": "WIN",
+          "match": "JJ vs Deadlee | 2026-03-19",
+          "timestamp": 1773939600000
+        },
+        {
+          "result": "LOSS",
+          "match": "PilleVipp vs JJ | 2026-03-09",
+          "timestamp": 1773075600000
+        },
+        {
+          "result": "LOSS",
+          "match": "MuraWisteria vs JJ | 2026-03-02",
+          "timestamp": 1772470800000
+        },
+        {
+          "result": "WIN",
+          "match": "JJ vs Cardraul | 2026-02-24",
+          "timestamp": 1771952400000
+        },
+        {},
+        {}
+      ]
     },
     {
       "id": 29,
       "name": "Lilith",
       "division": "Div 1",
-      "divisionRank": 9,
-      "rank": 9,
+      "divisionRank": 11,
+      "rank": 11,
       "wins": 7,
       "losses": 6,
       "elo": 1533,
@@ -686,6 +848,11 @@
       ],
       "championshipHistory": [],
       "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "Lilith & CrowBird vs TaysTales & TollerTornado | 2026-06-11",
+          "timestamp": 1781197200000
+        },
         {
           "result": "LOSS",
           "match": "TheBobbyV vs Paulg8 vs Lilith | 2026-06-05",
@@ -769,174 +936,9 @@
       ]
     },
     {
-      "id": 42,
-      "name": "MiniMoth10",
-      "division": "Div 1",
-      "divisionRank": 10,
-      "rank": 10,
-      "wins": 2,
-      "losses": 0,
-      "elo": 1533,
-      "lastElo": 1517,
-      "photo": "images/minimoth.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "WIN",
-          "match": "MiniMoth10 vs Ginauz | 2026-06-02",
-          "timestamp": 1780419600000
-        },
-        {
-          "result": "WIN",
-          "match": "MiniMoth10 vs TollerTornado | 2026-05-26",
-          "timestamp": 1779814800000
-        }
-      ]
-    },
-    {
-      "id": 12,
-      "name": "TaysTales",
-      "rank": 11,
-      "wins": 7,
-      "losses": 5,
-      "elo": 1533,
-      "lastElo": 1516,
-      "division": "Div 1",
-      "photo": "images/tay.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "WIN",
-          "match": "TaysTales vs Offron | 2026-06-03",
-          "timestamp": 1780506000000
-        },
-        {
-          "result": "WIN",
-          "match": "TaysTales & TollerTornado vs TheBobbyV & MuddyB3 | 2026-05-28",
-          "timestamp": 1779987600000
-        },
-        {
-          "result": "LOSS",
-          "match": "Lilith vs TaysTales | 2026-05-15",
-          "timestamp": 1778864400000
-        },
-        {
-          "result": "LOSS",
-          "match": "JJ & Slug vs TaysTales & TollerTornado | 2026-05-07",
-          "timestamp": 1778173200000
-        },
-        {
-          "result": "WIN",
-          "match": "TaysTales vs Ginauz | 2026-04-28",
-          "timestamp": 1777395600000
-        },
-        {
-          "result": "WIN",
-          "match": "TaysTales vs Nans | 2026-04-14",
-          "timestamp": 1776186000000
-        },
-        {
-          "result": "LOSS",
-          "match": "JJ & Slug vs TaysTales & TollerTornado | 2026-04-09",
-          "timestamp": 1775754000000
-        },
-        {
-          "result": "LOSS",
-          "match": "Shartstarion vs TaysTales | 2026-03-28",
-          "timestamp": 1774717200000
-        },
-        {
-          "result": "WIN",
-          "match": "TaysTales vs JJ | 2026-03-26",
-          "timestamp": 1774544400000
-        },
-        {
-          "result": "LOSS",
-          "match": "Slug vs TaysTales | 2026-03-05",
-          "timestamp": 1772730000000
-        },
-        {
-          "result": "LOSS",
-          "match": "BloodiestCorpse vs TaysTales | 2026-02-26",
-          "timestamp": 1772125200000
-        },
-        {
-          "result": "LOSS",
-          "match": "Narky vs TaysTales | 2026-02-08",
-          "timestamp": 1770570000000
-        },
-        {
-          "result": "WIN",
-          "match": "TaysTales vs Cardraul| 2026-01-29",
-          "timestamp": 1769706000000
-        },
-        {
-          "result": "WIN",
-          "match": "TaysTales vs CrowBird | 2026-01-16",
-          "timestamp": 1768582800000
-        },
-        {
-          "result": "WIN",
-          "match": "TaysTales vs CannibalJeebus | 2026-01-08",
-          "timestamp": 1767891600000
-        }
-      ],
-      "divisionRank": 11
-    },
-    {
-      "id": 40,
-      "name": "JeromeySchweemey",
-      "division": "Div 1",
-      "divisionRank": 12,
-      "rank": 12,
-      "wins": 3,
-      "losses": 1,
-      "elo": 1532,
-      "lastElo": 1547,
-      "photo": "images/jmoney.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "LOSS",
-          "match": "Kaden vs JeromeySchweemey |  2026-06-05",
-          "timestamp": 1780678800000
-        },
-        {
-          "result": "WIN",
-          "match": "JeromeySchweemey vs RawrImHere | 2026-05-26",
-          "timestamp": 1779814800000
-        },
-        {
-          "result": "WIN",
-          "match": "JeromeySchweemey vs RoofDog | 2026-05-20",
-          "timestamp": 1779296400000
-        },
-        {
-          "result": "WIN",
-          "match": "JeromeySchweemey vs Shartstarion | 2026-05-12",
-          "timestamp": 1778605200000
-        }
-      ]
-    },
-    {
       "id": 9,
       "name": "Offron",
-      "rank": 13,
+      "rank": 12,
       "wins": 7,
       "losses": 6,
       "elo": 1528,
@@ -1031,188 +1033,16 @@
           "timestamp": 1767805200000
         }
       ],
-      "divisionRank": 13
-    },
-    {
-      "id": 36,
-      "name": "JJ",
-      "division": "Div 1",
-      "divisionRank": 14,
-      "rank": 14,
-      "wins": 6,
-      "losses": 5,
-      "elo": 1527,
-      "lastElo": 1511,
-      "photo": "images/JJ.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "WIN",
-          "match": "JJ vs RoofDog | 2026-06-01",
-          "timestamp": 1780333200000
-        },
-        {
-          "result": "WIN",
-          "match": "JJ vs MuraWisteria | 2026-05-20",
-          "timestamp": 1779296400000
-        },
-        {
-          "result": "WIN",
-          "match": "JJ & Slug vs Ginauz & Kaden | 2026-05-14",
-          "timestamp": 1778778000000
-        },
-        {
-          "result": "WIN",
-          "match": "JJ & Slug vs TaysTales & TollerTornado | 2026-05-07",
-          "timestamp": 1778173200000
-        },
-        {
-          "result": "WIN",
-          "match": "JJ vs PottiePots | 2026-04-28",
-          "timestamp": 1777395600000
-        },
-        {
-          "result": "LOSS",
-          "match": "Balderoni vs JJ | 2026-04-14",
-          "timestamp": 1776186000000
-        },
-        {
-          "result": "WIN",
-          "match": "JJ & Slug vs TaysTales & TollerTornado | 2026-04-09",
-          "timestamp": 1775754000000
-        },
-        {
-          "result": "WIN",
-          "match": "JJ vs Cardraul | 2026-04-06",
-          "timestamp": 1775494800000
-        },
-        {
-          "result": "LOSS",
-          "match": "Slug vs Offron vs JJ vs PottiePots | 2026-03-28",
-          "timestamp": 1774717200000
-        },
-        {
-          "result": "LOSS",
-          "match": "TaysTales vs JJ | 2026-03-26",
-          "timestamp": 1774544400000
-        },
-        {
-          "result": "WIN",
-          "match": "JJ vs Deadlee | 2026-03-19",
-          "timestamp": 1773939600000
-        },
-        {
-          "result": "LOSS",
-          "match": "PilleVipp vs JJ | 2026-03-09",
-          "timestamp": 1773075600000
-        },
-        {
-          "result": "LOSS",
-          "match": "MuraWisteria vs JJ | 2026-03-02",
-          "timestamp": 1772470800000
-        },
-        {
-          "result": "WIN",
-          "match": "JJ vs Cardraul | 2026-02-24",
-          "timestamp": 1771952400000
-        },
-        {},
-        {}
-      ]
-    },
-    {
-      "id": 23,
-      "name": "MininumWageWorker",
-      "rank": 15,
-      "wins": 6,
-      "losses": 6,
-      "elo": 1512,
-      "lastElo": 1527,
-      "division": "Div 1",
-      "photo": "images/mininum.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "LOSS",
-          "match": "Paulg8 vs MininumWageWorker | 2026-05-21",
-          "timestamp": 1779382800000
-        },
-        {
-          "result": "LOSS",
-          "match": "BloodiestCorpse vs MininumWageWorker | 2026-05-05",
-          "timestamp": 1778000400000
-        },
-        {
-          "result": "WIN",
-          "match": "MininumWageWorker vs CrowBird | 2026-04-21",
-          "timestamp": 1776790800000
-        },
-        {
-          "result": "LOSS",
-          "match": "TheBobbyV vs MininumWageWorker| 2026-04-10",
-          "timestamp": 1775840400000
-        },
-        {
-          "result": "LOSS",
-          "match": "HerrKrokodil vs Kaden vs Narky vs Ravroid vs MininumWageWorker vs BloodiestCorpse | 2026-03-28",
-          "timestamp": 1774717200000
-        },
-        {
-          "result": "WIN",
-          "match": "MininumWageWorker vs RagGhee vs Ginauz | 2026-03-20",
-          "timestamp": 1774026000000
-        },
-        {
-          "result": "WIN",
-          "match": "MininumWageWorker vs HeyyaNito | 2026-03-11",
-          "timestamp": 1773248400000
-        },
-        {
-          "result": "WIN",
-          "match": "MininumWageWorker vs Lilith | 2026-02-23",
-          "timestamp": 1771866000000
-        },
-        {
-          "result": "LOSS",
-          "match": "Ginauz vs MininumWageWorker | 2026-02-06",
-          "timestamp": 1770397200000
-        },
-        {
-          "result": "WIN",
-          "match": "MininumWageWorker vs Offron | 2026-01-23",
-          "timestamp": 1769187600000
-        },
-        {
-          "result": "LOSS",
-          "match": "Narky vs MininumWageWorker | 2026-01-12",
-          "timestamp": 1768237200000
-        },
-        {
-          "result": "WIN",
-          "match": "MininumWageWorker vs RebelMime | 2026-01-08",
-          "timestamp": 1767978000000
-        }
-      ],
-      "divisionRank": 15
+      "divisionRank": 12
     },
     {
       "id": 14,
       "name": "TollerTornado",
-      "rank": 16,
-      "wins": 6,
+      "rank": 13,
+      "wins": 7,
       "losses": 6,
-      "elo": 1511,
-      "lastElo": 1495,
+      "elo": 1527,
+      "lastElo": 1511,
       "division": "Div 1",
       "photo": "images/toller.jpg",
       "bio": "Bio coming soon.",
@@ -1222,6 +1052,16 @@
       ],
       "championshipHistory": [],
       "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "TollerTornado vs MininumWageWorker | 2026-06-08",
+          "timestamp": 1780938000000
+        },
+        {
+          "result": "LOSS",
+          "match": "Lilith & CrowBird vs TaysTales & TollerTornado | 2026-06-11",
+          "timestamp": 1781197200000
+        },
         {
           "result": "WIN",
           "match": "TollerTornado vs RebelMime | 2026-06-03",
@@ -1298,12 +1138,327 @@
           "timestamp": 1767805200000
         }
       ],
-      "divisionRank": 16
+      "divisionRank": 13
+    },
+    {
+      "id": 5,
+      "name": "RawrImHere",
+      "rank": 14,
+      "wins": 7,
+      "losses": 6,
+      "elo": 1521,
+      "lastElo": 1506,
+      "division": "Div 1",
+      "photo": "images/rawr.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "divisionRank": 14,
+      "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "RawrImHere vs Dinsdale |  2026-06-12",
+          "timestamp": 1781283600000
+        },
+        {
+          "result": "LOSS",
+          "match": "JeromeySchweemey vs RawrImHere | 2026-05-26",
+          "timestamp": 1779814800000
+        },
+        {
+          "result": "WIN",
+          "match": "RawrImHere vs Slug | 2026-05-11",
+          "timestamp": 1778518800000
+        },
+        {
+          "result": "WIN",
+          "match": "RawrImHere vs Pigmanman | 2026-04-29",
+          "timestamp": 1777482000000
+        },
+        {
+          "result": "WIN",
+          "match": "RawrImHere vs Deadlee | 2026-04-07",
+          "timestamp": 1775581200000
+        },
+        {
+          "result": "LOSS",
+          "match": "Cardraul vs RawrImHere vs Madeline vs MuddyB3 vs Deadlee vs Pigmanman | 2026-03-28",
+          "timestamp": 1774717200000
+        },
+        {
+          "result": "WIN",
+          "match": "RawrImHere vs ManulTheCat | 2026-03-23",
+          "timestamp": 1774285200000
+        },
+        {
+          "result": "LOSS",
+          "match": "TollerTornado vs RawrImHere | 2026-03-16",
+          "timestamp": 1773680400000
+        },
+        {
+          "result": "LOSS",
+          "match": "HeyyaNito vs RawrImHere | 2026-03-02",
+          "timestamp": 1772470800000
+        },
+        {
+          "result": "LOSS",
+          "match": "BloodiestCorpse vs RawrImHere | 2026-02-17",
+          "timestamp": 1771347600000
+        },
+        {
+          "result": "LOSS",
+          "match": "Kaden vs RawrImHere | 2026-01-26",
+          "timestamp": 1769446800000
+        },
+        {
+          "result": "WIN",
+          "match": "RawrImHere vs Balderoni | 2026-01-20",
+          "timestamp": 1768928400000
+        },
+        {
+          "result": "WIN",
+          "match": "RawrImHere vs MuddyB3 | 2026-01-13",
+          "timestamp": 1768323600000
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "name": "TaysTales",
+      "rank": 15,
+      "wins": 7,
+      "losses": 6,
+      "elo": 1517,
+      "lastElo": 1533,
+      "division": "Div 1",
+      "photo": "images/tay.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "LOSS",
+          "match": "MiniMoth10 vs TaysTales | 2026-06-09",
+          "timestamp": 1781024400000
+        },
+        {
+          "result": "LOSS",
+          "match": "Lilith & CrowBird vs TaysTales & TollerTornado | 2026-06-11",
+          "timestamp": 1781197200000
+        },
+        {
+          "result": "WIN",
+          "match": "TaysTales vs Offron | 2026-06-03",
+          "timestamp": 1780506000000
+        },
+        {
+          "result": "WIN",
+          "match": "TaysTales & TollerTornado vs TheBobbyV & MuddyB3 | 2026-05-28",
+          "timestamp": 1779987600000
+        },
+        {
+          "result": "LOSS",
+          "match": "Lilith vs TaysTales | 2026-05-15",
+          "timestamp": 1778864400000
+        },
+        {
+          "result": "LOSS",
+          "match": "JJ & Slug vs TaysTales & TollerTornado | 2026-05-07",
+          "timestamp": 1778173200000
+        },
+        {
+          "result": "WIN",
+          "match": "TaysTales vs Ginauz | 2026-04-28",
+          "timestamp": 1777395600000
+        },
+        {
+          "result": "WIN",
+          "match": "TaysTales vs Nans | 2026-04-14",
+          "timestamp": 1776186000000
+        },
+        {
+          "result": "LOSS",
+          "match": "JJ & Slug vs TaysTales & TollerTornado | 2026-04-09",
+          "timestamp": 1775754000000
+        },
+        {
+          "result": "LOSS",
+          "match": "Shartstarion vs TaysTales | 2026-03-28",
+          "timestamp": 1774717200000
+        },
+        {
+          "result": "WIN",
+          "match": "TaysTales vs JJ | 2026-03-26",
+          "timestamp": 1774544400000
+        },
+        {
+          "result": "LOSS",
+          "match": "Slug vs TaysTales | 2026-03-05",
+          "timestamp": 1772730000000
+        },
+        {
+          "result": "LOSS",
+          "match": "BloodiestCorpse vs TaysTales | 2026-02-26",
+          "timestamp": 1772125200000
+        },
+        {
+          "result": "LOSS",
+          "match": "Narky vs TaysTales | 2026-02-08",
+          "timestamp": 1770570000000
+        },
+        {
+          "result": "WIN",
+          "match": "TaysTales vs Cardraul| 2026-01-29",
+          "timestamp": 1769706000000
+        },
+        {
+          "result": "WIN",
+          "match": "TaysTales vs CrowBird | 2026-01-16",
+          "timestamp": 1768582800000
+        },
+        {
+          "result": "WIN",
+          "match": "TaysTales vs CannibalJeebus | 2026-01-08",
+          "timestamp": 1767891600000
+        }
+      ],
+      "divisionRank": 15
+    },
+    {
+      "id": 40,
+      "name": "JeromeySchweemey",
+      "division": "Div 1",
+      "divisionRank": 16,
+      "rank": 16,
+      "wins": 3,
+      "losses": 2,
+      "elo": 1516,
+      "lastElo": 1532,
+      "photo": "images/jmoney.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "LOSS",
+          "match": "JJ vs JeromeySchweemey | 2026-06-10",
+          "timestamp": 1781110800000
+        },
+        {
+          "result": "LOSS",
+          "match": "Kaden vs JeromeySchweemey |  2026-06-05",
+          "timestamp": 1780678800000
+        },
+        {
+          "result": "WIN",
+          "match": "JeromeySchweemey vs RawrImHere | 2026-05-26",
+          "timestamp": 1779814800000
+        },
+        {
+          "result": "WIN",
+          "match": "JeromeySchweemey vs RoofDog | 2026-05-20",
+          "timestamp": 1779296400000
+        },
+        {
+          "result": "WIN",
+          "match": "JeromeySchweemey vs Shartstarion | 2026-05-12",
+          "timestamp": 1778605200000
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "name": "Balderoni",
+      "rank": 17,
+      "wins": 6,
+      "losses": 6,
+      "elo": 1516,
+      "lastElo": 1500,
+      "division": "Div 1",
+      "photo": "images/balderoni.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "Balderoni vs RoofDog | 2026-06-09",
+          "timestamp": 1781024400000
+        },
+        {
+          "result": "LOSS",
+          "match": "Offron vs Balderoni | 2026-05-13",
+          "timestamp": 1778691600000
+        },
+        {
+          "result": "WIN",
+          "match": "Balderoni vs CrowBird | 2026-05-06",
+          "timestamp": 1778086800000
+        },
+        {
+          "result": "WIN",
+          "match": "Balderoni vs JJ | 2026-04-14",
+          "timestamp": 1776186000000
+        },
+        {
+          "result": "LOSS",
+          "match": "PilleVipp vs Balderoni | 2026-04-02",
+          "timestamp": 1775149200000
+        },
+        {
+          "result": "LOSS",
+          "match": "RebelMime vs CannibalJeebus vs Balderoni vs MuraWisteria vs TollerTornado vs HeyyaNito | 2026-03-28",
+          "timestamp": 1774717200000
+        },
+        {
+          "result": "WIN",
+          "match": "Balderoni vs MuraWisteria | 2026-03-25",
+          "timestamp": 1774458000000
+        },
+        {
+          "result": "LOSS",
+          "match": "Dinsdale vs Balderoni | 2026-03-16",
+          "timestamp": 1773680400000
+        },
+        {
+          "result": "WIN",
+          "match": "Balderoni vs Hro79 | 2026-02-24",
+          "timestamp": 1771952400000
+        },
+        {
+          "result": "LOSS",
+          "match": "Lilith vs Balderoni | 2026-02-02",
+          "timestamp": 1770051600000
+        },
+        {
+          "result": "WIN",
+          "match": "Balderoni vs Deadlee | 2026-01-29",
+          "timestamp": 1769706000000
+        },
+        {
+          "result": "LOSS",
+          "match": "RawrImHere vs Balderoni | 2026-01-20",
+          "timestamp": 1768928400000
+        }
+      ],
+      "divisionRank": 17
     },
     {
       "id": 2,
       "name": "Ginauz",
-      "rank": 17,
+      "rank": 18,
       "wins": 6,
       "losses": 7,
       "elo": 1506,
@@ -1316,7 +1471,7 @@
         "Career highlights coming soon."
       ],
       "championshipHistory": [],
-      "divisionRank": 17,
+      "divisionRank": 18,
       "matchHistory": [
         {
           "result": "LOSS",
@@ -1406,224 +1561,89 @@
       ]
     },
     {
-      "id": 5,
-      "name": "RawrImHere",
-      "rank": 18,
+      "id": 6,
+      "name": "Shartstarion",
+      "rank": 19,
       "wins": 6,
       "losses": 6,
-      "elo": 1506,
-      "lastElo": 1522,
+      "elo": 1504,
+      "lastElo": 1488,
       "division": "Div 1",
-      "photo": "images/rawr.jpg",
+      "photo": "images/shart.jpg",
       "bio": "Bio coming soon.",
       "signatureMoves": [],
       "highlights": [
         "Career highlights coming soon."
       ],
       "championshipHistory": [],
-      "divisionRank": 18,
       "matchHistory": [
         {
-          "result": "LOSS",
-          "match": "JeromeySchweemey vs RawrImHere | 2026-05-26",
-          "timestamp": 1779814800000
+          "result": "WIN",
+          "match": "Shartstarion vs WheatSeedGuy | 2026-06-11",
+          "timestamp": 1781197200000
         },
         {
           "result": "WIN",
-          "match": "RawrImHere vs Slug | 2026-05-11",
-          "timestamp": 1778518800000
-        },
-        {
-          "result": "WIN",
-          "match": "RawrImHere vs Pigmanman | 2026-04-29",
-          "timestamp": 1777482000000
-        },
-        {
-          "result": "WIN",
-          "match": "RawrImHere vs Deadlee | 2026-04-07",
-          "timestamp": 1775581200000
+          "match": "Shartstarion vs MuraWisteria | 2026-05-27",
+          "timestamp": 1779901200000
         },
         {
           "result": "LOSS",
-          "match": "Cardraul vs RawrImHere vs Madeline vs MuddyB3 vs Deadlee vs Pigmanman | 2026-03-28",
+          "match": "JeromeySchweemey vs Shartstarion | 2026-05-12",
+          "timestamp": 1778605200000
+        },
+        {
+          "result": "LOSS",
+          "match": "RoofDog vs Shartstarion | 2026-05-04",
+          "timestamp": 1777914000000
+        },
+        {
+          "result": "LOSS",
+          "match": "CrowBird vs Shartstarion | 2026-04-08",
+          "timestamp": 1775667600000
+        },
+        {
+          "result": "WIN",
+          "match": "Shartstarion vs TaysTales | 2026-03-28",
           "timestamp": 1774717200000
         },
         {
           "result": "WIN",
-          "match": "RawrImHere vs ManulTheCat | 2026-03-23",
-          "timestamp": 1774285200000
+          "match": "Shartstarion vs Madeline | 2026-03-18",
+          "timestamp": 1773853200000
         },
         {
-          "result": "LOSS",
-          "match": "TollerTornado vs RawrImHere | 2026-03-16",
-          "timestamp": 1773680400000
-        },
-        {
-          "result": "LOSS",
-          "match": "HeyyaNito vs RawrImHere | 2026-03-02",
-          "timestamp": 1772470800000
-        },
-        {
-          "result": "LOSS",
-          "match": "BloodiestCorpse vs RawrImHere | 2026-02-17",
+          "result": "WIN",
+          "match": "Shartstarion vs MuddyB3 | 2026-02-17",
           "timestamp": 1771347600000
         },
         {
           "result": "LOSS",
-          "match": "Kaden vs RawrImHere | 2026-01-26",
+          "match": "RagGhee vs Shartstarion | 2026-01-26",
           "timestamp": 1769446800000
         },
         {
-          "result": "WIN",
-          "match": "RawrImHere vs Balderoni | 2026-01-20",
-          "timestamp": 1768928400000
-        },
-        {
-          "result": "WIN",
-          "match": "RawrImHere vs MuddyB3 | 2026-01-13",
-          "timestamp": 1768323600000
-        }
-      ]
-    },
-    {
-      "id": 26,
-      "name": "Balderoni",
-      "rank": 19,
-      "wins": 5,
-      "losses": 6,
-      "elo": 1500,
-      "lastElo": 1515,
-      "division": "Div 1",
-      "photo": "images/balderoni.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
           "result": "LOSS",
-          "match": "Offron vs Balderoni | 2026-05-13",
-          "timestamp": 1778691600000
+          "match": "Pigmanman vs Shartstarion | 2026-01-15",
+          "timestamp": 1768496400000
         },
         {
           "result": "WIN",
-          "match": "Balderoni vs CrowBird | 2026-05-06",
-          "timestamp": 1778086800000
-        },
-        {
-          "result": "WIN",
-          "match": "Balderoni vs JJ | 2026-04-14",
-          "timestamp": 1776186000000
+          "match": "Shartstarion vs Jimmytvf | 2026-01-09",
+          "timestamp": 1767978000000
         },
         {
           "result": "LOSS",
-          "match": "PilleVipp vs Balderoni | 2026-04-02",
-          "timestamp": 1775149200000
-        },
-        {
-          "result": "LOSS",
-          "match": "RebelMime vs CannibalJeebus vs Balderoni vs MuraWisteria vs TollerTornado vs HeyyaNito | 2026-03-28",
-          "timestamp": 1774717200000
-        },
-        {
-          "result": "WIN",
-          "match": "Balderoni vs MuraWisteria | 2026-03-25",
-          "timestamp": 1774458000000
-        },
-        {
-          "result": "LOSS",
-          "match": "Dinsdale vs Balderoni | 2026-03-16",
-          "timestamp": 1773680400000
-        },
-        {
-          "result": "WIN",
-          "match": "Balderoni vs Hro79 | 2026-02-24",
-          "timestamp": 1771952400000
-        },
-        {
-          "result": "LOSS",
-          "match": "Lilith vs Balderoni | 2026-02-02",
-          "timestamp": 1770051600000
-        },
-        {
-          "result": "WIN",
-          "match": "Balderoni vs Deadlee | 2026-01-29",
-          "timestamp": 1769706000000
-        },
-        {
-          "result": "LOSS",
-          "match": "RawrImHere vs Balderoni | 2026-01-20",
-          "timestamp": 1768928400000
+          "match": "RagGhee vs Shartstarion | 2026-01-05",
+          "timestamp": 1767632400000
         }
       ],
       "divisionRank": 19
     },
     {
-      "id": 37,
-      "name": "RoofDog",
-      "division": "Div 2",
-      "divisionRank": 1,
-      "rank": 20,
-      "wins": 4,
-      "losses": 4,
-      "elo": 1498,
-      "lastElo": 1514,
-      "photo": "images/roof.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "LOSS",
-          "match": "JJ vs RoofDog | 2026-06-01",
-          "timestamp": 1780333200000
-        },
-        {
-          "result": "WIN",
-          "match": "RoofDog vs WheatSeedGuy | 2026-05-27",
-          "timestamp": 1779901200000
-        },
-        {
-          "result": "LOSS",
-          "match": "JeromeySchweemey vs RoofDog | 2026-05-20",
-          "timestamp": 1779296400000
-        },
-        {
-          "result": "LOSS",
-          "match": "PilleVipp vs RoofDog | 2026-05-12",
-          "timestamp": 1778605200000
-        },
-        {
-          "result": "WIN",
-          "match": "RoofDog vs Shartstarion | 2026-05-04",
-          "timestamp": 1777914000000
-        },
-        {
-          "result": "WIN",
-          "match": "RoofDog vs Nans | 2026-04-27",
-          "timestamp": 1777309200000
-        },
-        {
-          "result": "LOSS",
-          "match": "Slug vs RoofDog | 2026-04-20",
-          "timestamp": 1776704400000
-        },
-        {
-          "result": "WIN",
-          "match": "RoofDog vs Dinsdale | 2026-04-07",
-          "timestamp": 1775581200000
-        }
-      ]
-    },
-    {
       "id": 16,
       "name": "MuddyB3",
-      "rank": 21,
+      "rank": 20,
       "wins": 5,
       "losses": 6,
       "elo": 1498,
@@ -1638,7 +1658,7 @@
       "championshipHistory": [
         "Twitch Intercontinental Champion 5/8 - Current"
       ],
-      "divisionRank": 2,
+      "divisionRank": 1,
       "matchHistory": [
         {
           "result": "LOSS",
@@ -1720,7 +1740,7 @@
     {
       "id": 1,
       "name": "RagGhee",
-      "rank": 22,
+      "rank": 21,
       "wins": 5,
       "losses": 7,
       "elo": 1497,
@@ -1795,19 +1815,104 @@
           "timestamp": 1767632400000
         }
       ],
+      "divisionRank": 2
+    },
+    {
+      "id": 23,
+      "name": "MininumWageWorker",
+      "rank": 22,
+      "wins": 6,
+      "losses": 7,
+      "elo": 1496,
+      "lastElo": 1512,
+      "division": "Div 2",
+      "photo": "images/mininum.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "LOSS",
+          "match": "TollerTornado vs MininumWageWorker | 2026-06-08",
+          "timestamp": 1780938000000
+        },
+        {
+          "result": "LOSS",
+          "match": "Paulg8 vs MininumWageWorker | 2026-05-21",
+          "timestamp": 1779382800000
+        },
+        {
+          "result": "LOSS",
+          "match": "BloodiestCorpse vs MininumWageWorker | 2026-05-05",
+          "timestamp": 1778000400000
+        },
+        {
+          "result": "WIN",
+          "match": "MininumWageWorker vs CrowBird | 2026-04-21",
+          "timestamp": 1776790800000
+        },
+        {
+          "result": "LOSS",
+          "match": "TheBobbyV vs MininumWageWorker| 2026-04-10",
+          "timestamp": 1775840400000
+        },
+        {
+          "result": "LOSS",
+          "match": "HerrKrokodil vs Kaden vs Narky vs Ravroid vs MininumWageWorker vs BloodiestCorpse | 2026-03-28",
+          "timestamp": 1774717200000
+        },
+        {
+          "result": "WIN",
+          "match": "MininumWageWorker vs RagGhee vs Ginauz | 2026-03-20",
+          "timestamp": 1774026000000
+        },
+        {
+          "result": "WIN",
+          "match": "MininumWageWorker vs HeyyaNito | 2026-03-11",
+          "timestamp": 1773248400000
+        },
+        {
+          "result": "WIN",
+          "match": "MininumWageWorker vs Lilith | 2026-02-23",
+          "timestamp": 1771866000000
+        },
+        {
+          "result": "LOSS",
+          "match": "Ginauz vs MininumWageWorker | 2026-02-06",
+          "timestamp": 1770397200000
+        },
+        {
+          "result": "WIN",
+          "match": "MininumWageWorker vs Offron | 2026-01-23",
+          "timestamp": 1769187600000
+        },
+        {
+          "result": "LOSS",
+          "match": "Narky vs MininumWageWorker | 2026-01-12",
+          "timestamp": 1768237200000
+        },
+        {
+          "result": "WIN",
+          "match": "MininumWageWorker vs RebelMime | 2026-01-08",
+          "timestamp": 1767978000000
+        }
+      ],
       "divisionRank": 3
     },
     {
-      "id": 34,
-      "name": "Dinsdale",
+      "id": 39,
+      "name": "Nans",
       "division": "Div 2",
       "divisionRank": 4,
       "rank": 23,
-      "wins": 5,
-      "losses": 6,
-      "elo": 1495,
-      "lastElo": 1479,
-      "photo": "images/dinsdale.jpg",
+      "wins": 3,
+      "losses": 4,
+      "elo": 1484,
+      "lastElo": 1468,
+      "photo": "images/nans.jpg",
       "bio": "Bio coming soon.",
       "signatureMoves": [],
       "highlights": [
@@ -1817,148 +1922,52 @@
       "matchHistory": [
         {
           "result": "WIN",
+          "match": "Nans vs CrowBird | 2026-06-10",
+          "timestamp": 1781110800000
+        },
+        {
+          "result": "LOSS",
           "match": "Dinsdale vs Nans | 2026-05-25",
           "timestamp": 1779728400000
         },
         {
           "result": "WIN",
-          "match": "Dinsdale vs Madeline | 2026-05-13",
-          "timestamp": 1778691600000
+          "match": "Nans vs Jimmytvf | 2026-05-18",
+          "timestamp": 1779123600000
         },
         {
           "result": "LOSS",
+          "match": "HeyyaNito vs Nans | 2026-05-05",
+          "timestamp": 1778000400000
+        },
+        {
+          "result": "LOSS",
+          "match": "RoofDog vs Nans | 2026-04-27",
+          "timestamp": 1777309200000
+        },
+        {
+          "result": "WIN",
           "match": "Nans vs Dinsdale | 2026-04-23",
           "timestamp": 1776963600000
         },
         {
           "result": "LOSS",
-          "match": "Pigmanman vs HeyyaNito vs Dinsdale| 2026-04-17",
-          "timestamp": 1776445200000
-        },
-        {
-          "result": "LOSS",
-          "match": "RoofDog vs Dinsdale | 2026-04-07",
-          "timestamp": 1775581200000
-        },
-        {
-          "result": "LOSS",
-          "match": "TheBobbyV vs Dinsdale | 2026-04-01",
-          "timestamp": 1775062800000
-        },
-        {
-          "result": "LOSS",
-          "match": "Lilith vs TheBobbyV vs Paulg8 vs RagGhee vs Ginauz vs Dinsdale vs PilleVipp vs CrowBird | 2026-03-28",
-          "timestamp": 1774717200000
-        },
-        {
-          "result": "WIN",
-          "match": "Dinsdale vs PilleVipp | 2026-03-24",
-          "timestamp": 1774371600000
-        },
-        {
-          "result": "WIN",
-          "match": "Dinsdale vs Balderoni | 2026-03-16",
-          "timestamp": 1773680400000
-        },
-        {
-          "result": "LOSS",
-          "match": "RagGhee vs Dinsdale | 2026-03-06",
-          "timestamp": 1772816400000
-        },
-        {
-          "result": "WIN",
-          "match": "Dinsdale vs Pigmanman | 2026-02-19",
-          "timestamp": 1771520400000
-        },
-        {}
+          "match": "TaysTales vs Nans | 2026-04-14",
+          "timestamp": 1776186000000
+        }
       ]
     },
     {
-      "id": 6,
-      "name": "Shartstarion",
+      "id": 37,
+      "name": "RoofDog",
+      "division": "Div 2",
+      "divisionRank": 5,
       "rank": 24,
-      "wins": 5,
-      "losses": 6,
-      "elo": 1488,
-      "lastElo": 1472,
-      "division": "Div 2",
-      "photo": "images/shart.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "WIN",
-          "match": "Shartstarion vs MuraWisteria | 2026-05-27",
-          "timestamp": 1779901200000
-        },
-        {
-          "result": "LOSS",
-          "match": "JeromeySchweemey vs Shartstarion | 2026-05-12",
-          "timestamp": 1778605200000
-        },
-        {
-          "result": "LOSS",
-          "match": "RoofDog vs Shartstarion | 2026-05-04",
-          "timestamp": 1777914000000
-        },
-        {
-          "result": "LOSS",
-          "match": "CrowBird vs Shartstarion | 2026-04-08",
-          "timestamp": 1775667600000
-        },
-        {
-          "result": "WIN",
-          "match": "Shartstarion vs TaysTales | 2026-03-28",
-          "timestamp": 1774717200000
-        },
-        {
-          "result": "WIN",
-          "match": "Shartstarion vs Madeline | 2026-03-18",
-          "timestamp": 1773853200000
-        },
-        {
-          "result": "WIN",
-          "match": "Shartstarion vs MuddyB3 | 2026-02-17",
-          "timestamp": 1771347600000
-        },
-        {
-          "result": "LOSS",
-          "match": "RagGhee vs Shartstarion | 2026-01-26",
-          "timestamp": 1769446800000
-        },
-        {
-          "result": "LOSS",
-          "match": "Pigmanman vs Shartstarion | 2026-01-15",
-          "timestamp": 1768496400000
-        },
-        {
-          "result": "WIN",
-          "match": "Shartstarion vs Jimmytvf | 2026-01-09",
-          "timestamp": 1767978000000
-        },
-        {
-          "result": "LOSS",
-          "match": "RagGhee vs Shartstarion | 2026-01-05",
-          "timestamp": 1767632400000
-        }
-      ],
-      "divisionRank": 5
-    },
-    {
-      "id": 41,
-      "name": "WheatSeedGuy",
-      "division": "Div 2",
-      "divisionRank": 6,
-      "rank": 25,
-      "wins": 1,
-      "losses": 2,
+      "wins": 4,
+      "losses": 5,
       "elo": 1482,
-      "lastElo": 1469,
-      "photo": "images/wheat.jpg",
+      "lastElo": 1498,
+      "photo": "images/roof.jpg",
       "bio": "Bio coming soon.",
       "signatureMoves": [],
       "highlights": [
@@ -1967,26 +1976,56 @@
       "championshipHistory": [],
       "matchHistory": [
         {
-          "result": "WIN",
-          "match": "WheatSeedGuy vs Madeline | 2026-06-01",
+          "result": "LOSS",
+          "match": "Balderoni vs RoofDog | 2026-06-09",
+          "timestamp": 1781024400000
+        },
+        {
+          "result": "LOSS",
+          "match": "JJ vs RoofDog | 2026-06-01",
           "timestamp": 1780333200000
         },
         {
-          "result": "LOSS",
+          "result": "WIN",
           "match": "RoofDog vs WheatSeedGuy | 2026-05-27",
           "timestamp": 1779901200000
         },
         {
           "result": "LOSS",
-          "match": "Ginauz vs WheatSeedGuy | 2026-05-19",
-          "timestamp": 1779210000000
+          "match": "JeromeySchweemey vs RoofDog | 2026-05-20",
+          "timestamp": 1779296400000
+        },
+        {
+          "result": "LOSS",
+          "match": "PilleVipp vs RoofDog | 2026-05-12",
+          "timestamp": 1778605200000
+        },
+        {
+          "result": "WIN",
+          "match": "RoofDog vs Shartstarion | 2026-05-04",
+          "timestamp": 1777914000000
+        },
+        {
+          "result": "WIN",
+          "match": "RoofDog vs Nans | 2026-04-27",
+          "timestamp": 1777309200000
+        },
+        {
+          "result": "LOSS",
+          "match": "Slug vs RoofDog | 2026-04-20",
+          "timestamp": 1776704400000
+        },
+        {
+          "result": "WIN",
+          "match": "RoofDog vs Dinsdale | 2026-04-07",
+          "timestamp": 1775581200000
         }
       ]
     },
     {
       "id": 11,
       "name": "RebelMime",
-      "rank": 26,
+      "rank": 25,
       "wins": 5,
       "losses": 7,
       "elo": 1481,
@@ -2063,7 +2102,88 @@
           "timestamp": 1767978000000
         }
       ],
-      "divisionRank": 7
+      "divisionRank": 6
+    },
+    {
+      "id": 34,
+      "name": "Dinsdale",
+      "division": "Div 2",
+      "divisionRank": 7,
+      "rank": 26,
+      "wins": 5,
+      "losses": 7,
+      "elo": 1480,
+      "lastElo": 1495,
+      "photo": "images/dinsdale.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "LOSS",
+          "match": "RawrImHere vs Dinsdale |  2026-06-12",
+          "timestamp": 1781283600000
+        },
+        {
+          "result": "WIN",
+          "match": "Dinsdale vs Nans | 2026-05-25",
+          "timestamp": 1779728400000
+        },
+        {
+          "result": "WIN",
+          "match": "Dinsdale vs Madeline | 2026-05-13",
+          "timestamp": 1778691600000
+        },
+        {
+          "result": "LOSS",
+          "match": "Nans vs Dinsdale | 2026-04-23",
+          "timestamp": 1776963600000
+        },
+        {
+          "result": "LOSS",
+          "match": "Pigmanman vs HeyyaNito vs Dinsdale| 2026-04-17",
+          "timestamp": 1776445200000
+        },
+        {
+          "result": "LOSS",
+          "match": "RoofDog vs Dinsdale | 2026-04-07",
+          "timestamp": 1775581200000
+        },
+        {
+          "result": "LOSS",
+          "match": "TheBobbyV vs Dinsdale | 2026-04-01",
+          "timestamp": 1775062800000
+        },
+        {
+          "result": "LOSS",
+          "match": "Lilith vs TheBobbyV vs Paulg8 vs RagGhee vs Ginauz vs Dinsdale vs PilleVipp vs CrowBird | 2026-03-28",
+          "timestamp": 1774717200000
+        },
+        {
+          "result": "WIN",
+          "match": "Dinsdale vs PilleVipp | 2026-03-24",
+          "timestamp": 1774371600000
+        },
+        {
+          "result": "WIN",
+          "match": "Dinsdale vs Balderoni | 2026-03-16",
+          "timestamp": 1773680400000
+        },
+        {
+          "result": "LOSS",
+          "match": "RagGhee vs Dinsdale | 2026-03-06",
+          "timestamp": 1772816400000
+        },
+        {
+          "result": "WIN",
+          "match": "Dinsdale vs Pigmanman | 2026-02-19",
+          "timestamp": 1771520400000
+        },
+        {}
+      ]
     },
     {
       "id": 3,
@@ -2403,106 +2523,16 @@
       ]
     },
     {
-      "id": 4,
-      "name": "CrowBird",
+      "id": 41,
+      "name": "WheatSeedGuy",
+      "division": "Div 2",
+      "divisionRank": 12,
       "rank": 31,
-      "wins": 4,
-      "losses": 7,
-      "elo": 1474,
-      "lastElo": 1490,
-      "division": "Div 2",
-      "photo": "images/crow.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "WIN",
-          "match": "Lilith & CrowBird vs Offron & WilliamIsTed (Loose Losers) | 2026-05-21",
-          "timestamp": 1779382800000
-        },
-        {
-          "result": "LOSS",
-          "match": "Balderoni vs CrowBird | 2026-05-06",
-          "timestamp": 1778086800000
-        },
-        {
-          "result": "LOSS",
-          "match": "Offron vs CrowBird | 2026-04-30",
-          "timestamp": 1777568400000
-        },
-        {
-          "result": "LOSS",
-          "match": "MininumWageWorker vs CrowBird | 2026-04-21",
-          "timestamp": 1776790800000
-        },
-        {
-          "result": "LOSS",
-          "match": "Ginauz & Kaden vs Lilith & CrowBird | 2026-04-16",
-          "timestamp": 1776358800000
-        },
-        {
-          "result": "WIN",
-          "match": "CrowBird vs Shartstarion | 2026-04-08",
-          "timestamp": 1775667600000
-        },
-        {
-          "result": "WIN",
-          "match": "Lilith & CrowBird vs TheBobbyV & MuddyB3 | 2026-04-03",
-          "timestamp": 1775235600000
-        },
-        {
-          "result": "LOSS",
-          "match": "Lilith vs TheBobbyV vs Paulg8 vs RagGhee vs Ginauz vs Dinsdale vs PilleVipp vs CrowBird | 2026-03-28",
-          "timestamp": 1774717200000
-        },
-        {
-          "result": "LOSS",
-          "match": "BloodiestCorpse vs CrowBird | 2026-03-20",
-          "timestamp": 1774026000000
-        },
-        {
-          "result": "WIN",
-          "match": "CrowBird vs Deadlee | 2026-03-03",
-          "timestamp": 1772557200000
-        },
-        {
-          "result": "WIN",
-          "match": "CrowBird vs MuddyB3 | 2026-02-03",
-          "timestamp": 1770138000000
-        },
-        {
-          "result": "LOSS",
-          "match": "HeyyaNito vs CrowBird | 2026-01-25",
-          "timestamp": 1769360400000
-        },
-        {
-          "result": "LOSS",
-          "match": "TaysTales vs CrowBird | 2026-01-16",
-          "timestamp": 1768582800000
-        },
-        {
-          "result": "WIN",
-          "match": "CrowBird vs HeyyaNito | 2026-01-09",
-          "timestamp": 1767891600000
-        }
-      ],
-      "divisionRank": 12
-    },
-    {
-      "id": 39,
-      "name": "Nans",
-      "division": "Div 2",
-      "divisionRank": 13,
-      "rank": 32,
-      "wins": 2,
-      "losses": 4,
-      "elo": 1468,
-      "lastElo": 1484,
-      "photo": "images/nans.jpg",
+      "wins": 1,
+      "losses": 3,
+      "elo": 1466,
+      "lastElo": 1482,
+      "photo": "images/wheat.jpg",
       "bio": "Bio coming soon.",
       "signatureMoves": [],
       "highlights": [
@@ -2512,40 +2542,30 @@
       "matchHistory": [
         {
           "result": "LOSS",
-          "match": "Dinsdale vs Nans | 2026-05-25",
-          "timestamp": 1779728400000
+          "match": "Shartstarion vs WheatSeedGuy | 2026-06-11",
+          "timestamp": 1781197200000
         },
         {
           "result": "WIN",
-          "match": "Nans vs Jimmytvf | 2026-05-18",
-          "timestamp": 1779123600000
+          "match": "WheatSeedGuy vs Madeline | 2026-06-01",
+          "timestamp": 1780333200000
         },
         {
           "result": "LOSS",
-          "match": "HeyyaNito vs Nans | 2026-05-05",
-          "timestamp": 1778000400000
+          "match": "RoofDog vs WheatSeedGuy | 2026-05-27",
+          "timestamp": 1779901200000
         },
         {
           "result": "LOSS",
-          "match": "RoofDog vs Nans | 2026-04-27",
-          "timestamp": 1777309200000
-        },
-        {
-          "result": "WIN",
-          "match": "Nans vs Dinsdale | 2026-04-23",
-          "timestamp": 1776963600000
-        },
-        {
-          "result": "LOSS",
-          "match": "TaysTales vs Nans | 2026-04-14",
-          "timestamp": 1776186000000
+          "match": "Ginauz vs WheatSeedGuy | 2026-05-19",
+          "timestamp": 1779210000000
         }
       ]
     },
     {
       "id": 13,
       "name": "Jimmytvf",
-      "rank": 33,
+      "rank": 32,
       "wins": 4,
       "losses": 7,
       "elo": 1465,
@@ -2615,12 +2635,12 @@
           "timestamp": 1767978000000
         }
       ],
-      "divisionRank": 14
+      "divisionRank": 13
     },
     {
       "id": 10,
       "name": "CannibalJeebus",
-      "rank": 34,
+      "rank": 33,
       "wins": 4,
       "losses": 8,
       "elo": 1464,
@@ -2705,14 +2725,194 @@
           "timestamp": 1767891600000
         }
       ],
+      "divisionRank": 14
+    },
+    {
+      "id": 4,
+      "name": "CrowBird",
+      "rank": 34,
+      "wins": 4,
+      "losses": 8,
+      "elo": 1458,
+      "lastElo": 1474,
+      "division": "Div 2",
+      "photo": "images/crow.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "LOSS",
+          "match": "Nans vs CrowBird | 2026-06-10",
+          "timestamp": 1781110800000
+        },
+        {
+          "result": "WIN",
+          "match": "Lilith & CrowBird vs TaysTales & TollerTornado | 2026-06-11",
+          "timestamp": 1781197200000
+        },
+        {
+          "result": "WIN",
+          "match": "Lilith & CrowBird vs Offron & WilliamIsTed (Loose Losers) | 2026-05-21",
+          "timestamp": 1779382800000
+        },
+        {
+          "result": "LOSS",
+          "match": "Balderoni vs CrowBird | 2026-05-06",
+          "timestamp": 1778086800000
+        },
+        {
+          "result": "LOSS",
+          "match": "Offron vs CrowBird | 2026-04-30",
+          "timestamp": 1777568400000
+        },
+        {
+          "result": "LOSS",
+          "match": "MininumWageWorker vs CrowBird | 2026-04-21",
+          "timestamp": 1776790800000
+        },
+        {
+          "result": "LOSS",
+          "match": "Ginauz & Kaden vs Lilith & CrowBird | 2026-04-16",
+          "timestamp": 1776358800000
+        },
+        {
+          "result": "WIN",
+          "match": "CrowBird vs Shartstarion | 2026-04-08",
+          "timestamp": 1775667600000
+        },
+        {
+          "result": "WIN",
+          "match": "Lilith & CrowBird vs TheBobbyV & MuddyB3 | 2026-04-03",
+          "timestamp": 1775235600000
+        },
+        {
+          "result": "LOSS",
+          "match": "Lilith vs TheBobbyV vs Paulg8 vs RagGhee vs Ginauz vs Dinsdale vs PilleVipp vs CrowBird | 2026-03-28",
+          "timestamp": 1774717200000
+        },
+        {
+          "result": "LOSS",
+          "match": "BloodiestCorpse vs CrowBird | 2026-03-20",
+          "timestamp": 1774026000000
+        },
+        {
+          "result": "WIN",
+          "match": "CrowBird vs Deadlee | 2026-03-03",
+          "timestamp": 1772557200000
+        },
+        {
+          "result": "WIN",
+          "match": "CrowBird vs MuddyB3 | 2026-02-03",
+          "timestamp": 1770138000000
+        },
+        {
+          "result": "LOSS",
+          "match": "HeyyaNito vs CrowBird | 2026-01-25",
+          "timestamp": 1769360400000
+        },
+        {
+          "result": "LOSS",
+          "match": "TaysTales vs CrowBird | 2026-01-16",
+          "timestamp": 1768582800000
+        },
+        {
+          "result": "WIN",
+          "match": "CrowBird vs HeyyaNito | 2026-01-09",
+          "timestamp": 1767891600000
+        }
+      ],
       "divisionRank": 15
+    },
+    {
+      "id": 31,
+      "name": "ManulTheCat",
+      "division": "Div 2",
+      "divisionRank": 16,
+      "rank": 35,
+      "wins": 4,
+      "losses": 8,
+      "elo": 1458,
+      "lastElo": 1442,
+      "photo": "images/manul.jpg",
+      "bio": "Bio coming soon.",
+      "signatureMoves": [],
+      "highlights": [
+        "Career highlights coming soon."
+      ],
+      "championshipHistory": [],
+      "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "ManulTheCat vs Deadlee | 2026-06-08",
+          "timestamp": 1780938000000
+        },
+        {
+          "result": "WIN",
+          "match": "ManulTheCat vs Cardraul | 2026-06-02",
+          "timestamp": 1780419600000
+        },
+        {
+          "result": "LOSS",
+          "match": "PottiePots vs ManulTheCat | 2026-05-14",
+          "timestamp": 1778778000000
+        },
+        {
+          "result": "LOSS",
+          "match": "MuddyB3 vs ManulTheCat vs CannibalJeebus vs RagGhee | 2026-04-30",
+          "timestamp": 1777568400000
+        },
+        {
+          "result": "WIN",
+          "match": "ManulTheCat vs Madeline | 2026-04-13",
+          "timestamp": 1776099600000
+        },
+        {
+          "result": "LOSS",
+          "match": "Jimmytvf vs ManulTheCat vs WilliamIsTed vs Hro79 | 2026-03-28",
+          "timestamp": 1774717200000
+        },
+        {
+          "result": "LOSS",
+          "match": "RawrImHere vs ManulTheCat | 2026-03-23",
+          "timestamp": 1774285200000
+        },
+        {
+          "result": "WIN",
+          "match": "ManulTheCat vs Hro79 | 2026-03-17",
+          "timestamp": 1773766800000
+        },
+        {
+          "result": "LOSS",
+          "match": "MuddyB3 vs ManulTheCat | 2026-03-10",
+          "timestamp": 1773162000000
+        },
+        {
+          "result": "LOSS",
+          "match": "Offron vs ManulTheCat | 2026-02-27",
+          "timestamp": 1772211600000
+        },
+        {
+          "result": "LOSS",
+          "match": "MuraWisteria vs ManulTheCat | 2026-02-16",
+          "timestamp": 1771261200000
+        },
+        {
+          "result": "LOSS",
+          "match": "Paulg8 vs ManulTheCat | 2026-02-03",
+          "timestamp": 1770138000000
+        }
+      ]
     },
     {
       "id": 33,
       "name": "MuraWisteria",
       "division": "Div 2",
-      "divisionRank": 16,
-      "rank": 35,
+      "divisionRank": 17,
+      "rank": 36,
       "wins": 4,
       "losses": 8,
       "elo": 1454,
@@ -2791,7 +2991,7 @@
     {
       "id": 19,
       "name": "Cardraul",
-      "rank": 36,
+      "rank": 37,
       "wins": 4,
       "losses": 8,
       "elo": 1447,
@@ -2866,16 +3066,16 @@
           "timestamp": 1767718800000
         }
       ],
-      "divisionRank": 17
+      "divisionRank": 18
     },
     {
       "id": 28,
       "name": "Deadlee",
-      "rank": 37,
+      "rank": 38,
       "wins": 4,
-      "losses": 8,
-      "elo": 1443,
-      "lastElo": 1460,
+      "losses": 9,
+      "elo": 1427,
+      "lastElo": 1443,
       "division": "Div 2",
       "photo": "images/deadlee.jpg",
       "bio": "Bio coming soon.",
@@ -2885,6 +3085,11 @@
       ],
       "championshipHistory": [],
       "matchHistory": [
+        {
+          "result": "LOSS",
+          "match": "ManulTheCat vs Deadlee | 2026-06-08",
+          "timestamp": 1780938000000
+        },
         {
           "result": "LOSS",
           "match": "Jimmytvf vs Deadlee | 2026-06-04",
@@ -2946,82 +3151,7 @@
           "timestamp": 1769101200000
         }
       ],
-      "divisionRank": 18
-    },
-    {
-      "id": 31,
-      "name": "ManulTheCat",
-      "division": "Div 2",
-      "divisionRank": 19,
-      "rank": 38,
-      "wins": 3,
-      "losses": 8,
-      "elo": 1442,
-      "lastElo": 1424,
-      "photo": "images/manul.jpg",
-      "bio": "Bio coming soon.",
-      "signatureMoves": [],
-      "highlights": [
-        "Career highlights coming soon."
-      ],
-      "championshipHistory": [],
-      "matchHistory": [
-        {
-          "result": "WIN",
-          "match": "ManulTheCat vs Cardraul | 2026-06-02",
-          "timestamp": 1780419600000
-        },
-        {
-          "result": "LOSS",
-          "match": "PottiePots vs ManulTheCat | 2026-05-14",
-          "timestamp": 1778778000000
-        },
-        {
-          "result": "LOSS",
-          "match": "MuddyB3 vs ManulTheCat vs CannibalJeebus vs RagGhee | 2026-04-30",
-          "timestamp": 1777568400000
-        },
-        {
-          "result": "WIN",
-          "match": "ManulTheCat vs Madeline | 2026-04-13",
-          "timestamp": 1776099600000
-        },
-        {
-          "result": "LOSS",
-          "match": "Jimmytvf vs ManulTheCat vs WilliamIsTed vs Hro79 | 2026-03-28",
-          "timestamp": 1774717200000
-        },
-        {
-          "result": "LOSS",
-          "match": "RawrImHere vs ManulTheCat | 2026-03-23",
-          "timestamp": 1774285200000
-        },
-        {
-          "result": "WIN",
-          "match": "ManulTheCat vs Hro79 | 2026-03-17",
-          "timestamp": 1773766800000
-        },
-        {
-          "result": "LOSS",
-          "match": "MuddyB3 vs ManulTheCat | 2026-03-10",
-          "timestamp": 1773162000000
-        },
-        {
-          "result": "LOSS",
-          "match": "Offron vs ManulTheCat | 2026-02-27",
-          "timestamp": 1772211600000
-        },
-        {
-          "result": "LOSS",
-          "match": "MuraWisteria vs ManulTheCat | 2026-02-16",
-          "timestamp": 1771261200000
-        },
-        {
-          "result": "LOSS",
-          "match": "Paulg8 vs ManulTheCat | 2026-02-03",
-          "timestamp": 1770138000000
-        }
-      ]
+      "divisionRank": 19
     },
     {
       "id": 8,
@@ -3311,10 +3441,15 @@
         "Lilith",
         "CrowBird"
       ],
-      "elo": 1509,
-      "wins": 2,
+      "elo": 1522,
+      "wins": 3,
       "losses": 1,
       "matchHistory": [
+        {
+          "result": "WIN",
+          "match": "Lilith & CrowBird vs TaysTales & TollerTornado | 2026-06-11",
+          "timestamp": 1781197200000
+        },
         {
           "result": "WIN",
           "match": "Lilith & CrowBird vs Offron & WilliamIsTed (Loose Losers) | 2026-05-21",
@@ -3331,7 +3466,7 @@
           "timestamp": 1775235600000
         }
       ],
-      "lastElo": 1498
+      "lastElo": 1509
     },
     {
       "id": 3,
@@ -3432,10 +3567,15 @@
         "TaysTales",
         "TollerTornado"
       ],
-      "elo": 1485,
+      "elo": 1475,
       "wins": 1,
-      "losses": 2,
+      "losses": 3,
       "matchHistory": [
+        {
+          "result": "LOSS",
+          "match": "Lilith & CrowBird vs TaysTales & TollerTornado | 2026-06-11",
+          "timestamp": 1781197200000
+        },
         {
           "result": "WIN",
           "match": "TaysTales & TollerTornado vs TheBobbyV & MuddyB3 | 2026-05-28",
@@ -3452,7 +3592,7 @@
           "timestamp": 1775754000000
         }
       ],
-      "lastElo": 1471
+      "lastElo": 1485
     }
   ],
   "factions": [
@@ -3504,16 +3644,16 @@
     }
   ],
   "lastWeekMatches": [
-    "Ginauz & Kaden vs TheBobbyV & MuddyB3 | 2026-06-04",
-    "WheatSeedGuy vs Madeline | 2026-06-01",
-    "JJ vs RoofDog | 2026-06-01",
-    "ManulTheCat vs Cardraul | 2026-06-02",
-    "MiniMoth10 vs Ginauz | 2026-06-02",
-    "TollerTornado vs RebelMime | 2026-06-03",
-    "TaysTales vs Offron | 2026-06-03",
-    "Jimmytvf vs Deadlee | 2026-06-04",
-    "Kaden vs JeromeySchweemey |  2026-06-05",
-    "TheBobbyV vs Paulg8 vs Lilith | 2026-06-05"
+    "Lilith & CrowBird vs TaysTales & TollerTornado | 2026-06-11",
+    "ManulTheCat vs Deadlee | 2026-06-08",
+    "TollerTornado vs MininumWageWorker | 2026-06-08",
+    "MiniMoth10 vs TaysTales | 2026-06-09",
+    "Balderoni vs RoofDog | 2026-06-09",
+    "Nans vs CrowBird | 2026-06-10",
+    "JJ vs JeromeySchweemey | 2026-06-10",
+    "Shartstarion vs WheatSeedGuy | 2026-06-11",
+    "RawrImHere vs Dinsdale |  2026-06-12",
+    "BloodiestCorpse vs Kaden| 2026-06-12"
   ],
   "matchHistory": [
     {
@@ -4018,16 +4158,16 @@
     }
   ],
   "weeklyCard": [
-    "Deadlee vs ManulTheCat | Finish: TBD",
-    "TollerTornado vs MininumWageWorker | Finish: TBD",
-    "TaysTales vs MiniMoth10 | Finish: TBD",
-    "Balderoni vs RoofDog | Finish: TBD",
-    "Nans vs CrowBird | Finish: TBD",
-    "JJ vs JeromeySchweemey | Finish: TBD",
-    "WheatSeedGuy vs Shartstarion | Finish: TBD",
-    "Lilith & CrowBird vs TaysTales & TollerTornado | Finish: TBD",
-    "Dinsdale vs RawrImHere | Finish: TBD",
-    "BloodiestCorpse vs Kaden | Finish: TBD"
+    "WheatSeedGuy vs Jimmytvf | Finish: TBD",
+    "JeromeySchweemey vs Gamerat60 | Finish: TBD",
+    "CannibalJeebus vs CrowBird | Finish: TBD",
+    "Slug vs HeyyaNito | Finish: TBD",
+    "Hro79 vs Cardraul | Finish: TBD",
+    "Shartstarion vs Balderoni | Finish: TBD",
+    "MininumWageWorker vs Nans | Finish: TBD",
+    "Slug & JJ vs CannibalJeebus & Offron | Finish: TBD",
+    "RebelMime vs Dinsdale vs PottiePots | Finish: TBD",
+    "MiniMoth10 vs Kaden vs Ravroid vs Paulg8 | Finish: TBD"
   ],
   "news": []
 }
