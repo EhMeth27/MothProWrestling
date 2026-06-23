@@ -4304,5 +4304,12 @@
     "RagGhee vs JeromeySchweemey | Finish: TBD",
     "MiniMoth10 vs PilleVipp| Finish: TBD"
   ],
-  "news": []
+  "news": [
+    "\ud83c\udf89 Solstice Slam is coming \u2014 MPW's 2nd ever PPV event!"
+  ],
+  "upcomingPPV": {
+    "name": "Solstice Slam",
+    "poster": "images/solstice_slam.png",
+    "date": "Saturday, June 27th"
+  }
 }

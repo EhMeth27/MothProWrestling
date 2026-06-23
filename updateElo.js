@@ -13,22 +13,7 @@ function safeMatchHistoryEntry(result, match, timestamp) {
 }
 
 // ==============================================
-// 2. MATCH TYPE DETECTION
-// ==============================================
-
-function detectMatchType(names) {
-  const size = names.length;
-  if (size === 2) return "Singles";
-  if (size === 3) return "TripleThreat";
-  if (size === 4) return "FourWay";
-  if (size === 5) return "FiveWay";
-  if (size === 6) return "SixWay";
-  if (size === 8) return "EightWay";
-  return "Singles";
-}
-
-// ==============================================
-// 3. ELO CALCULATION HELPERS
+// 2. ELO CALCULATION HELPERS
 // ==============================================
 
 function expectedScore(rA, rB) {
@@ -53,58 +38,90 @@ function updateSinglesElo(A, B, winnerName) {
 function updateMultimanElo(universe, names, winnerName) {
   const players = names.map(n => getPlayer(universe, n)).filter(Boolean);
   const k = 32;
+  const size = players.length;
+
+  // Winner gets more Elo the bigger the match (harder to win)
+  // Losers lose less Elo the bigger the match (easier to lose)
+  const winnerMult = { 3: 1.2, 4: 1.3, 5: 1.4, 6: 1.5, 8: 1.7 }[size] || 1.0;
+  const loserMult  = { 3: 0.7, 4: 0.6, 5: 0.55, 6: 0.5, 8: 0.4 }[size] || 1.0;
 
   const winner = players.find(p => p.name === winnerName);
   if (!winner) return;
 
   const avgOppElo =
     players.filter(p => p.name !== winnerName).reduce((s, p) => s + p.elo, 0) /
-    (players.length - 1);
+    (size - 1);
 
   const expWinner = expectedScore(winner.elo, avgOppElo);
 
   winner.lastElo = winner.elo;
-  winner.elo = Math.round(winner.elo + k * (1 - expWinner));
+  winner.elo = Math.round(winner.elo + k * (1 - expWinner) * winnerMult);
 
   players.forEach(p => {
     if (p.name === winnerName) return;
-
     const expLoser = expectedScore(p.elo, winner.elo);
     p.lastElo = p.elo;
-    p.elo = Math.round(p.elo + k * (0 - expLoser));
+    p.elo = Math.round(p.elo + k * (0 - expLoser) * loserMult);
   });
 }
 
-function updateTagTeamElo(teamA, teamB, winnerName) {
+function updateTagTeamElo(teamA, teamB) {
+  // teamA is always the winner
   const k = 28;
-
-  const resultA = teamA.name === winnerName ? 1 : 0;
-  const resultB = 1 - resultA;
-
   const expA = expectedScore(teamA.elo, teamB.elo);
   const expB = 1 - expA;
 
   teamA.lastElo = teamA.elo;
   teamB.lastElo = teamB.elo;
 
-  // Normal ELO change
-  let newA = teamA.elo + k * (resultA - expA);
-  let newB = teamB.elo + k * (resultB - expB);
+  let newA = teamA.elo + k * (1 - expA);
+  let newB = teamB.elo + k * (0 - expB);
 
-  // ⭐ Add slight random variance (between -3 and +3)
-  const randomA = (Math.random() - 0.5) * 6; // -3 to +3
-  const randomB = (Math.random() - 0.5) * 6; // -3 to +3
-
-  newA += randomA;
-  newB += randomB;
+  // Slight random variance (-3 to +3)
+  newA += (Math.random() - 0.5) * 6;
+  newB += (Math.random() - 0.5) * 6;
 
   teamA.elo = Math.round(newA);
   teamB.elo = Math.round(newB);
 }
 
 // ==============================================
-// 4. PARSE MATCH STRING (SAFE)
+// 3. TAG TEAM RESOLUTION (exact match + freebird)
 // ==============================================
+// Finds the tag team object for a given set of wrestlers.
+// Step 1: exact member list match (standard teams)
+// Step 2: freebird — all wrestlers share a faction that owns a tag team
+
+function resolveTeam(universe, members) {
+  // Exact match
+  const exact = universe.tagTeams.find(
+    t => t.members.length === members.length &&
+         members.every(m => t.members.includes(m))
+  );
+  if (exact) return exact;
+
+  // Freebird fallback
+  const faction = (universe.factions || []).find(
+    f => members.every(m => f.members.includes(m))
+  );
+  if (!faction) return null;
+
+  const factionTeam = universe.tagTeams.find(
+    t => (faction.teams || []).includes(t.id)
+  );
+  if (factionTeam) {
+    console.log(`✔ Freebird: [${members.join(" & ")}] competing as "${factionTeam.name}"`);
+  }
+  return factionTeam || null;
+}
+
+// ==============================================
+// 4. PARSE MATCH STRING
+// ==============================================
+// Accepted formats (winner is always listed FIRST):
+//   Singles:   "A vs B | YYYY-MM-DD"
+//   Tag Team:  "A & B vs C & D | YYYY-MM-DD"
+//   Multiman:  "A vs B vs C | YYYY-MM-DD"
 
 function parseMatchString(str) {
   if (!str || typeof str !== "string") return null;
@@ -113,25 +130,18 @@ function parseMatchString(str) {
   if (parts.length < 2) return null;
 
   const matchPart = parts[0].trim();
-  const datePart = parts[1].trim();
+  const datePart  = parts[1].trim();
 
-  // TAG TEAM MATCH
+  // Tag team — detected by presence of &
   if (matchPart.includes("&")) {
-    const [left, right] = matchPart.split("vs").map(s => s.trim());
-    const teamA = left.split("&").map(n => n.trim());
-    const teamB = right.split("&").map(n => n.trim());
-
-    return {
-      matchType: "TagTeam",
-      teamA,
-      teamB,
-      datePart
-    };
+    const sides = matchPart.split(" vs ").map(s => s.trim());
+    const teamA = sides[0].split("&").map(n => n.trim()).filter(Boolean);
+    const teamB = sides[1].split("&").map(n => n.trim()).filter(Boolean);
+    return { matchType: "TagTeam", teamA, teamB, datePart };
   }
 
-  // MULTIMAN OR SINGLES
-  const names = matchPart.split("vs").map(n => n.trim());
-
+  // Singles or multiman
+  const names = matchPart.split(" vs ").map(n => n.trim()).filter(Boolean);
   return {
     matchType: names.length > 2 ? "Multiman" : "Singles",
     names,
@@ -140,7 +150,64 @@ function parseMatchString(str) {
 }
 
 // ==============================================
-// 5. PROCESS MATCH
+// 5. VALIDATE MATCHES (runs before anything is saved)
+// ==============================================
+
+function validateMatches(matchStrings, universe) {
+  const errors = [];
+
+  matchStrings.forEach(matchStr => {
+    if (!matchStr || typeof matchStr !== "string") {
+      errors.push(`  ✘ Invalid entry (not a string): ${matchStr}`);
+      return;
+    }
+
+    const parts = matchStr.split("|");
+    if (parts.length < 2) {
+      errors.push(`  ✘ Missing date — add "| YYYY-MM-DD" to: "${matchStr}"`);
+      return;
+    }
+
+    const matchPart = parts[0].trim();
+
+    if (matchPart.includes("&")) {
+      // Tag team
+      const sides = matchPart.split(" vs ").map(s => s.trim());
+      if (sides.length !== 2) {
+        errors.push(`  ✘ Tag match must have exactly 2 sides: "${matchStr}"`);
+        return;
+      }
+      const teamA = sides[0].split("&").map(n => n.trim()).filter(Boolean);
+      const teamB = sides[1].split("&").map(n => n.trim()).filter(Boolean);
+
+      [...teamA, ...teamB].forEach(name => {
+        if (!getPlayer(universe, name))
+          errors.push(`  ✘ Wrestler not found: "${name}" in "${matchStr}"`);
+      });
+      if (!resolveTeam(universe, teamA))
+        errors.push(`  ✘ No tag team or faction for [${teamA.join(" & ")}] in "${matchStr}"\n     Tip: check spelling, or add them to a faction with a linked tag team`);
+      if (!resolveTeam(universe, teamB))
+        errors.push(`  ✘ No tag team or faction for [${teamB.join(" & ")}] in "${matchStr}"\n     Tip: check spelling, or add them to a faction with a linked tag team`);
+
+    } else {
+      // Singles / multiman
+      const names = matchPart.split(" vs ").map(n => n.trim()).filter(Boolean);
+      if (names.length < 2) {
+        errors.push(`  ✘ Match needs at least 2 wrestlers: "${matchStr}"`);
+        return;
+      }
+      names.forEach(name => {
+        if (!getPlayer(universe, name))
+          errors.push(`  ✘ Wrestler not found: "${name}" in "${matchStr}"`);
+      });
+    }
+  });
+
+  return errors;
+}
+
+// ==============================================
+// 6. PROCESS A SINGLE MATCH
 // ==============================================
 
 function processMatchString(universe, matchStr) {
@@ -152,45 +219,34 @@ function processMatchString(universe, matchStr) {
 
   const timestamp = new Date(`${parsed.datePart}T12:00:00`).getTime();
 
-  // -------------------------
-  // TAG TEAM MATCH
-  // -------------------------
+  // ── TAG TEAM ────────────────────────────────────────────
   if (parsed.matchType === "TagTeam") {
     const { teamA, teamB } = parsed;
 
-    const tagA = universe.tagTeams.find(
-      t => t.members.length === teamA.length && teamA.every(m => t.members.includes(m))
-    );
-
-    const tagB = universe.tagTeams.find(
-      t => t.members.length === teamB.length && teamB.every(m => t.members.includes(m))
-    );
+    const tagA = resolveTeam(universe, teamA);
+    const tagB = resolveTeam(universe, teamB);
 
     if (!tagA || !tagB) {
-      console.warn("Tag team not found:", teamA, teamB);
+      console.warn("Tag team not resolved:", teamA, teamB);
       return universe;
     }
 
-    const winnerTeam = tagA;
-    const loserTeam = tagB;
-
-    updateTagTeamElo(tagA, tagB, winnerTeam.name);
-
+    updateTagTeamElo(tagA, tagB); // tagA is always winner
     tagA.wins++;
     tagB.losses++;
 
-    const cleanMatch = `${teamA.join(" & ")} vs ${teamB.join(" & ")} | ${parsed.datePart}`;
+    // Note freebird lineups in match string when lineup differs from stored members
+    const noteA = teamA.every(m => tagA.members.includes(m)) ? "" : ` (${tagA.name})`;
+    const noteB = teamB.every(m => tagB.members.includes(m)) ? "" : ` (${tagB.name})`;
+    const cleanMatch = `${teamA.join(" & ")}${noteA} vs ${teamB.join(" & ")}${noteB} | ${parsed.datePart}`;
 
-    tagA.matchHistory.unshift(safeMatchHistoryEntry("WIN", cleanMatch, timestamp));
+    tagA.matchHistory.unshift(safeMatchHistoryEntry("WIN",  cleanMatch, timestamp));
     tagB.matchHistory.unshift(safeMatchHistoryEntry("LOSS", cleanMatch, timestamp));
-
-    // Add to lastWeekMatches so the homepage displays it
     universe.lastWeekMatches.push(cleanMatch);
 
     [...teamA, ...teamB].forEach(name => {
       const p = getPlayer(universe, name);
       if (!p) return;
-
       const result = teamA.includes(name) ? "WIN" : "LOSS";
       p.matchHistory.unshift(safeMatchHistoryEntry(result, cleanMatch, timestamp));
     });
@@ -198,49 +254,39 @@ function processMatchString(universe, matchStr) {
     return universe;
   }
 
-  // -------------------------
-  // MULTIMAN MATCH
-  // -------------------------
+  // ── MULTIMAN ────────────────────────────────────────────
   if (parsed.matchType === "Multiman") {
-    const names = parsed.names;
+    const { names } = parsed;
     const winner = names[0];
 
     names.forEach(name => {
       const p = getPlayer(universe, name);
       if (!p) return;
-
       const result = name === winner ? "WIN" : "LOSS";
       p.matchHistory.unshift(safeMatchHistoryEntry(result, matchStr, timestamp));
-
       if (result === "WIN") p.wins++;
       else p.losses++;
     });
 
     updateMultimanElo(universe, names, winner);
+    universe.lastWeekMatches.push(matchStr);
     return universe;
   }
 
-  // -------------------------
-  // SINGLES MATCH
-  // -------------------------
+  // ── SINGLES ─────────────────────────────────────────────
   if (parsed.matchType === "Singles") {
     const [p1, p2] = parsed.names;
-
     const A = getPlayer(universe, p1);
     const B = getPlayer(universe, p2);
-
     if (!A || !B) return universe;
 
-    const winner = p1;
-
-    updateSinglesElo(A, B, winner);
-
+    updateSinglesElo(A, B, p1);
     A.wins++;
     B.losses++;
 
-    A.matchHistory.unshift(safeMatchHistoryEntry("WIN", matchStr, timestamp));
+    A.matchHistory.unshift(safeMatchHistoryEntry("WIN",  matchStr, timestamp));
     B.matchHistory.unshift(safeMatchHistoryEntry("LOSS", matchStr, timestamp));
-
+    universe.lastWeekMatches.push(matchStr);
     return universe;
   }
 
@@ -248,34 +294,32 @@ function processMatchString(universe, matchStr) {
 }
 
 // ==============================================
-// 6. RUN SHOW
+// 7. RUN SHOW
 // ==============================================
 
 function runShow(matchStrings, universe) {
   universe.lastWeekMatches = [];
-  matchStrings.forEach(m => processMatchString(universe, m)); // FIXED ORDER
+  matchStrings.forEach(m => processMatchString(universe, m));
   return universe;
 }
 
 // ==============================================
-// 7. DIVISIONS + RANKINGS
+// 8. RANKINGS + DIVISIONS
 // ==============================================
 
 function updateRankingsAndDivisions(universe) {
   // 1. Assign divisions
-  universe.players.forEach(player => {
-    player.division = player.elo >= 1500 ? "Div 1" : "Div 2";
+  universe.players.forEach(p => {
+    p.division = p.elo >= 1500 ? "Div 1" : "Div 2";
   });
 
   // 2. Global sort + global rank
   universe.players.sort((a, b) => b.elo - a.elo);
   universe.players.forEach((p, i) => (p.rank = i + 1));
 
-  // 3. Division rank — sort within each division and assign
+  // 3. Division rank
   const div1 = universe.players.filter(p => p.division === "Div 1");
   const div2 = universe.players.filter(p => p.division === "Div 2");
-
-  // Already sorted by elo from step 2, so assign in order
   div1.forEach((p, i) => (p.divisionRank = i + 1));
   div2.forEach((p, i) => (p.divisionRank = i + 1));
 
@@ -283,7 +327,7 @@ function updateRankingsAndDivisions(universe) {
 }
 
 // ==============================================
-// 8. SAVE
+// 9. SAVE
 // ==============================================
 
 function saveUniverse(universe) {
@@ -292,72 +336,61 @@ function saveUniverse(universe) {
 }
 
 // ==============================================
-// 9. MAIN
+// 10. MAIN — edit matchesToRun each week
 // ==============================================
 
 let universe = require("./universe.json");
 
 const matchesToRun = [
-  "Ginauz & Kaden vs Lilith & CrowBird  | 2026-04-16",
-  "ManulTheCat vs Madeline | 2026-04-13",
-  "Ginauz vs BloodiestCorpse | 2026-04-13",
-  "Balderoni vs JJ | 2026-04-14",
-  "TaysTales vs Nans | 2026-04-14",
-  "MuraWisteria vs WilliamIsTed | 2026-04-15",
-  "PilleVipp vs CannibalJeebus | 2026-04-15",
-  "TollerTornado vs Slug | 2026-04-16",
-  "Pigmanman vs HeyyaNito vs Dinsdale| 2026-04-17",
-  "Ravroid vs Narky| 2026-04-17"
+  "CannibalJeebus & Offron vs Slug & JJ | 2026-06-18",
+  "Jimmytvf vs WheatSeedGuy | 2026-06-15",
+  "Gamerat60 vs JeromeySchweemey | 2026-06-15",
+  "CannibalJeebus vs CrowBird | 2026-06-16",
+  "Slug vs HeyyaNito | 2026-06-16",
+  "Hro79 vs Cardraul | 2026-06-17",
+  "Balderoni vs Shartstarion | 2026-06-17",
+  "Nans vs MininumWageWorker | 2026-06-18",
+  "PottiePots vs RebelMime vs Dinsdale |  2026-06-19",
+  "MiniMoth10 vs Kaden vs Ravroid vs Paulg8| 2026-06-19",
 ];
 
+// Validate first — stops before touching universe.json if anything is wrong
+const errors = validateMatches(matchesToRun, universe);
+
+if (errors.length > 0) {
+  console.error("\n❌ SHOW NOT SAVED — fix these errors and re-run:\n");
+  errors.forEach(e => console.error(e));
+  console.error("\n⚠ universe.json was NOT modified.\n");
+  process.exit(1);
+}
+
+console.log("✔ All matches validated. Running show...");
 universe = runShow(matchesToRun, universe);
 updateRankingsAndDivisions(universe);
 saveUniverse(universe);
 
 
 /*
-TaysTales vs Cardraul
-Balderoni vs Deadlee
-Ginauz vs RebelMime
-HerrKrokodil
-Jimmytvf
-MuddyB3
-HeyyaNito
-CrowBird
-RawrImHere
-Kaden
-Pigmanman
-BloodiestCorpse
-Lilith
-Madeline
-MininumWageWorker
-TollerTornado
-WilliamIsTed
-Narky
-Dinsdale
-Shartstarion
-Slug
-RagGhee
-Offron
-Paulg8
-CannibalJeebus
-Ravroid
-PilleVipp
-Hro79
-PottiePots
-TheBobbyV
-MuraWisteria
-JJ
-Nans
-RoofDog
-ManulTheCat
-  "TollerTornado vs HeyyaNito | 2026-03-30",
-  "Slug vs PottiePots | 2026-03-30",
-  "RebelMime vs Jimmytvf | 2026-03-31",
-  "Pigmanman vs MuraWisteria | 2026-04-01",
-  "TheBobbyV vs Dinsdale | 2026-04-01",
-  "PilleVipp vs Balderoni | 2026-04-02",
-  "Paulg8 vs Offron | 2026-04-02",
-  "Narky vs BloodiestCorpse | 2026-04-02"
+ROSTER REFERENCE:
+TaysTales, Cardraul, Balderoni, Deadlee, Ginauz, RebelMime, HerrKrokodil,
+Jimmytvf, MuddyB3, HeyyaNito, CrowBird, RawrImHere, Kaden, Pigmanman,
+BloodiestCorpse, Lilith, Madeline, MininumWageWorker, TollerTornado,
+WilliamIsTed, Narky, Dinsdale, Shartstarion, Slug, RagGhee, Offron, Paulg8,
+CannibalJeebus, Ravroid, PilleVipp, Hro79, PottiePots, TheBobbyV, MuraWisteria,
+JJ, Nans, RoofDog, ManulTheCat, MiniMoth10,WheatSeedGuy,JeromeySchweemey
+
+TAG TEAMS:
+  id=1  The Dirty Ducks    [TheBobbyV, MuddyB3]
+  id=2  The Hex Girls      [Lilith, CrowBird]
+  id=3  Rogue Hog          [JJ, Slug]
+  id=4  Fork Knife         [Kaden, Ginauz]
+  id=5  Loose Losers       [CannibalJeebus, Offron]
+  id=6  TnT                [TaysTales, TollerTornado]
   
+
+FACTIONS (freebird eligible):
+  Fork Knife     -> members: Kaden, Ginauz, Nans       -> team id=4
+  The Dirty Ducks-> members: TheBobbyV, RagGhee, MuddyB3 -> team id=1
+  Loose Losers   -> members: CannibalJeebus, WilliamIsTed, Offron -> team id=5
+  The Hex Girls  -> members: CrowBird, Lilith, Slug, JJ -> team id=2,3
 **/
