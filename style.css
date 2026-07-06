@@ -448,8 +448,31 @@ a:visited {
   box-shadow: 0 0 10px #FF0000;
 }
 
-/* ===== Match Card Layout (Singles, Tag Team, Multiman) ===== */
+/* ===== Tag Team Profile Photos ===== */
+/* Constrain the photo wrap on tag team pages so both sit side by side neatly */
+#team-photos .wrestler-photo-wrap {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+}
 
+/* Size images inside any .wrestler-photo-wrap uniformly (covers tag team page) */
+.wrestler-photo-wrap img,
+.team-member-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+}
+
+/* ===== Tag Team Champion Card ===== */
+.tag-champ-card {
+  border: 2px solid gold;
+  box-shadow: 0 0 16px gold;
+}
+
+/* ===== Match Card Layout ===== */
 .match-card {
   display: flex;
   align-items: center;
@@ -458,14 +481,14 @@ a:visited {
   background: #222;
   padding: 8px 10px;
   border-radius: 8px;
-  width: auto;          /* let it size to content */
+  width: auto;
   min-width: 160px;
-  max-width: 420px;
+  max-width: 500px;
   box-sizing: border-box;
   flex-shrink: 0;
+  position: relative;
 }
 
-/* Each "side" of a match — holds 1 photo (singles) or 2 side-by-side (tag) */
 .match-side {
   display: flex;
   flex-direction: row;
@@ -473,7 +496,6 @@ a:visited {
   align-items: center;
 }
 
-/* Photos inside a match card */
 .match-card img {
   width: 56px;
   height: 56px;
@@ -483,11 +505,29 @@ a:visited {
   display: block;
 }
 
-/* Winner glow stays on the <a> wrapping the img */
 .winner-glow img {
   box-shadow: 0 0 10px 3px #2ecc71;
   animation: winnerGlow 1.5s infinite alternate;
   border-color: #2ecc71;
+}
+
+/* ===== PPV Match Card ===== */
+.ppv-match-card {
+  border: 1px solid gold;
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+}
+
+.ppv-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: gold;
+  color: #111;
+  font-size: 0.65rem;
+  font-weight: bold;
+  padding: 2px 5px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
 }
 
 /* ===== Latest Video Section ===== */
@@ -528,31 +568,41 @@ a:visited {
   transform: translate(-50%, -50%) scale(1.15);
 }
 .latest-video-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  justify-content: center;
+  display: flex; flex-direction: column;
+  gap: 0.4rem; justify-content: center;
 }
 .latest-video-title {
-  font-size: 1.15rem;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: none;
-  line-height: 1.4;
+  font-size: 1.15rem; font-weight: bold;
+  color: #fff; text-decoration: none; line-height: 1.4;
 }
 .latest-video-title:hover { color: #ff8080; text-decoration: underline; }
 .latest-video-date { margin: 0; color: #aaa; font-size: 0.9rem; }
 .latest-video-channel-link {
-  display: inline-block;
-  margin-top: 0.4rem;
-  padding: 6px 14px;
-  background: #FF0000;
-  color: #fff !important;
-  border-radius: 6px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  text-decoration: none;
-  width: fit-content;
+  display: inline-block; margin-top: 0.4rem;
+  padding: 6px 14px; background: #FF0000;
+  color: #fff !important; border-radius: 6px;
+  font-size: 0.9rem; font-weight: bold;
+  text-decoration: none; width: fit-content;
   transition: background 0.2s, box-shadow 0.2s;
 }
 .latest-video-channel-link:hover { background: #cc0000; box-shadow: 0 0 10px #FF0000; }
+
+/* ===== PPV Poster (news page) ===== */
+.ppv-section { margin: 1.5rem 1rem; text-align: center; }
+.ppv-poster-wrap {
+  display: inline-block; border: 3px solid gold;
+  border-radius: 12px; overflow: hidden;
+  max-width: 700px; width: 100%;
+  animation: ppvGlow 2.5s ease-in-out infinite alternate;
+}
+@keyframes ppvGlow {
+  0%   { box-shadow: 0 0 20px rgba(255,215,0,0.4); }
+  100% { box-shadow: 0 0 40px rgba(255,215,0,0.8); }
+}
+.ppv-poster-wrap img { width: 100%; height: auto; display: block; }
+.ppv-label {
+  display: inline-block; margin-top: 0.8rem;
+  font-size: 1.1rem; color: gold;
+  font-weight: bold; letter-spacing: 1px; text-transform: uppercase;
+}
+.ppv-date { display: block; color: #ccc; font-size: 0.95rem; margin-top: 0.2rem; }

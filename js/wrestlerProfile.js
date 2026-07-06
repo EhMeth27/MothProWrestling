@@ -1,3 +1,51 @@
+// Strip (PPV) and freebird notes like "(Fork Knife)" from match strings for parsing
+function cleanForParsing(str) {
+  return str.replace(/\(PPV\)/gi, "").replace(/\([^)]*\)/g, "").trim();
+}
+
+// Extract all opponent names from a match string for a given wrestler
+function extractOpponents(matchStr, wrestlerName) {
+  const cleaned = cleanForParsing(matchStr);
+  const beforeDate = cleaned.split("|")[0].trim();
+
+  // Split on " vs " to get all sides
+  const sides = beforeDate.split(" vs ").map(s => s.trim()).filter(Boolean);
+
+  // Expand & groups into individual names
+  const allNames = [];
+  sides.forEach(side => {
+    side.split("&").forEach(n => {
+      const name = n.trim();
+      if (name) allNames.push(name);
+    });
+  });
+
+  // Return everyone except this wrestler
+  return allNames.filter(n => n !== wrestlerName);
+}
+
+// Format a match entry for display in the match history list
+function formatMatchEntry(m, wrestler) {
+  const isPPV = m.match.includes("(PPV)");
+  const resultColor = m.result === "WIN" ? "limegreen" : "crimson";
+  const date = new Date(m.timestamp).toLocaleDateString();
+  const ppvBadge = isPPV ? ' <span style="color:gold;font-size:0.8em;">[PPV]</span>' : "";
+
+  const opponents = extractOpponents(m.match, wrestler.name);
+
+  const opponentLinks = opponents.length > 0
+    ? opponents.map(n =>
+        `<a href="wrestler.html?name=${encodeURIComponent(n)}">${n}</a>`
+      ).join(", ")
+    : "Unknown";
+
+  return `
+    <span style="color:${resultColor}; font-weight:bold;">${m.result}</span>${ppvBadge}
+    vs ${opponentLinks}
+    <span style="opacity:0.7;">(${date})</span>
+  `;
+}
+
 loadUniverse(data => {
   const params = new URLSearchParams(window.location.search);
   const nameParam = params.get('name');
@@ -29,10 +77,11 @@ loadUniverse(data => {
     ? `Current Championships: ${heldTitles.map(t => t.name).join(', ')}`
     : "Current Championships: None";
 
-  // --- Tag Teams (only show section if they're on a team) ---
+  // --- Tag Teams ---
   const myTeams = (data.tagTeams || []).filter(t => t.members.includes(wrestler.name));
-  if (myTeams.length > 0) {
-    document.getElementById('tag-team-section').style.display = 'block';
+  const teamSection = document.getElementById('tag-team-section');
+  if (myTeams.length > 0 && teamSection) {
+    teamSection.style.display = 'block';
     document.getElementById('wrestler-teams').innerHTML = myTeams.map(t => `
       <li>
         <a href="tagteam.html?id=${t.id}">${t.name}</a>
@@ -41,10 +90,11 @@ loadUniverse(data => {
     `).join('');
   }
 
-  // --- Faction (only show section if they're in one) ---
+  // --- Faction ---
   const myFaction = (data.factions || []).find(f => f.members.includes(wrestler.name));
-  if (myFaction) {
-    document.getElementById('faction-section').style.display = 'block';
+  const factionSection = document.getElementById('faction-section');
+  if (myFaction && factionSection) {
+    factionSection.style.display = 'block';
     const otherMembers = myFaction.members
       .filter(m => m !== wrestler.name)
       .map(m => `<a href="wrestler.html?name=${encodeURIComponent(m)}">${m}</a>`)
@@ -67,24 +117,7 @@ loadUniverse(data => {
       .slice(0, 5)
       .forEach(m => {
         const li = document.createElement('li');
-        const resultColor = m.result === "WIN" ? "limegreen" : "crimson";
-
-        // Parse opponent(s) — works for singles AND multi-man
-        const beforeDate = m.match.split("|")[0].trim();
-        let vsPart = beforeDate.includes(":") ? beforeDate.split(":")[1].trim() : beforeDate;
-        const allNames = vsPart.split(" vs ").map(n => n.trim()).filter(Boolean);
-        const opponents = allNames.filter(n => n !== wrestler.name);
-        const opponentLinks = opponents.map(n =>
-          `<a href="wrestler.html?name=${encodeURIComponent(n)}">${n}</a>`
-        ).join(', ');
-
-        const date = new Date(m.timestamp).toLocaleDateString();
-
-        li.innerHTML = `
-          <span style="color:${resultColor}; font-weight:bold;">${m.result}</span>
-          vs ${opponentLinks}
-          <span style="opacity:0.7;">(${date})</span>
-        `;
+        li.innerHTML = formatMatchEntry(m, wrestler);
         matchesEl.appendChild(li);
       });
   } else {
@@ -95,8 +128,9 @@ loadUniverse(data => {
   const statsEl = document.getElementById('wrestler-career-stats');
   if (wrestler.matchHistory && wrestler.matchHistory.length > 0) {
     const sorted = [...wrestler.matchHistory].sort((a, b) => a.timestamp - b.timestamp);
-    const wins = sorted.filter(m => m.result === "WIN").length;
+    const wins   = sorted.filter(m => m.result === "WIN").length;
     const losses = sorted.length - wins;
+    const ppvWins = sorted.filter(m => m.result === "WIN" && m.match.includes("(PPV)")).length;
 
     let tempWin = 0, tempLoss = 0, longestWin = 0, longestLoss = 0;
     sorted.forEach(m => {
@@ -111,6 +145,7 @@ loadUniverse(data => {
       <strong>Career Stats:</strong><br>
       Total Matches: ${sorted.length} |
       Wins: ${wins} | Losses: ${losses}<br>
+      PPV Wins: ${ppvWins}<br>
       Current Streak: ${streakText} |
       Longest Win Streak: ${longestWin} |
       Longest Losing Streak: ${longestLoss}
@@ -121,7 +156,7 @@ loadUniverse(data => {
 
   // --- Highlights ---
   const highlightsEl = document.getElementById('wrestler-highlights');
-  if (wrestler.highlights && wrestler.highlights.length > 0 && wrestler.highlights[0] !== "Career highlights coming soon.") {
+  if (wrestler.highlights && wrestler.highlights.length > 0) {
     highlightsEl.innerHTML = wrestler.highlights.map(h => `<li>${h}</li>`).join('');
   } else {
     highlightsEl.innerHTML = `<li>Debut season – poised to make an impact.</li>`;

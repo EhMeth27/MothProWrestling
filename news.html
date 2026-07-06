@@ -2,98 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MPW News</title>
+  <title>News</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    .ppv-section {
-      margin: 1.5rem 1rem;
-      text-align: center;
-    }
-
-    .ppv-poster-wrap {
-      display: inline-block;
-      border: 3px solid gold;
-      border-radius: 12px;
-      box-shadow: 0 0 30px rgba(255, 215, 0, 0.5), 0 0 60px rgba(255, 100, 0, 0.2);
-      overflow: hidden;
-      max-width: 700px;
-      width: 100%;
-      animation: ppvGlow 2.5s ease-in-out infinite alternate;
-    }
-
-    @keyframes ppvGlow {
-      0%   { box-shadow: 0 0 20px rgba(255, 215, 0, 0.4), 0 0 40px rgba(255, 100, 0, 0.15); }
-      100% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.8), 0 0 80px rgba(255, 100, 0, 0.35); }
-    }
-
-    .ppv-poster-wrap img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .ppv-label {
-      display: inline-block;
-      margin-top: 0.8rem;
-      font-size: 1.1rem;
-      color: gold;
-      font-weight: bold;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .ppv-date {
-      display: block;
-      color: #ccc;
-      font-size: 0.95rem;
-      margin-top: 0.2rem;
-    }
-
-    #news-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    #news-list li {
-      padding: 0.6rem 0.5rem;
-      border-bottom: 1px solid #333;
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    #news-list li:last-child {
-      border-bottom: none;
-    }
-  </style>
 </head>
 
 <body>
   <nav class="navbar">
     <a href="index.html">🏠 Home</a>
     <a href="rankings.html">🏆 Rankings</a>
-    <a href="tagteam_rankings.html">🤝 Tag Team Rankings</a>
     <a href="wrestlers.html">👥 Wrestlers</a>
     <a href="news.html">📰 News</a>
   </nav>
 
   <h1>Latest News</h1>
+  <ul id="news-list"></ul>
 
-  <!-- PPV Poster — shown only if upcomingPPV is set in universe.json -->
-  <div id="ppv-section" class="ppv-section" style="display:none;">
-    <div class="ppv-poster-wrap">
-      <img id="ppv-poster" src="" alt="PPV Poster">
-    </div>
-    <span id="ppv-label" class="ppv-label"></span>
-    <span id="ppv-date" class="ppv-date"></span>
-  </div>
-
-  <!-- News items -->
-  <section>
-    <h2>📰 Headlines</h2>
-    <ul id="news-list"></ul>
-  </section>
-
+  <script src="js/core.js"></script>
+<!-- FOOTER MUST BE HERE -->
   <footer class="social-footer">
     <div class="social-links">
       <a href="https://www.twitch.tv/eh_moth" target="_blank" class="social twitch">
@@ -104,36 +29,5 @@
       </a>
     </div>
   </footer>
-
-  <script src="js/core.js"></script>
-  <script>
-    loadUniverse(data => {
-      // PPV Poster
-      const ppv = data.upcomingPPV;
-      if (ppv && ppv.poster) {
-        document.getElementById("ppv-section").style.display = "block";
-        document.getElementById("ppv-poster").src = ppv.poster;
-        document.getElementById("ppv-poster").alt = ppv.name || "Upcoming PPV";
-        document.getElementById("ppv-label").textContent = ppv.name || "";
-        document.getElementById("ppv-date").textContent = ppv.date || "";
-      }
-
-      // News list
-      const newsList = document.getElementById("news-list");
-      const items = data.news || [];
-      if (items.length === 0) {
-        const li = document.createElement("li");
-        li.textContent = "No news yet. Check back soon!";
-        newsList.appendChild(li);
-      } else {
-        items.forEach(n => {
-          const li = document.createElement("li");
-          li.textContent = n;
-          newsList.appendChild(li);
-        });
-      }
-    });
-  </script>
-
 </body>
 </html>

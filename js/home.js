@@ -1,13 +1,18 @@
-// Parse a match string into sides, each being an array of player names.
-// "A vs B | date"           → [["A"], ["B"]]
-// "A & B vs C & D | date"  → [["A","B"], ["C","D"]]
-// "A vs B vs C | date"     → [["A"], ["B"], ["C"]]
+// Strip meta tags like (PPV) and normalize a match string for display parsing
+function cleanMatchString(str) {
+  return str.replace(/\(PPV\)/gi, "").replace(/\(.*?\)/g, "").trim();
+}
+
+// Parse a match string into sides, each an array of player names.
+// Handles: singles, tag (& groups, 2-4 teams), multiman
 function parseSides(matchString) {
-  const beforeMeta = matchString.split("|")[0].trim();
+  const beforeMeta = cleanMatchString(matchString).split("|")[0].trim();
   const sides = beforeMeta.split(" vs ").map(s => s.trim()).filter(Boolean);
 
-  if (sides.length === 2) {
-    // Singles or tag team — expand & groups
+  if (sides.length === 1) return [[sides[0]]];
+
+  // If any side contains & it's a tag match — expand each side into members
+  if (sides.some(s => s.includes("&"))) {
     return sides.map(side =>
       side.split("&").map(n => n.trim()).filter(Boolean)
     );
@@ -17,15 +22,13 @@ function parseSides(matchString) {
   return sides.map(name => [name.trim()]);
 }
 
-// Return ALL names on the winning side (first side in the string).
-// Singles: ["Kaden"]   Tag team: ["Kaden", "Ginauz"]
+// All names on the winning side (first side in the string)
 function extractWinningSide(matchString) {
-  const beforeMeta = matchString.split("|")[0].trim();
+  const beforeMeta = cleanMatchString(matchString).split("|")[0].trim();
   const firstSide = beforeMeta.split(" vs ")[0].trim();
   return firstSide.split("&").map(n => n.trim()).filter(Boolean);
 }
 
-// Build the photo group for one side of a match
 function buildSideEl(names, data, glowWinners, winningSide) {
   const wrap = document.createElement("div");
   wrap.className = "match-side";
@@ -43,7 +46,6 @@ function buildSideEl(names, data, glowWinners, winningSide) {
     link.title = name;
     link.appendChild(img);
 
-    // Glow every member of the winning side
     if (glowWinners && winningSide.includes(name)) {
       link.classList.add("winner-glow");
     }
@@ -57,13 +59,14 @@ function buildSideEl(names, data, glowWinners, winningSide) {
 function createMatchCard(matchString, data, glowWinners = false) {
   const sides = parseSides(matchString);
   const winningSide = extractWinningSide(matchString);
-
-  // Multiman: randomize display order; 2-sided: keep as-is
-  const isMultiman = sides.length > 2;
-  const displaySides = isMultiman ? [...sides].sort(() => Math.random() - 0.5) : sides;
+  const isPPV = matchString.includes("(PPV)");
 
   const container = document.createElement("div");
-  container.className = "match-card";
+  container.className = "match-card" + (isPPV ? " ppv-match-card" : "");
+
+  // For multiman (3+ individual sides) randomize order; 2-sided keep as-is
+  const isMultiman = sides.length > 2 && !sides.some(s => s.length > 1);
+  const displaySides = isMultiman ? [...sides].sort(() => Math.random() - 0.5) : sides;
 
   displaySides.forEach((sidePlayers, index) => {
     container.appendChild(buildSideEl(sidePlayers, data, glowWinners, winningSide));
@@ -76,6 +79,14 @@ function createMatchCard(matchString, data, glowWinners = false) {
     }
   });
 
+  // PPV badge
+  if (isPPV) {
+    const badge = document.createElement("span");
+    badge.className = "ppv-badge";
+    badge.textContent = "PPV";
+    container.appendChild(badge);
+  }
+
   return container;
 }
 
@@ -83,7 +94,7 @@ function createMatchCard(matchString, data, glowWinners = false) {
 loadUniverse(data => {
   const lastWeek = document.getElementById("last-week");
   const upcoming = document.getElementById("upcoming");
-  const newsEl = document.getElementById("news");
+  const newsEl   = document.getElementById("news");
 
   if (lastWeek) {
     (data.lastWeekMatches || []).forEach(m => {

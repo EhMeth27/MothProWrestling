@@ -1,3 +1,8 @@
+// Strip (PPV) and freebird notes like "(Fork Knife)" for parsing
+function cleanForParsing(str) {
+  return str.replace(/\(PPV\)/gi, "").replace(/\([^)]*\)/g, "").trim();
+}
+
 loadUniverse(data => {
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get("id"));
@@ -19,7 +24,7 @@ loadUniverse(data => {
     wrap.className = "wrestler-photo-wrap";
 
     const img = document.createElement("img");
-    img.id = "wrestler-photo"; // reuse profile photo style
+    img.className = "team-member-photo";
     img.src = player?.photo || "images/default.png";
     img.alt = memberName;
     img.onerror = () => { img.src = "images/default.png"; };
@@ -28,7 +33,7 @@ loadUniverse(data => {
     photosEl.appendChild(wrap);
   });
 
-  // --- Members list with links ---
+  // --- Members with links ---
   document.getElementById("team-members").innerHTML =
     "Members: " +
     team.members
@@ -39,7 +44,7 @@ loadUniverse(data => {
   document.getElementById("team-record").textContent =
     `Record: ${team.wins}-${team.losses}`;
 
-  // --- ELO with change ---
+  // --- Elo with change ---
   const eloDiff = team.lastElo !== undefined ? team.elo - team.lastElo : null;
   let eloChangeHtml = "";
   if (eloDiff !== null) {
@@ -49,7 +54,7 @@ loadUniverse(data => {
   }
   document.getElementById("team-elo").innerHTML = `Elo Rating: ${team.elo}${eloChangeHtml}`;
 
-  // --- Titles ---
+  // --- Titles (singles or tag) ---
   const titles = (data.championships || []).filter(c => c.holder === team.name);
   document.getElementById("team-titles").textContent = titles.length
     ? `Current Championships: ${titles.map(t => t.name).join(", ")}`
@@ -58,7 +63,7 @@ loadUniverse(data => {
   // --- Overview ---
   document.getElementById("team-overview").textContent =
     `${team.name} is a tag team consisting of ${team.members.join(" and ")}. ` +
-    `They hold a record of ${team.wins}-${team.losses} with an Elo of ${team.elo}. Their story in this universe is just beginning.`;
+    `They hold a record of ${team.wins}-${team.losses} with an Elo of ${team.elo}.`;
 
   // --- Career stats ---
   const statsEl = document.getElementById("team-career-stats");
@@ -66,32 +71,38 @@ loadUniverse(data => {
 
   if (history.length > 0) {
     const sorted = [...history].sort((a, b) => a.timestamp - b.timestamp);
-    const wins = sorted.filter(m => m.result === "WIN").length;
-    const losses = sorted.length - wins;
+    const wins     = sorted.filter(m => m.result === "WIN").length;
+    const losses   = sorted.length - wins;
+    const ppvWins  = sorted.filter(m => m.result === "WIN" && m.match.includes("(PPV)")).length;
 
-    let tempWin = 0, tempLoss = 0;
-    let longestWin = 0, longestLoss = 0;
+    let tempWin = 0, tempLoss = 0, longestWin = 0, longestLoss = 0;
     sorted.forEach(m => {
-      if (m.result === "WIN") { tempWin++; tempLoss = 0; if (tempWin > longestWin) longestWin = tempWin; }
-      else                    { tempLoss++; tempWin = 0; if (tempLoss > longestLoss) longestLoss = tempLoss; }
+      if (m.result === "WIN") {
+        tempWin++; tempLoss = 0;
+        if (tempWin > longestWin) longestWin = tempWin;
+      } else {
+        tempLoss++; tempWin = 0;
+        if (tempLoss > longestLoss) longestLoss = tempLoss;
+      }
     });
 
     const last = sorted[sorted.length - 1];
-    const currentStreak = last.result === "WIN" ? `W${tempWin}` : `L${tempLoss}`;
+    const streakText = last.result === "WIN" ? `W${tempWin}` : `L${tempLoss}`;
 
     statsEl.innerHTML = `
       <strong>Career Stats:</strong><br>
-      Total Matches: ${sorted.length}<br>
+      Total Matches: ${sorted.length} |
       Wins: ${wins} | Losses: ${losses}<br>
-      Current Streak: ${currentStreak}<br>
-      Longest Win Streak: ${longestWin}<br>
+      PPV Wins: ${ppvWins}<br>
+      Current Streak: ${streakText} |
+      Longest Win Streak: ${longestWin} |
       Longest Losing Streak: ${longestLoss}
     `;
   } else {
     statsEl.textContent = "Career Stats: No matches yet.";
   }
 
-  // --- Match history list ---
+  // --- Match history (most recent 20) ---
   const matchesEl = document.getElementById("team-matches");
   matchesEl.innerHTML = "";
 
@@ -105,16 +116,24 @@ loadUniverse(data => {
         const li = document.createElement("li");
         const date = new Date(m.timestamp).toLocaleDateString();
         const resultColor = m.result === "WIN" ? "limegreen" : "crimson";
+        const isPPV = m.match.includes("(PPV)");
+        const ppvBadge = isPPV
+          ? ' <span style="color:gold;font-size:0.85em;">[PPV]</span>'
+          : "";
 
-        // Extract the opponent from the match string
-        // Format: "TeamA & TeamB vs TeamC & TeamD | date"
-        const beforeDate = m.match.split("|")[0].trim();
-        const sides = beforeDate.split(" vs ").map(s => s.trim());
-        const memberStr = team.members.join(" & ");
-        const opponent = sides.find(s => !team.members.some(mem => s.includes(mem))) || "Unknown";
+        // Parse opponent side — strip meta notes first
+        const cleaned = cleanForParsing(m.match);
+        const beforeDate = cleaned.split("|")[0].trim();
+        const sides = beforeDate.split(" vs ").map(s => s.trim()).filter(Boolean);
+
+        // Opponent = any side that doesn't contain this team's members
+        const opponentSides = sides.filter(side =>
+          !team.members.some(mem => side.includes(mem))
+        );
+        const opponent = opponentSides.join(" vs ") || "Unknown";
 
         li.innerHTML = `
-          <span style="color:${resultColor}; font-weight:bold;">${m.result}</span>
+          <span style="color:${resultColor}; font-weight:bold;">${m.result}</span>${ppvBadge}
           vs ${opponent}
           <span style="opacity:0.7;">(${date})</span>
         `;
@@ -122,7 +141,7 @@ loadUniverse(data => {
       });
   }
 
-  // --- Highlights placeholder ---
+  // --- Highlights ---
   document.getElementById("team-highlights").innerHTML =
     `<li>Debut season – making waves in the tag team division.</li>`;
 });
